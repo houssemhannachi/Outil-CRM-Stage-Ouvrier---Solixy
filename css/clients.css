@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+html {
+     font-family: sans-serif; 
+     line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'CircularStd', sans-serif;
+    font-size: .9375rem;
+    color: #1f1f1f;
+    background-color: #f7f7f7;
+    min-height: 100%;
+    overflow-x: hidden;
+}
