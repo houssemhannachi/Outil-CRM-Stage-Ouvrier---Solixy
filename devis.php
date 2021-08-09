@@ -5,7 +5,7 @@
 		
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-		
+    
 		<!-- Lineawesome CSS -->
         <link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
 		
