@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Ahmedkh10 
-houssemhannachi
-/
-Projet
-1
-02
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Update devis.php
- main
-@houssemhannachi
-houssemhannachi committed 2 minutes ago 
-1 parent 4e7f2c6 commit 6d1cbdd0cf022c712e04ac63ddf7ff54d565a06d
-Showing  with 0 additions and 115 deletions.
- 115  devis.php 
-@@ -1,115 +0,0 @@
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
 		<!-- Bootstrap CSS -->
