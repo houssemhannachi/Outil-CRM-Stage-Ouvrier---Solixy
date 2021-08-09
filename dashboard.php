@@ -32,7 +32,7 @@ require("header.php")
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="devis.php">
         <i class='bx bx-dollar-circle' ></i>
         <span class="links_name">Devis</span>
       </a>
