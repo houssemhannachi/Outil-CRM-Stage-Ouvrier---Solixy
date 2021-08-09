@@ -1,3 +1,45 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Ahmedkh10 
+houssemhannachi
+/
+Projet
+1
+02
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Update devis.php
+ main
+@houssemhannachi
+houssemhannachi committed 2 minutes ago 
+1 parent 4e7f2c6 commit 6d1cbdd0cf022c712e04ac63ddf7ff54d565a06d
+Showing  with 0 additions and 115 deletions.
+ 115  devis.php 
+@@ -1,115 +0,0 @@
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
+
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
+
+		<!-- Lineawesome CSS -->
+        <link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
+
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
 <?php
 $pageName = "Devis";
 session_start();
@@ -7,69 +49,97 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 ?>
 <?php require "dashboard.php";?>
 
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<script src="script.js?v=<?php echo time();?>"></script>
+<div class="home-content">
+		<div class="page-wrapper">
 
+			<!-- Page Content -->
+			<div class="content container-fluid">
 
-
-
-
-
-<div class="row">
-					<div class="col-md-12">
-						<div class="table-responsive">
-							<table class="table table-striped custom-table datatable">
-								<thead>
-									<tr>
-										<th> ID </th>
-										<th>Nom </th>
-										<th>Référence</th>
-										<th>Adresse</th>
-										<th>Email</th>
-										<th>Téléphone</th>
-										<th>Pays</th>
-										<th>Matricule</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<?php 
-									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id_client'];
-										$nom = $row['nom_client'];
-										$reference = $row['reference_client'];
-										$adresse = $row['adresse_client'];
-     									$email = $row['email_client'];
-        								$pays = $row['pays_client'];
-        								$tel = $row['tel_client'];
-        								$matricule = $row['matricule_client'];
-								?>
-									<tr>
-										<td><?php echo $id?></td>
-										<td><?php echo $nom?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $adresse?></td>
-										<td><?php echo $email?></td>
-										<td><?php echo $tel?></td>
-										<td><?php echo $pays?></td>
-										<td><?php echo $matricule?></td>
-										<td class=>
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row align-items-center">
+                        <div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Custom Bootstrap Form Validation</h5>
+									<p class="card-text">For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute to your form. For server side validation <a href="../docs/4.1/components/forms/index.htm#server-side" target="_blank">read full documentation</a>.</p>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm">
+											<form class="needs-validation" novalidate="">
+												<div class="form-row">
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">First Name</label>
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" value="Mark" required="">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom02">Last Name</label>
+														<input type="text" class="form-control" id="validationCustom02" placeholder="Last Name" value="Otto" required="">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustomUsername">Username</label>
+														<div class="input-group">
+															<div class="input-group-prepend">
+																<span class="input-group-text" id="inputGroupPrepend">@</span>
+															</div>
+															<input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required="">
+															<div class="invalid-feedback">
+																Please choose a username.
+															</div>
+														</div>
+													</div>
 												</div>
-											</div>
-										</td>
-									</tr>
-									<?php }
-									?>
-								
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
+												<div class="form-row">
+													<div class="col-md-6 mb-3">
+														<label for="validationCustom03">City</label>
+														<input type="text" class="form-control" id="validationCustom03" placeholder="City" required="">
+														<div class="invalid-feedback">
+															Please provide a valid city.
+														</div>
+													</div>
+													<div class="col-md-3 mb-3">
+														<label for="validationCustom04">State</label>
+														<input type="text" class="form-control" id="validationCustom04" placeholder="State" required="">
+														<div class="invalid-feedback">
+															Please provide a valid state.
+														</div>
+													</div>
+													<div class="col-md-3 mb-3">
+														<label for="validationCustom05">Zip</label>
+														<input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required="">
+														<div class="invalid-feedback">
+															Please provide a valid zip.
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+														<label class="form-check-label" for="invalidCheck">
+															Agree to terms and conditions
+														</label>
+														<div class="invalid-feedback">
+															You must agree before submitting.
+														</div>
+													</div>
+												</div>
+												<button class="btn btn-primary" type="submit">Submit form</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="script.js?v=<?php echo time();?>"></script> 
+
