@@ -26,7 +26,7 @@ require("header.php")
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="Facture.php">
         <i class='bx bx-dollar' ></i>
         <span class="links_name">Factures</span>
       </a>
