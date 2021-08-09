@@ -113,4 +113,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 </div>
 
 <script src="script.js?v=<?php echo time();?>"></script>
-<script src="script.js?v=<?php echo time();?>"></script>
