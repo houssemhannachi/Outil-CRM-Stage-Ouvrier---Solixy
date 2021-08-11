@@ -207,7 +207,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			</div>
 			<!-- /Ajouter Prospect Modal -->
 			
-			<!-- Edit Client Modal -->
+			<!-- Modifier prospect -->
 			<div id="edit_prospect" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
