@@ -19,11 +19,11 @@ require("header.php")
         <span class ="links_name"> Clients</span>
       </a>
     </li>
-    <li>
-      <a href="#">
+    <li class = "<?php if($pageName == 'Prospects') {echo 'act';}?>">
+      <a href="prospects.php">
         <i class='bx bx-loader-circle' ></i>
         <span class="links_name">Prospects</span>
-      </a>
+      </a> 
     </li>
     <li>
       <a href="Facture.php">
