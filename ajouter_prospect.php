@@ -7,17 +7,17 @@ if (isset($_POST['submit'])){
         echo "Please fill the blanks";
     }
     else {
-        $rs = $row['rs'];
-        $email = $row['email'];
-        $adresse = $row['adresse'];
-        $ville = $row['ville'];
-        $pays = $row['pays'];
-        $tel = $row['tel'];
-        $fb = $row['facebook'];
-        $sw = $row['siteweb'];
+        $rs = $_POST['rs'];
+        $email = $_POST['email'];
+        $adresse = $_POST['adresse'];
+        $ville = $_POST['ville'];
+        $pays = $_POST['pays'];
+        $tel = $_POST['tel'];
+        $fb = $_POST['fb'];
+        $sw = $_POST['sw'];
         
 
-        $query = "Insert into clients (nom_client,reference_client,adresse_client,email_client,ville_client,pays_client,tel_client,matricule_client) values ('$nom','$reference','$adresse','$email','$ville','$pays','$tel','$matricule')";
+        $query = "Insert into propects (rs_prospect,adresse_prospect,email_prospect,ville_prospect,pays_prospect,tel_prospect,facebook_prospect,siteweb_prospect) values ('$rs','$adresse','$email','$ville','$pays','$tel','$fb','$sw')";
         $result = mysqli_query($conn,$query);
 
         if($result) {
