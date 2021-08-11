@@ -12,7 +12,7 @@
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
 <?php
-$pageName = "Devis";
+$pageName = "Prospects";
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
