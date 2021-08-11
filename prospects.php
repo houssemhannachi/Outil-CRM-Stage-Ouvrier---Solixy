@@ -278,7 +278,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<div class="modal custom-modal fade" id="delete_client" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
-						<form action ="deletecode.php" method="POST">
+						<form action ="effacer_prospect.php" method="POST">
 						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
