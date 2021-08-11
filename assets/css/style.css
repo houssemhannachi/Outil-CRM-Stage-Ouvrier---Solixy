@@ -665,8 +665,8 @@ table.dataTable thead > tr > td.sorting {
 	box-shadow: unset;
 }
 .page-item.active .page-link {
-	background-color: #f43b48;
-	border-color: #f43b48;
+	background-color: #f9462e;
+	border-color: #f9462e;
 }
 .dropdown-menu {
 	border: 1px solid rgba(0, 0, 0, 0.1);
