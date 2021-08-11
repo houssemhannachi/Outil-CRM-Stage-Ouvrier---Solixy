@@ -35,14 +35,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Clients</h3>
+							<h3 class="page-title">Prospects</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item active">Clients</li>
+								<li class="breadcrumb-item active">Prospects</li>
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un Prospect</a>
 						</div>
 					</div>
 				</div>
