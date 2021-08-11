@@ -31,7 +31,7 @@ require("header.php")
         <span class="links_name">Factures</span>
       </a>
     </li>
-    <li>
+    <li class = "<?php if($pageName == 'Devis') {echo 'act';}?>">
       <a href="devis.php">
         <i class='bx bx-dollar-circle' ></i>
         <span class="links_name">Devis</span>
