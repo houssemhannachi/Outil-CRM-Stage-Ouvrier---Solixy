@@ -210,7 +210,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action ="update.php" method ="POST" >
+							<form action ="modifier_client.php" method ="POST" >
 							<div class="row">
 								<input type="hidden" name ="id" id="id">
 									<div class="col-md-6">
@@ -270,7 +270,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<div class="modal custom-modal fade" id="delete_client" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
-						<form action ="deletecode.php" method="POST">
+						<form action ="effacer_client.php" method="POST">
 						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
