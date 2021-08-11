@@ -144,7 +144,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action = "ajouter.php" method ="POST">
+							<form action = "ajouter_client.php" method ="POST">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
