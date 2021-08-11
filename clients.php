@@ -16,6 +16,7 @@
 	require_once('db_conn.php');
 	$query = "select * from clients";
 	$result = mysqli_query($conn,$query);
+
 ?>
 <?php
 $pageName = "Clients";
@@ -52,27 +53,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<form>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+					<form action = "chercher_client.php" method ="POST" >
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
+								<input type="text" class="form-control floating" name="search">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
-							<div class="form-group form-focus" >
-								<input type="text" class="form-control floating">
-								<label class="focus-label">Raison sociale</label>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3" style="float:left;"">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating">
-								<label class="focus-label">Email</label>
-							</div>
-						</div>	
-						<div class="col-sm-6 col-md-3" style="float:left;"">  
-							<button type="submit" class="btn btn-success btn-block" name="Submit"> Chercher un client </button>
+
+						<div class="" style="float:left;">  
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
 				</div>
@@ -95,6 +85,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 										<th>Action</th>
 									</tr>
 								</thead>
+								
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
 										$id = $row['id_client'];
@@ -127,6 +118,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									</tr>
 									<?php }
 									?>
+
 								
 							</table>
 						</div>
