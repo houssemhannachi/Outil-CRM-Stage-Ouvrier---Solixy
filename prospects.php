@@ -65,7 +65,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					<div class="col-sm-6 col-md-3">  
 						<div class="form-group form-focus">
 							<input type="text" class="form-control floating">
-							<label class="focus-label">Email	</label>
+							<label class="focus-label">Email</label>
 						</div>
 					</div>	
 					<div class="col-sm-6 col-md-3">  
@@ -80,37 +80,41 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-										<th> ID </th>
-										<th>Nom </th>
-										<th>Référence</th>
+										<th>ID</th>
+										<th>Raison sociale </th>
+                                        <th>Email</th>
 										<th>Adresse</th>
-										<th>Email</th>
-										<th>Téléphone</th>
+										<th>Ville</th>
 										<th>Pays</th>
-										<th>Matricule</th>
+										<th>Téléphone</th>
+										<th>Facebook</th>
+                                        <th>Site Web</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id_client'];
-										$nom = $row['nom_client'];
-										$reference = $row['reference_client'];
-										$adresse = $row['adresse_client'];
-     									$email = $row['email_client'];
-        								$pays = $row['pays_client'];
-        								$tel = $row['tel_client'];
-        								$matricule = $row['matricule_client'];
+										$id = $row['id_prospect'];
+										$rs = $row['rs_prospect'];
+										$email = $row['email_prospect'];
+										$adresse = $row['adresse_prospect'];
+     									$ville = $row['ville_prospect'];
+        								$pays = $row['pays_prospect'];
+        								$tel = $row['tel_prospect'];
+        								$fb = $row['facebook_prospect'];
+                                        $sw = $row['siteweb_prospect'];
+
 								?>
 									<tr>
 										<td><?php echo $id?></td>
-										<td><?php echo $nom?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $adresse?></td>
+										<td><?php echo $rs?></td>
 										<td><?php echo $email?></td>
-										<td><?php echo $tel?></td>
+										<td><?php echo $adresse?></td>
+										<td><?php echo $ville?></td>
 										<td><?php echo $pays?></td>
-										<td><?php echo $matricule?></td>
+										<td><?php echo $tel?></td>
+										<td><?php echo $fb?></td>
+                                        <td><?php echo $sw?></td>
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -142,12 +146,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action = "ajouter.php" method ="POST">
+							<form action = "ajouter_prospect.php" method ="POST">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
-											<input class="form-control" name ="nom" type="text">
+											<label class="col-form-label">Raison Sociale<span class="text-danger">*</span></label>
+											<input class="form-control" name ="rs" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -158,14 +162,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
-											<input class="form-control" name ="reference" type="text">
+											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
+											<input class="form-control" name ="adresse" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="adresse" type="text">
+											<label class="col-form-label">Ville <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="ville" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -182,8 +186,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" name="matricule" type="text">
+											<label class="col-form-label">Facebook <span class="text-danger">*</span> </label>
+											<input class="form-control" name="fb" type="text">
+										</div>
+									</div>
+                                    <div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Site Web <span class="text-danger">*</span> </label>
+											<input class="form-control" name="sw" type="text">
 										</div>
 									</div>
 								</div>
