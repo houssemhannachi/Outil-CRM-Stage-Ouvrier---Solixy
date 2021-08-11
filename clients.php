@@ -274,17 +274,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
-								<h3>Delete Client</h3>
+								<h3>Supprimer ce client</h3>
 								<p>Are you sure want to delete?</p>
 							</div>
 							<div class="modal-btn delete-action">
 								
 								<div class="row">
 									<div class="col-6">
-										<button type="submit" name="deletedata" class="btn btn-primary continue-btn">Delete</a>
+										<button type="submit" name="deletedata" class="btn btn-primary continue-btn">Suprrimer</a>
 									</div>
 									<div class="col-6">
-										<button type="button" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+										<button type="button" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
 									</div>
 								</div>
 							</div>
