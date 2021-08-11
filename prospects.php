@@ -42,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un Prospect</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_prospect"><i class="fa fa-plus"></i>Ajouter un Prospect</a>
 						</div>
 					</div>
 				</div>
@@ -135,8 +135,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			</div>
 			<!-- /Page Content -->
 		
-			<!-- Add Client Modal -->
-			<div id="add_client" class="modal custom-modal fade" role="dialog">
+			<!-- Ajouter Prospect -->
+			<div id="add_prospect" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -205,7 +205,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					</div>
 				</div>
 			</div>
-			<!-- /Add Client Modal -->
+			<!-- /Ajouter Prospect Modal -->
 			
 			<!-- Edit Client Modal -->
 			<div id="edit_client" class="modal custom-modal fade" role="dialog">
