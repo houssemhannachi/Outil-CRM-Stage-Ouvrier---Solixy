@@ -275,7 +275,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						<div class="modal-body">
 							<div class="form-header">
 								<h3>Supprimer ce client</h3>
-								<p>Are you sure want to delete?</p>
+								<p>Êtes-vous sûr de vouloir supprimer?</p>
 							</div>
 							<div class="modal-btn delete-action">
 								
