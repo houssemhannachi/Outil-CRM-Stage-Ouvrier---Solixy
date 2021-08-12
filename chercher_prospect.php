@@ -73,9 +73,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 									</tr>
 								</thead>    
 <?php
-
-
-
 if (isset($_POST['submit-search'])){
     $recherche_rs = $_POST['rsch'];
     $recherche_tel = $_POST['telch'];
