@@ -60,6 +60,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
+                        <div class=""style="float:left;"> 
+							<div class="form-group form-focus select-focus">
+								<select class="select floating"> 
+									<option>Select Status</option>
+									<option>Pending</option>
+									<option>Paid</option>
+									<option>Partially Paid</option>
+								</select>
+								<label class="focus-label">Status</label>
+							</div>
+						</div>
 
 						<div class="" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
