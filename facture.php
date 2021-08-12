@@ -55,7 +55,7 @@ if (isset($_SESSION['id'])) {
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Modifier</h5>
+							<h5 class="modal-title">Ajouter Facture</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -154,10 +154,47 @@ if (isset($_SESSION['id'])) {
                            </td> 
 													 <td>
 													
-													
                           </tr> 
+													
+														
 												</tbody>
 											</table>
+											<table class="table table-hover table-white">
+												<tbody>
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td class="text-right">Total</td>
+														<td style="text-align: right; padding-right: 30px;width: 230px">
+														<input class="form-control text-right" value="0"  type="text">
+													</td>
+													</tr>
+													<tr>
+														<td colspan="5" class="text-right">BASE</td>
+														<td style="text-align: right; padding-right: 30px;width: 230px">
+															<input class="form-control text-right" value="0"  type="text">
+														</td>
+													</tr>
+													<tr>
+														<td colspan="5" class="text-right">
+															TAUX
+														</td>
+														<td style="text-align: right; padding-right: 30px;width: 230px">
+															<input class="form-control text-right" type="text">
+														</td>
+													</tr>
+													<tr>
+														<td colspan="5" style="text-align: right; font-weight: bold">
+														MONTANT
+														</td>
+														<td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
+															DT 0.00
+														</td>
+													</tr>
+												</tbody>
+											</table> 
 										
 									
 								</div>
@@ -211,10 +248,14 @@ if (isset($_SESSION['id'])) {
 														<th style="width:80px;">PU HT</th>
 														<th style="col-sm-2">Montant HT</th>
 														
+														<th style="col-sm-2">Action</th>
+
+														
 													</tr>
 												</thead>
 												<?php 
-									while($row=mysqli_fetch_assoc($result)) {
+									while($row=mysqli_fetch_assoc($result)) 
+									{
 										$id = $row['id_facture'];
 										
 										$reference = $row['reference_facture'];
@@ -223,7 +264,7 @@ if (isset($_SESSION['id'])) {
         								$qte = $row['quantite_facture'];
         								$puht = $row['puht_facture'];
         								$montantht = $row['montantht_facture'];
-								?>
+								   ?>
 												<tbody>
 												<tr>
 										<td><?php echo $id?></td>
@@ -233,18 +274,22 @@ if (isset($_SESSION['id'])) {
 										<td><?php echo $date?></td>
 										<td><?php echo $qte?></td>
 										<td><?php echo $puht?></td>
-										<td><?php echo $$montantht?></td>
-										<td class=>
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+										<td><?php echo $montantht?></td>
+
+										<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="edit-invoice.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="invoice-view.html"><i class="fa fa-eye m-r-5"></i> View</a>
+														<a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o m-r-5"></i> Download</a>
+														<a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
 												</div>
-											</div>
-										</td>
-									</tr>
-									<?php }
+											</td>
+										
+									 <?php 
+									}
 									?>
 												</tbody>
 											</table>
