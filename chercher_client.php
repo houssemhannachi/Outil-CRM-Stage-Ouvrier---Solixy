@@ -35,14 +35,26 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 				</div>
                 <div class="row filter-row">
 					<form action = "chercher_client.php" method ="POST" >
-						<div class=""style="float:left;">  
+						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
+								<input type="text" class="form-control floating" name="rsch">
+								<label class="focus-label">Raison sociale</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="refch">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
+						<div class="col-sm-6 col-md-3 "style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="telch">
+								<label class="focus-label">Téléphone</label>
+							</div>
+						</div>
 
-						<div class="" style="float:left;">  
+						<div class="col-sm-6 col-md-3" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
@@ -69,9 +81,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 if (isset($_POST['submit-search'])){
-    $recherche = $_POST['search'];
-   $search = mysqli_real_escape_string($conn,$_POST['search']);
-   $sql = "SELECT * FROM clients WHERE nom_client LIKE '%$recherche%'";
+    $recherche_rs = $_POST['rsch'];
+    $recherche_re = $_POST['refch'];
+    $recherche_tel = $_POST['telch'];
+
+   $sql = "SELECT * FROM clients WHERE nom_client LIKE '%$recherche_rs%' AND reference_client LIKE '%$recherche_re%' AND tel_client LIKE '%$recherche_tel'  ";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
@@ -126,11 +140,8 @@ else
 
 }
 
-
-
-
-
-
-
-
 ?>
+
+<script src="script.js?v=<?php echo time();?>"></script>
+</body>
+</html>
