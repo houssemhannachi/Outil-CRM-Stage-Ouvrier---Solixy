@@ -50,27 +50,24 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<div class="col-sm-6 col-md-3">  
-						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
-							<label class="focus-label">Client ID</label>
+					<form action = "chercher_prospect.php" method ="POST" >
+						<div class="col-sm-8 col-md-4"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="rsch">
+								<label class="focus-label">Raison sociale</label>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">  
-						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
-							<label class="focus-label">Client Name</label>
+						<div class="col-sm-8 col-md-4"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="telch">
+								<label class="focus-label">Téléphone</label>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">  
-						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
-							<label class="focus-label">Email</label>
+
+						<div class="" style="float:left;">  
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un prospect </button>
 						</div>
-					</div>	
-					<div class="col-sm-6 col-md-3">  
-						<a href="#" class="btn btn-success btn-block"> Search </a>  
-					</div>     
+					</form>     
 				</div>
 				<!-- Search Filter -->
 
