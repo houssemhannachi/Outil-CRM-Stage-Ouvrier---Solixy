@@ -65,7 +65,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 
 						<div class="" style="float:left;">  
-							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un prospect </button>
 						</div>
 					</form>     
 				</div>
