@@ -109,7 +109,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item editbtndevis"><i class="fa fa-pencil m-r-5"></i> Edit</a>
 													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 												</div>
 											</div>
@@ -221,7 +221,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Add Client Modal -->
 			
 			<!-- Edit Client Modal -->
-			<div id="edit_client" class="modal custom-modal fade" role="dialog">
+			<div id="edit_devis" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -231,19 +231,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action ="modifier_client.php" method ="POST" >
+							<form action ="modifier_devis.php" method ="POST" >
 							<div class="row">
 								<input type="hidden" name ="id" id="id">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
+											<label class="col-form-label">Nom client <span class="text-danger">*</span></label>
 											<input class="form-control" type="text" name="nom" id="nom">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="email" id="email">
+											<label class="col-form-label">Identifiant <span class="text-danger">*</span></label>
+											<input class="form-control" type="number" name="nom" id="identifiant">
+										</div>
+									</div>
+								    <div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
+											<input class="form-control floating" type="text" name="adresse" id="adresse">
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -252,28 +258,29 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<input class="form-control" type="text" name="reference" id="reference">
 										</div>
 									</div>
+									
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" name="adresse" id="adresse">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="pays" name="pays">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control" type="date" id="date" name="date">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
-											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" id="tel" name="tel">
+											<label class="col-form-label">Désignation<span class="text-danger">*</span></label>
+											<input class="form-control floating" type="text" id="designation" name="designation">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" type="text" id="matricule" name="matricule">
+											<label class="col-form-label">Quantité <span class="text-danger">*</span> </label>
+											<input class="form-control" type="number" id="quantite" name="quantite">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">TVA <span class="text-danger">*</span> </label>
+											<input class="form-control" type="number" id="TVA" name="TVA">
 										</div>
 									</div>
 								</div>
