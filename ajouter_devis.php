@@ -2,7 +2,7 @@
 require_once ("db_conn.php");
 
 if (isset($_POST['submit'])){
-    if (empty($_POST['Société et/ou Nom du client'])|| empty($_POST['Identifiant'])|| empty($_POST['Adresse'])|| empty($_POST['Référence'])|| empty($_POST['Date'])|| empty($_POST['Désignation'])|| empty($_POST['Quantité']) || empty($_POST['TVA']) )
+    if (empty($_POST['nom'])|| empty($_POST['identifiant'])|| empty($_POST['adresse'])|| empty($_POST['reference'])|| empty($_POST['date'])|| empty($_POST['designation'])|| empty($_POST['quantite']) || empty($_POST['TVA']) )
     {
         echo "Please fill the blanks";
     }
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
         
         
 
-        $query = "Insert into devis (nom_client,id_client,adresse_client,reference_client,date,designation,TVA) values ('$nom_du_client','$identifiant','$adresse','$reference','$date','$designation','$quantite','$TVA')";
+        $query = "Insert into devis (nom_client,id_client,adresse_client,reference_client,date,designation,quantite,TVA) values ('$nom_du_client','$identifiant','$adresse','$reference','$date','$designation','$quantite','$TVA')";
         $result = mysqli_query($conn,$query);
 
         if($result) {
