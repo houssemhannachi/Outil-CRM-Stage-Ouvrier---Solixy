@@ -35,26 +35,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 				</div>
                 <div class="row filter-row">
 					<form action = "chercher_client.php" method ="POST" >
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="rsch">
 								<label class="focus-label">Raison sociale</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="refch">
-								<label class="focus-label">Référence</label>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 "style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="telch">
-								<label class="focus-label">Téléphone</label>
-							</div>
-						</div>
-
-						<div class="col-sm-6 col-md-3" style="float:left;">  
+						<div class="" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
