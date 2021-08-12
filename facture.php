@@ -163,7 +163,6 @@ if (isset($_SESSION['id'])) {
 								</div>
 								<div class="submit-section">
 									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
-									<button class="btn btn-succes succes-btn" name ="imprimer">Imprimer</button>
 								</div>
              </form>
 						 </div>
