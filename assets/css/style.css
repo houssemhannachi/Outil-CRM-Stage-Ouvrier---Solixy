@@ -5111,3 +5111,7 @@ table.table-inbox tbody tr.checked {
 	background: url('images/1.png');
 	width: 10px;
 }
+
+*, ::after, ::before {
+	box-sizing: border-box;
+}
