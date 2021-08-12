@@ -37,16 +37,10 @@ require("header.php")
         <span class="links_name">Devis</span>
       </a>
     </li>
-    <li>
-      <a href="#">
-        <i class='bx bx-history' ></i>
-        <span class="links_name">Historique</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class='bx bx-phone-call' ></i>
-        <span class="links_name">Contacts</span>
+    <li class = "<?php if($pageName == 'Paiments') {echo 'act';}?>">
+      <a href="paiments.php">
+        <i class='bx bx-copy-alt' ></i>
+        <span class="links_name">Paiments</span>
       </a>
     </li>
     <li class="log_out">
