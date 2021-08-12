@@ -1,31 +1,33 @@
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-		
-		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-		
-		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-    
-		<!-- Lineawesome CSS -->
-        <link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-		
-		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
-<?php
-$pageName = "Devis";
-session_start();
+<link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
+			
+			<!-- Fontawesome CSS -->
+			<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
+			
+			<!-- Lineawesome CSS -->
+			<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
+			
+			<!-- Select2 CSS -->
+			<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
+			
+			<!-- Main CSS -->
+			<link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
-
-?>
 <?php 
 	require_once('db_conn.php');
 	$query = "select * from devis";
 	$result = mysqli_query($conn,$query);
 
 ?>
-<?php require "dashboard.php";?>
+<?php
+$pageName = "Devis";
+session_start();
 
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+?>
+  <?php require "dashboard.php";?>
+  
+<!-- Main Wrapper -->
 <div class="home-content">
 		<div class="page-wrapper">
 		
@@ -43,7 +45,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_devis"><i class="fa fa-plus"></i>Ajouter un client</a>
 						</div>
 					</div>
 				</div>
@@ -52,26 +54,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 				<!-- Search Filter -->
 				<div class="row filter-row">
 					<form action = "chercher_client.php" method ="POST" >
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="rsch">
-								<label class="focus-label">Raison sociale</label>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="refch">
+								<input type="text" class="form-control floating" name="search">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3 "style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="telch">
-								<label class="focus-label">Téléphone</label>
-							</div>
-						</div>
 
-						<div class="col-sm-6 col-md-3" style="float:left;">  
+						<div class="" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
@@ -84,38 +74,37 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-										<th> ID </th>
-										<th>Nom </th>
-										<th>Référence</th>
+										<th>Nom_client </th>
+										<th>Identifiant </th>
+										<th>Reference</th>
 										<th>Adresse</th>
-										<th>Email</th>
-										<th>Téléphone</th>
-										<th>Pays</th>
-										<th>Matricule</th>
-										<th>Action</th>
+										<th>Date</th>
+										<th>Designation</th>
+										<th>Quantite</th>
+										<th>TVA</th>
 									</tr>
 								</thead>
 								
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id_client'];
-										$nom = $row['nom_client'];
+										$identifiant = $row['id_client'];
+										$nom_client = $row['nom_client'];
 										$reference = $row['reference_client'];
 										$adresse = $row['adresse_client'];
-     									$email = $row['email_client'];
-        								$pays = $row['pays_client'];
-        								$tel = $row['tel_client'];
-        								$matricule = $row['matricule_client'];
+     									$date= $row['date'];
+        								$designation = $row['designation'];
+        								$quantite = $row['quantite'];
+        								$TVA = $row['TVA'];
 								?>
 									<tr>
-										<td><?php echo $id?></td>
-										<td><?php echo $nom?></td>
+										<td><?php echo $nom_client?></td>
+										<td><?php echo $identifiant?></td>	
 										<td><?php echo $reference?></td>
 										<td><?php echo $adresse?></td>
-										<td><?php echo $email?></td>
-										<td><?php echo $tel?></td>
-										<td><?php echo $pays?></td>
-										<td><?php echo $matricule?></td>
+										<td><?php echo $date?></td>
+										<td><?php echo $designation?></td>
+										<td><?php echo $quantite?></td>
+										<td><?php echo $TVA?></td>
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -138,7 +127,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 			<!-- /Page Content -->
 		
 			<!-- Add Client Modal -->
-			<div id="add_client" class="modal custom-modal fade" role="dialog">
+			<div id="add_devis" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -148,64 +137,193 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action = "ajouter_client.php" method ="POST">
-								<div class="row">
+							<form action="ajouter_devis.php" method="POST">
+												<div class="form-row">
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Société et/ou Nom du client</label>
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="nom">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Identifiant </label>
+														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name"  required="" name="identifiant">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Adresse </label>
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="adresse">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Référence </label>
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name"  required="" name="reference">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Date </label>
+														<input type="TEXT" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="date">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Désignation</label>
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="designation">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">Quantité </label>
+														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="quantite">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+													<div class="col-md-4 mb-3">
+														<label for="validationCustom01">TVA à </label>
+														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="TVA">
+														<div class="valid-feedback">
+															Looks good!
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+														<label class="form-check-label" for="invalidCheck">
+															Agree to terms and conditions
+														</label>
+														<div class="invalid-feedback">
+															You must agree before submitting.
+														</div>
+													</div>
+												</div>
+												<div>
+												<button class="btn btn-primary" type="submit" name="submit">Submit</button>
+												<button class="btn btn-primary" type="submit" >Print</button>
+												</div>
+											</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Add Client Modal -->
+			
+			<!-- Edit Client Modal -->
+			<div id="edit_client" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Modifier</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action ="modifier_client.php" method ="POST" >
+							<div class="row">
+								<input type="hidden" name ="id" id="id">
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
-											<input class="form-control" name ="nom" type="text">
+											<input class="form-control" type="text" name="nom" id="nom">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" name ="email" type="email">
+											<input class="form-control" type="text" name="email" id="email">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
-											<input class="form-control" name ="reference" type="text">
+											<input class="form-control" type="text" name="reference" id="reference">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="adresse" type="text">
+											<input class="form-control floating" type="text" name="adresse" id="adresse">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" name ="pays" type="text">
+											<input class="form-control" type="text" id="pays" name="pays">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
 											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" name="tel" type="tel">
+											<input class="form-control floating" type="text" id="tel" name="tel">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" name="matricule" type="text">
+											<input class="form-control" type="text" id="matricule" name="matricule">
 										</div>
 									</div>
 								</div>
 								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+									<button class="btn btn-primary submit-btn " name = "update">Enregistrer</button>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- /Edit Client Modal -->
+			
+			<!-- Delete Client Modal -->
+			<div class="modal custom-modal fade" id="delete_client" role="dialog">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form action ="effacer_client.php" method="POST">
+						<input type="hidden" name="delete_id" id="delete_id">
+						<div class="modal-body">
+							<div class="form-header">
+								<h3>Supprimer ce client</h3>
+								<p>Êtes-vous sûr de vouloir supprimer?</p>
+							</div>
+							<div class="modal-btn delete-action">
+								
+								<div class="row">
+									<div class="col-6">
+										<button type="submit" name="deletedata" class="btn btn-primary continue-btn">Suprrimer</a>
+									</div>
+									<div class="col-6">
+										<button type="button" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Delete Client Modal -->
+			
 		</div>
-</div>
-
-<script src="script.js?v=<?php echo time();?>"></script>
-
+		<!-- /Page Wrapper -->
+		
+	</div>
+	<!-- /Main Wrapper -->
+	
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	
 	<!-- Bootstrap Core JS -->
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -221,4 +339,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 	<script src="assets/js/select2.min.js"></script>
 	
 	<!-- Custom JS -->
-	<script src="assets/js/app.js"></script>
+	<script src="assets/js/app.js"></script>	
+</section>
+
+
+<script src="script.js?v=<?php echo time();?>"></script>
+</body>
+</html>
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?> 

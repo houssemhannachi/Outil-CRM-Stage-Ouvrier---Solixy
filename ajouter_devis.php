@@ -13,12 +13,12 @@ if (isset($_POST['submit'])){
         $reference = $_POST['reference'];
         $date = $_POST['date'];
         $designation = $_POST['designation'];
-        $quantite = $_POST['quantité'];
+        $quantite = $_POST['quantite'];
         $TVA = $_POST['TVA'];
         
         
 
-        $query = "Insert into devis (nom_client,id_client,adresse_client,reference_client,date,designation,quantite,TVA) values ('$nom_du_client','$identifiant','$adresse','$reference','$date','$designation','$quantite','$TVA')";
+        $query = "Insert into devis (nom_client,id_client,adresse_client,reference_client,date,designation,quantite,TVA) values ('$Nom_du_client','$identifiant','$adresse','$reference','$date','$designation','$quantite','$TVA')";
         $result = mysqli_query($conn,$query);
 
         if($result) {
