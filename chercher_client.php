@@ -81,11 +81,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 if (isset($_POST['submit-search'])){
-    $recherche_rs = $_POST['rsch'];
-    $recherche_re = $_POST['refch'];
-    $recherche_tel = $_POST['telch'];
+    $recherche_rs = $_POST['search'];
 
-   $sql = "SELECT * FROM clients WHERE nom_client LIKE '%$recherche_rs%' AND reference_client LIKE '%$recherche_re%' AND tel_client LIKE '%$recherche_tel'  ";
+   $sql = "SELECT * FROM clients WHERE nom_client LIKE '%$recherche_rs%'";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
