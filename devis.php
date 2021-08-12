@@ -41,7 +41,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Société et/ou Nom du client</label>
-														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" value="Mark" required="">
+														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" value="Mark" required="" name="">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
