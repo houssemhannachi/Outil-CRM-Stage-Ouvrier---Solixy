@@ -18,13 +18,13 @@
 	$result = mysqli_query($conn,$query);
 
 ?>
-	<?php
-	$pageName = "Paiments";
-	session_start();
+<?php
+$pageName = "Paiments";
+session_start();
 
-	if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
-	?>
+?>
   <?php require "dashboard.php";?>
   
 <!-- Main Wrapper -->
@@ -38,14 +38,14 @@
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Paiments</h3>
+							<h3 class="page-title">Paiements</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
-								<li class="breadcrumb-item active">Paiments</li>
+								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item active">Paiements</li>
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un paiement</a>
 						</div>
 					</div>
 				</div>
@@ -54,26 +54,14 @@
 				<!-- Search Filter -->
 				<div class="row filter-row">
 					<form action = "chercher_client.php" method ="POST" >
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="rsch">
-								<label class="focus-label">Raison sociale</label>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="refch">
+								<input type="text" class="form-control floating" name="search">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3 "style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="telch">
-								<label class="focus-label">Téléphone</label>
-							</div>
-						</div>
 
-						<div class="col-sm-6 col-md-3" style="float:left;">  
+						<div class="" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
@@ -81,44 +69,31 @@
 				<!-- Search Filter -->
 
 				<div class="row">
-					<div class="col-md-12">
-						<div class="table-responsive">
-							<table class="table table-striped custom-table datatable">
-								<thead>
-									<tr>
-										<th> ID </th>
-										<th>Nom </th>
-										<th>Référence</th>
-										<th>Adresse</th>
-										<th>Email</th>
-										<th>Téléphone</th>
-										<th>Pays</th>
-										<th>Matricule</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								
-								<?php 
-									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id_client'];
-										$nom = $row['nom_client'];
-										$reference = $row['reference_client'];
-										$adresse = $row['adresse_client'];
-     									$email = $row['email_client'];
-        								$pays = $row['pays_client'];
-        								$tel = $row['tel_client'];
-        								$matricule = $row['matricule_client'];
-								?>
-									<tr>
-										<td><?php echo $id?></td>
-										<td><?php echo $nom?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $adresse?></td>
-										<td><?php echo $email?></td>
-										<td><?php echo $tel?></td>
-										<td><?php echo $pays?></td>
-										<td><?php echo $matricule?></td>
-										<td class=>
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped custom-table mb-0 datatable">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>N° Transaction </th>
+											<th>Date</th>
+											<th>Client</th>
+											<th>Mode de paiement</th>
+											<th>N° Facture</th>
+											<th>Prix</th>
+                                            <th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td><a href="#">834521</a></td>
+											<td>2nd Dec 2020</td>
+											<td>Dreams</td>
+											<td>Online</td>
+											<td><a href="#">INV0001</a></td>
+											<td>$4,329,970.7</td>
+                                            <td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
@@ -127,16 +102,31 @@
 												</div>
 											</div>
 										</td>
-									</tr>
-									<?php }
-									?>
-
-								
-							</table>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td><a href="#">834521</a></td>
+											<td>2nd Dec 2020</td>
+											<td>Dreams</td>
+											<td>Online</td>
+											<td><a href="#">INV0001</a></td>
+											<td>$4,329,970.7</td>
+                                            <td class=>
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+                </div>
 			<!-- /Page Content -->
 		
 			<!-- Add Client Modal -->
@@ -307,24 +297,24 @@
 	<!-- /Main Wrapper -->
 	
 	<!-- jQuery -->
-	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
 	
 	<!-- Bootstrap Core JS -->
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
+	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
 	
 	<!-- Slimscroll JS -->
-	<script src="assets/js/jquery.slimscroll.min.js"></script>
+	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
 	
 	<!-- Datatable JS -->
-	<script src="assets/js/jquery.dataTables.min.js"></script>
-	<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
 	
 	<!-- Select2 JS -->
-	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
 	
 	<!-- Custom JS -->
-	<script src="assets/js/app.js"></script>	
+	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
 </section>
 
 
