@@ -56,20 +56,20 @@
 					<form action = "chercher_client.php" method ="POST" >
 						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
-								<label class="focus-label">Référence</label>
+								<input type="text" class="form-control floating" name="rsch">
+								<label class="focus-label">Raison sociale</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
+								<input type="text" class="form-control floating" name="refch">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class="col-sm-6 col-md-3 "style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
-								<label class="focus-label">Référence</label>
+								<input type="text" class="form-control floating" name="telch">
+								<label class="focus-label">Téléphone</label>
 							</div>
 						</div>
 
