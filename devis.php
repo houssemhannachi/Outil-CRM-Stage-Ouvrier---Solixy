@@ -38,14 +38,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Clients</h3>
+							<h3 class="page-title">Devis</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item active">Clients</li>
+								<li class="breadcrumb-item active">Devis</li>
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_devis"><i class="fa fa-plus"></i>Ajouter un client</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_devis"><i class="fa fa-plus"></i>Ajouter un devis</a>
 						</div>
 					</div>
 				</div>
@@ -53,7 +53,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<form action = "chercher_client.php" method ="POST" >
+					<form action = "chercher_devis.php" method ="POST" >
 						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="search">
@@ -62,7 +62,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 
 						<div class="" style="float:left;">  
-							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un devis </button>
 						</div>
 					</form>     
 				</div>
@@ -131,7 +131,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Ajouter un Client</h5>
+							<h5 class="modal-title">Ajouter un devis</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -141,21 +141,21 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 												<div class="form-row">
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Société et/ou Nom du client</label>
-														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="nom">
+														<input type="text" class="form-control" id="validationCustom01" placeholder="Name" required="" name="nom">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
 													</div>
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Identifiant </label>
-														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name"  required="" name="identifiant">
+														<input type="number" class="form-control" id="validationCustom01" placeholder="ID"  required="" name="identifiant">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
 													</div>
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Adresse </label>
-														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="adresse">
+														<input type="text" class="form-control" id="validationCustom01" placeholder="Adresse" required="" name="adresse">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
@@ -163,21 +163,21 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Référence </label>
-														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name"  required="" name="reference">
+														<input type="text" class="form-control" id="validationCustom01" placeholder="Référence"  required="" name="reference">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
 													</div>
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Date </label>
-														<input type="TEXT" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="date">
+														<input type="date" class="form-control" id="validationCustom01" placeholder="Date" required="" name="date">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
 													</div>
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Désignation</label>
-														<input type="text" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="designation">
+														<input type="text" class="form-control" id="validationCustom01" placeholder="Désignation" required="" name="designation">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
@@ -185,14 +185,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">Quantité </label>
-														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="quantite">
+														<input type="number" class="form-control" id="validationCustom01" placeholder="0" required="" name="quantite">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
 													</div>
 													<div class="col-md-4 mb-3">
 														<label for="validationCustom01">TVA à </label>
-														<input type="number" class="form-control" id="validationCustom01" placeholder="First Name" required="" name="TVA">
+														<input type="number" class="form-control" id="validationCustom01" placeholder="0" required="" name="TVA">
 														<div class="valid-feedback">
 															Looks good!
 														</div>
