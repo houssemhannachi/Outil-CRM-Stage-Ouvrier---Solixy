@@ -258,6 +258,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								</div>
 								<div class="submit-section">
 									<button class="btn btn-primary submit-btn " name = "update">Enregistrer</button>
+									
+								</div>
+								<div>
+								<button type="button" class="btn btn-success">Imprimer</button>
 								</div>
 							</form>
 						</div>
