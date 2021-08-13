@@ -108,8 +108,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+													<a class="dropdown-item detailsbtn" href="client_profile.php"><i class="fa fa-id-card m-r-5"></i> Détails</a>
 												</div>
 											</div>
 										</td>
@@ -251,9 +252,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<div class="submit-section">
 									<button class="btn btn-primary submit-btn " name = "update">Enregistrer</button>
 									
-								</div>
-								<div>
-								<button type="button" class="btn btn-success">Imprimer</button>
 								</div>
 							</form>
 						</div>
