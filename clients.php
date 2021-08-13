@@ -291,7 +291,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title"><?php echo '<input class="view" id="c" disabled>'?></h5>
+							<h5 class="modal-title">Détails</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -301,36 +301,43 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<input type="hidden" name ="id" id="a">
 								<div class="col-md-5">
 													<div class="profile-info-left">
-														<h3 class="user-name m-t-0 mb-0">John Doe</h3>
-														<h6 class="text-muted">UI/UX Design Team</h6>
-														<small class="text-muted">Web Designer</small>
-														<div class="staff-id">Employee ID : FT-0001</div>
-														<div class="small doj text-muted">Date of Join : 1st Jan 2013</div>
-														<div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
+														<h3 class=" m-t-0 mb-0"><?php echo '<input class="view user-name " id="raison_sociale_cl" disabled>'?></h3>
+														<h6 class="text-muted"> Forme juridque</h6>
+														<small class="text-muted">Reference</small>
+														<div class="small doj text-muted">RIB/RIP</div>
 													</div>
 												</div>
 												<div class="col-md-7">
 													<ul class="personal-info">
 														<li>
-															
-															 <?php echo ' <div class="title">Phone:</div> <div class="text"> <input class="view" id="b" disabled>'?></div>
-														</li>
-														<li>
 															<div class="title">Email:</div>
-															<div class="text"><a href="">johndoe@example.com</a></div>
+															 <?php echo ' <div class="text"> <input class="view text" id="email_cl" disabled></div>'?>
 														</li>
 														<li>
-															<div class="title">Birthday:</div>
-															<div class="text">24th July</div>
+															<div class="title">Téléphone:</div>
+															<?php echo ' <div class="text"> <input class="view text" id="tel_cl" disabled></div>'?>
 														</li>
 														<li>
-															<div class="title">Address:</div>
-															<div class="text">1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
+															<div class="title">Mat. Fiscale:</div>
+															<?php echo ' <div class="text"> <input class="view text" id="matricule_cl" disabled></div>'?>
 														</li>
 														<li>
-															<div class="title">Gender:</div>
-															<div class="text">Male</div>
+															<div class="title">Adresse:</div>
+															<?php echo ' <div class="text"> <input class="view text" id="adresse_cl" disabled></div>'?>
 														</li>
+														<li>
+															<div class="title">Ville:</div>
+															<div class="text">xx</div>
+														</li>
+														<li>
+															<div class="title">Pays:</div>
+															<?php echo ' <div class="text"> <input class="view text" id="pays_cl" disabled></div>'?>
+														</li>
+														<li>
+															<div class="title">Site web:</div>
+															<div class="text">xx</div>
+														</li>
+														
 
 													</ul>
 												</div>
