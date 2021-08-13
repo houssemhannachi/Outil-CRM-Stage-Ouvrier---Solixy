@@ -110,7 +110,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 												<div class="dropdown-menu dropdown-menu-right">
 													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
 													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-													<a class="dropdown-item detailsbtn" href="client_profile.php"><i class="fa fa-id-card m-r-5"></i> Détails</a>
+													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
 												</div>
 											</div>
 										</td>
@@ -287,6 +287,60 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				</div>
 			</div>
 			<!-- /Delete Client Modal -->
+			<div id="view_client" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title"><?php echo '<input class="view" id="c" disabled>'?></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<input type="hidden" name ="id" id="a">
+								<div class="col-md-5">
+													<div class="profile-info-left">
+														<h3 class="user-name m-t-0 mb-0">John Doe</h3>
+														<h6 class="text-muted">UI/UX Design Team</h6>
+														<small class="text-muted">Web Designer</small>
+														<div class="staff-id">Employee ID : FT-0001</div>
+														<div class="small doj text-muted">Date of Join : 1st Jan 2013</div>
+														<div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
+													</div>
+												</div>
+												<div class="col-md-7">
+													<ul class="personal-info">
+														<li>
+															
+															 <?php echo ' <div class="title">Phone:</div> <div class="text"> <input class="view" id="b" disabled>'?></div>
+														</li>
+														<li>
+															<div class="title">Email:</div>
+															<div class="text"><a href="">johndoe@example.com</a></div>
+														</li>
+														<li>
+															<div class="title">Birthday:</div>
+															<div class="text">24th July</div>
+														</li>
+														<li>
+															<div class="title">Address:</div>
+															<div class="text">1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
+														</li>
+														<li>
+															<div class="title">Gender:</div>
+															<div class="text">Male</div>
+														</li>
+
+													</ul>
+												</div>
+								</div>
+
+							
+						</div>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 		<!-- /Page Wrapper -->
