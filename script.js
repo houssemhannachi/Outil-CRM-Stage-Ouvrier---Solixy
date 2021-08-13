@@ -76,3 +76,46 @@ $(document).ready(function(){
 
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+  $('.editbtndevis').on('click', function(){
+    $('#edit_devis').modal('show');
+    $tr = $(this).closest('tr');
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+    console.log(data);
+    $('#nom').val(data[0])
+    $('#identifiant').val(data[1]);
+    $('#reference').val(data[2]);
+    $('#adresse').val(data[3]);
+    $('#date').val(data[4]);
+    $('#designation').val(data[5]);
+    $('#quantite').val(data[6]);
+    $('#TVA').val(data[7]);
+
+  });
+});
