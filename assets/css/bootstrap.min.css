@@ -637,6 +637,7 @@ pre code {
 	padding-left: 0
 }
 
+
 .col,
 .col-1,
 .col-10,
@@ -675,7 +676,6 @@ pre code {
 .col-md-4,
 .col-md-5,
 .col-md-6,
-.col-md-7,
 .col-md-8,
 .col-md-9,
 .col-md-auto,
@@ -1234,7 +1234,8 @@ pre code {
 	.col-md-7 {
 		-ms-flex: 0 0 58.333333%;
 		flex: 0 0 58.333333%;
-		max-width: 58.333333%
+		max-width: 58.333333%;
+		line-height: 50px;
 	}
 	.col-md-8 {
 		-ms-flex: 0 0 66.666667%;
@@ -10670,6 +10671,22 @@ a.text-dark:hover {
 		color: inherit;
 		border-color: #dee2e6
 	}
+}
+.col-md-7{
+	line-height: 50px;
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+
+
+}
+
+.user-name {
+	font-size: 25px;
+    font-weight: bolder;
+	font-family: CircularStd;
+	line-height: 1.2;
 }
 
 
