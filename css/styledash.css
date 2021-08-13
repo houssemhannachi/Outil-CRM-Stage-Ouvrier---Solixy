@@ -435,13 +435,15 @@ background: none;
 }
 
 .dropdown-menu i {
-  padding-right: 10px;
-  padding-left: 20px;
+  
+
 
 }
 
 .log {
 
 vertical-align:super;
+
+margin-left: 20px;
 
 }
