@@ -40,14 +40,26 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<!-- Search Filter -->
 				<div class="row filter-row">
 					<form action = "chercher_client.php" method ="POST" >
-						<div class=""style="float:left;">  
+						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
+								<input type="text" class="form-control floating" name="rsch">
+								<label class="focus-label">Raison sociale</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="refch">
 								<label class="focus-label">Référence</label>
 							</div>
 						</div>
+						<div class="col-sm-6 col-md-3 "style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="telch">
+								<label class="focus-label">Téléphone</label>
+							</div>
+						</div>
 
-						<div class="" style="float:left;">  
+						<div class="col-sm-6 col-md-3" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
@@ -286,27 +298,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	
 	<!-- jQuery -->
 	<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
-	
-	<!-- Bootstrap Core JS -->
 	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
 	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Slimscroll JS -->
 	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Datatable JS -->
 	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Select2 JS -->
 	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Custom JS -->
 	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+	<script src="script.js?v=<?php echo time();?>"></script>
 </section>
 
 
-<script src="script.js?v=<?php echo time();?>"></script>
 </body>
 </html>
 <?php 
