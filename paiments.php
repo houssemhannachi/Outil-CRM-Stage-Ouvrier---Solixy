@@ -92,6 +92,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<th>Mode de paiement</th>
 											<th>N° Facture</th>
 											<th>Prix</th>
+											<th>Statuts</th>
                                             <th>Action</th>
 										</tr>
 									</thead>
@@ -104,6 +105,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<td>Online</td>
 											<td><a href="#">INV0001</a></td>
 											<td>$4,329,970.7</td>
+											<td><span class="badge bg-inverse-info">Sent</span></td>
                                             <td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -122,6 +124,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<td>Online</td>
 											<td><a href="#">INV0001</a></td>
 											<td>$4,329,970.7</td>
+											<td><span class="badge bg-inverse-warning">Partially Paid</span></td>
                                             <td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
