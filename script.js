@@ -79,12 +79,29 @@ $(document).ready(function(){
 
 
 
+$(document).ready(function(){
+  $('.detailsbtn').on('click', function(){
+    $('#view_client').modal('show');
+    $tr = $(this).closest('tr');
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+    console.log(data);
+    $('#a').val(data[0])
+    $('#b').val(data[1]);
+    $('#c').val(data[2]);
+    $('#d').val(data[3]);
+    $('#e').val(data[4]);
+    $('#f').val(data[5]);
+    $('#f').val(data[6]);
+    $('#g').val(data[7]);
+    $('#h').val(data[7]);
+
+    
 
 
-
-
-
-
+  });
+});
 
 
 
