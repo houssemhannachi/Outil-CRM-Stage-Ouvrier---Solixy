@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
 <?php
 require_once ("db_conn.php");
 $pageName = "Prospects";
