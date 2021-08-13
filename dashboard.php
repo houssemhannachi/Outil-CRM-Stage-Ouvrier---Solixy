@@ -64,7 +64,12 @@ require("header.php")
       <div class="profile-details">
         <img src="images/profil.jpg" alt="">
         <span class="admin_name"><?php echo $_SESSION['name']; ?></span>
-        <i class='bx bx-chevron-down' ></i>
+        <div class="dropdown">
+          <button class="bx bx-chevron-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a href="logout.php"><i class='bx bx-log-out'></i><span class="log">Log out</span> </a>
+          </div>
+        </div>
       </div>
     </nav>
 
