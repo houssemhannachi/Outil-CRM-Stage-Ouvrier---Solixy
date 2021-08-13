@@ -9,28 +9,24 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 ?>
 <?php require "dashboard.php";?>
 <div class="home-content">
-		<div class="page-wrapper">
-		
-			<!-- Page Content -->
-			<div class="content container-fluid">
-			
-				<!-- Page Header -->
-				<div class="page-header">
-					<div class="row align-items-center">
-                    <div class="col">
-							<h3 class="page-title">Clients</h3>
-							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item active">Clients</li>
-							</ul>
-						</div>
-						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
-						</div>
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+			<div class="page-header">
+				<div class="row align-items-center">
+					<div class="col">
+						<h3 class="page-title">Clients</h3>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+							<li class="breadcrumb-item active">Clients</li>
+						</ul>
+					</div>
+					<div class="col-auto float-right ml-auto">
+						<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
 					</div>
 				</div>
-                <div class="row filter-row">
-					<form action = "chercher_client.php" method ="POST" >
+			</div>
+			<div class="row filter-row">
+				<form action = "chercher_client.php" method ="POST" >
 					<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="rsch">
@@ -121,12 +117,105 @@ if (isset($_POST['submit-search'])){
 						</div>
 					</div>
 				</div>
+				<div id="edit_client" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Modifier</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action ="modifier_client.php" method ="POST" >
+							<div class="row">
+								<input type="hidden" name ="id" id="id">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" name="nom" id="nom">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" name="email" id="email">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" name="reference" id="reference">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
+											<input class="form-control floating" type="text" name="adresse" id="adresse">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
+											<input class="form-control" type="text" id="pays" name="pays">
+										</div>
+									</div>
+									<div class="col-md-6">  
+										<div class="form-group">
+											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
+											<input class="form-control floating" type="text" id="tel" name="tel">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
+											<input class="form-control" type="text" id="matricule" name="matricule">
+										</div>
+									</div>
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn " name = "update">Enregistrer</button>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
+
+			<div class="modal custom-modal fade" id="delete_client" role="dialog">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form action ="effacer_client.php" method="POST">
+						<input type="hidden" name="delete_id" id="delete_id">
+						<div class="modal-body">
+							<div class="form-header">
+								<h3>Supprimer ce client</h3>
+								<p>Êtes-vous sûr de vouloir supprimer?</p>
+							</div>
+							<div class="modal-btn delete-action">
+								
+								<div class="row">
+									<div class="col-6">
+										<button type="submit" name="deletedata" class="btn btn-primary continue-btn">Suprrimer</a>
+									</div>
+									<div class="col-6">
+										<button type="button" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 <?php
    }
    else {
-       echo 'NO DATA';
+       echo 'Aucun élément correspondant trouvé';
 
    }
 }
@@ -138,6 +227,14 @@ else
 
 ?>
 
-<script src="script.js?v=<?php echo time();?>"></script>
+<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
+	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
+	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+	<script src="script.js?v=<?php echo time();?>"></script>
 </body>
 </html>
