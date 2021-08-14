@@ -77,11 +77,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th class="none">ID</th>
 										<th>Raison sociale </th>
                                         <th>Email</th>
 										<th>Adresse</th>
-										<th>Ville</th>
+										<th class="none">Ville</th>
 										<th>Pays</th>
 										<th>Téléphone</th>
 										<th>Facebook</th>
@@ -103,11 +103,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 								?>
 									<tr>
-										<td><?php echo $id?></td>
+										<td class="none"><?php echo $id?></td>
 										<td><?php echo $rs?></td>
 										<td><?php echo $email?></td>
 										<td><?php echo $adresse?></td>
-										<td><?php echo $ville?></td>
+										<td class="none"><?php echo $ville?></td>
 										<td><?php echo $pays?></td>
 										<td><?php echo $tel?></td>
 										<td><?php echo $fb?></td>
