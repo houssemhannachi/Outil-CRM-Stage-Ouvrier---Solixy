@@ -93,15 +93,19 @@ $(document).ready(function(){
       return $(this).text();
     }).get();
     console.log(data);
-    $('#identifiant_cl').val(data[0])
-    $('#raison_sociale_cl').val(data[1]);
-    $('#reference_cl').val(data[2]);
-    $('#adresse_cl').val(data[3]);
+    $('#id_cl').val(data[0])
+    $('#rs_cl').val(data[1]);
+    $('#ref_cl').val(data[2]);
+    $('#adr_cl').val(data[3]);
     $('#email_cl').val(data[4]);
     $('#tel_cl').val(data[5]);
     $('#pays_cl').val(data[6]);
-    $('#matricule_cl').val(data[7]);
-
+    $('#mf_cl').val(data[7]);
+    $('#fj_cl').val(data[8]);
+    $('#ville_cl').val(data[9]);
+    $('#siteweb_cl').val(data[10]);
+    $('#ribrip_cl').val(data[11]);
+    $('#tauxtva_cl').val(data[12]);
   });
 });
 
