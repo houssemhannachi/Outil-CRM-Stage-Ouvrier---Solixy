@@ -142,7 +142,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
+											<label class="col-form-label">Raison sociale <span class="text-danger">*</span></label>
 											<input class="form-control" name ="nom" type="text">
 										</div>
 									</div>
