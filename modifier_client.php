@@ -4,18 +4,21 @@
 
 
     if (isset($_POST['update'])){
-            $id = $_POST['id'];
-            $nom = $_POST['nom'];
-            $reference = $_POST['reference'];
-            $adresse = $_POST['adresse'];
-            $email = $_POST['email'];
-            $ville = $_POST['ville'];
-            $pays = $_POST['pays'];
-            $tel = $_POST['tel'];
-            $matricule = $_POST['matricule'];
-            
-    
-            $query = "UPDATE clients SET nom_client = '$nom', reference_client='$reference',adresse_client='$adresse',email_client='$email',pays_client='$pays',tel_client='$tel',matricule_client='$matricule' WHERE id_client='$id'";
+        $id = $_POST['id'];
+        $raisonsociale = $_POST['raisonsociale'];
+        $reference = $_POST['reference'];
+        $formejuridique = $_POST['formejuridique'];
+        $email = $_POST['email'];
+        $adresse = $_POST['adresse'];
+        $ville = $_POST['ville'];
+        $pays = $_POST['pays'];
+        $telephone = $_POST['telephone'];
+        $siteweb = $_POST['siteweb'];
+        $matriculefiscale = $_POST['matriculefiscale'];
+        $ribrip = $_POST['ribrip'];
+        $tauxtva = $_POST['tauxtva'];
+        
+        $query = "UPDATE clients SET rs_client = '$raisonsociale', ref_client='$reference',fj_client='$formejuridique',email_client='$email',adresse_client='$adresse',ville_client='$ville',pays_client='$pays',tel_client='$telephone',sw_client='$siteweb',mf_client='$matriculefiscale' ,riprib_client='$ribrip' ,tauxtva_client='$tauxtva' WHERE id_client='$id'";
             $result = mysqli_query($conn,$query);
     
             if($result) {
