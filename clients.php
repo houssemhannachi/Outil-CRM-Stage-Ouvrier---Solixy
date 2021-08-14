@@ -73,13 +73,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<thead>
 									<tr>
 										<th class="none">ID</th>
-										<th>Nom </th>
+										<th>Raison sociale</th>
 										<th>Référence</th>
 										<th>Adresse</th>
 										<th>Email</th>
 										<th>Téléphone</th>
 										<th>Pays</th>
-										<th  class="none">Matricule</th>
+										<th  class="none">Matricule Fiscale</th>
+										<th  class="none">Forme juridique</th>
+										<th  class="none">Ville</th>
+										<th  class="none">Site Web</th>
+										<th  class="none">RIB/RIP</th>
+										<th  class="none">Taux TVA</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -108,7 +113,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 										<td><?php echo $email_client?></td>
 										<td><?php echo $tel_client?></td>
 										<td><?php echo $pays_client?></td>
-										<td style="display:none;"><?php echo $mf_client?></td>
+										<td  class="none"><?php echo$mf_client?></td>
+										<td  class="none"><?php echo$fj_client?></td>
+										<td  class="none"><?php echo$ville_client?></td>
+										<td  class="none"><?php echo$sw_client?></td>
+										<td  class="none"><?php echo$riprib_client?></td>
+										<td  class="none"><?php echo$tauxtva_client?></td>
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -247,47 +257,82 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						<div class="modal-body">
 							<form action ="modifier_client.php" method ="POST" >
 							<div class="row">
-								<input type="hidden" name ="id" id="id">
+									<input type="hidden" name ="id" id="id">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="nom" id="nom">
+											<label class="col-form-label">Raison sociale <span class="text-danger">*</span></label>
+											<input class="form-control" name ="raisonsociale" id ="raisonsociale" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="email" id="email">
+											<label class="col-form-label">Référence<span class="text-danger">*</span></label>
+											<input class="form-control" name ="reference" id ="reference" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="reference" id="reference">
+											<label class="col-form-label">Forme juridique <span class="text-danger">*</span></label>
+											<input class="form-control" name ="formejuridique" id ="formejuridique" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" name="adresse" id="adresse">
+											<label class="col-form-label">Email <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="email" id ="email" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="pays" name="pays">
+											<label class="col-form-label">Adresse<span class="text-danger">*</span></label>
+											<input class="form-control" name ="adresse" id ="adresse" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
-											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" id="tel" name="tel">
+											<label class="col-form-label">Ville <span class="text-danger">*</span></label>
+											<input class="form-control floating" name="ville" id="ville" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
+											<label class="col-form-label">Pays <span class="text-danger">*</span> </label>
+											<input class="form-control" name="pays" id="pays" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Téléphone <span class="text-danger">*</span> </label>
+											<input class="form-control" name="telephone" id="telephone" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Site web<span class="text-danger">*</span> </label>
+											<input class="form-control" name="siteweb" id="siteweb" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
 											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" type="text" id="matricule" name="matricule">
+											<input class="form-control" name="matriculefiscale" id="matriculefiscale" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">RIB/RIP <span class="text-danger">*</span> </label>
+											<input class="form-control" name="ribrip" id="ribrip" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Taux T.V.A<span class="text-danger">*</span> </label>
+											<input class="form-control" name="tauxtva" id="tauxtva" type="text">
 										</div>
 									</div>
 								</div>
