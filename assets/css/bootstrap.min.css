@@ -10678,16 +10678,36 @@ a.text-dark:hover {
 	width: 100%;
 	padding-right: 15px;
 	padding-left: 15px;
+}
 
+
+.col-md-5{
+		line-height: 50px;
+		position: relative;
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+	
+	
 
 }
 
 .user-name {
-	font-size: 25px;
+	font-size: 40px;
+	font-weight: 800;
     font-weight: bolder;
-	font-family: CircularStd;
+	font-family: 'Raleway',sans-serif;
 	line-height: 1.2;
+	color: #f9462e;
+	text-align: center;
+	margin: 0px;
+
+
+
 }
 
-
+.small, small {
+    font-size: 80%;
+    font-weight: 400;
+}
 /*# sourceMappingURL=bootstrap.min.css.map */
