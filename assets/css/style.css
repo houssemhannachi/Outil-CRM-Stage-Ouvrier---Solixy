@@ -5118,3 +5118,6 @@ table.table-inbox tbody tr.checked {
 	box-sizing: border-box;
 }
 
+.none{
+	display : none;
+}
