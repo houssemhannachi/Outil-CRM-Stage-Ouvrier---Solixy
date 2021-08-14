@@ -86,24 +86,29 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id_client'];
-										$nom = $row['nom_client'];
-										$reference = $row['reference_client'];
-										$adresse = $row['adresse_client'];
-     									$email = $row['email_client'];
-        								$pays = $row['pays_client'];
-        								$tel = $row['tel_client'];
-        								$matricule = $row['matricule_client'];
+										$id_client = $row['id_client'];
+										$rs_client = $row['rs_client'];
+										$ref_client = $row['ref_client'];
+										$fj_client = $row['fj_client'];
+     									$email_client = $row['email_client'];
+        								$adresse_client = $row['adresse_client'];
+        								$ville_client = $row['ville_client'];
+        								$pays_client = $row['pays_client'];
+										$tel_client = $row['tel_client'];
+										$sw_client = $row['sw_client'];
+										$mf_client = $row['mf_client'];
+										$riprib_client = $row['riprib_client'];
+										$tauxtva_client = $row['tauxtva_client'];
 								?>
 									<tr>
-										<td class="none"><?php echo $id?></td>
-										<td><?php echo $nom?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $adresse?></td>
-										<td><?php echo $email?></td>
-										<td><?php echo $tel?></td>
-										<td><?php echo $pays?></td>
-										<td style="display:none;"><?php echo $matricule?></td>
+										<td class="none"><?php echo $id_client?></td>
+										<td><?php echo $rs_client?></td>
+										<td><?php echo $ref_client?></td>
+										<td><?php echo $adresse_client?></td>
+										<td><?php echo $email_client?></td>
+										<td><?php echo $tel_client?></td>
+										<td><?php echo $pays_client?></td>
+										<td style="display:none;"><?php echo $mf_client?></td>
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -143,45 +148,81 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Raison sociale <span class="text-danger">*</span></label>
-											<input class="form-control" name ="nom" type="text">
+											<input class="form-control" name ="raisonsociale" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" name ="email" type="email">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
+											<label class="col-form-label">Référence<span class="text-danger">*</span></label>
 											<input class="form-control" name ="reference" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="adresse" type="text">
+											<label class="col-form-label">Forme juridique <span class="text-danger">*</span></label>
+											<input class="form-control" name ="formejuridique" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" name ="pays" type="text">
+											<label class="col-form-label">Email <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="email" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Adresse<span class="text-danger">*</span></label>
+											<input class="form-control" name ="adresse" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
-											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" name="tel" type="tel">
+											<label class="col-form-label">Ville <span class="text-danger">*</span></label>
+											<input class="form-control floating" name="ville" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" name="matricule" type="text">
+											<label class="col-form-label">Pays <span class="text-danger">*</span> </label>
+											<input class="form-control" name="pays" type="text">
 										</div>
 									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Téléphone <span class="text-danger">*</span> </label>
+											<input class="form-control" name="telephone" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Site web<span class="text-danger">*</span> </label>
+											<input class="form-control" name="siteweb" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
+											<input class="form-control" name="matriculefiscale" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">RIB/RIP <span class="text-danger">*</span> </label>
+											<input class="form-control" name="ribrip" type="text">
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Taux T.V.A<span class="text-danger">*</span> </label>
+											<input class="form-control" name="tauxtva" type="text">
+										</div>
+									</div>
+									
 								</div>
 								<div class="submit-section">
 									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
