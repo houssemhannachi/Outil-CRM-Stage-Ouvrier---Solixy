@@ -79,29 +79,29 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
-  $('.detailsbtn').on('click', function(){
-    $('#view_client').modal('show');
-    $tr = $(this).closest('tr');
-    var data = $tr.children("td").map(function(){
-      return $(this).text();
-    }).get();
-    console.log(data);
-    $('#identifiant_cl').val(data[0])
-    $('#raison_sociale_cl').val(data[1]);
-    $('#reference_cl').val(data[2]);
-    $('#adresse_cl').val(data[3]);
-    $('#email_cl').val(data[4]);
-    $('#tel_cl').val(data[5]);
-    $('#pays_cl').val(data[6]);
-    $('#matricule_cl').val(data[7]);
+// $(document).ready(function(){
+//   $('.detailsbtn').on('click', function(){
+//     $('#view_client').modal('show');
+//     $tr = $(this).closest('tr');
+//     var data = $tr.children("td").map(function(){
+//       return $(this).text();
+//     }).get();
+//     console.log(data);
+//     $('#identifiant_cl').val(data[0])
+//     $('#raison_sociale_cl').val(data[1]);
+//     $('#reference_cl').val(data[2]);
+//     $('#adresse_cl').val(data[3]);
+//     $('#email_cl').val(data[4]);
+//     $('#tel_cl').val(data[5]);
+//     $('#pays_cl').val(data[6]);
+//     $('#matricule_cl').val(data[7]);
 
 
     
 
 
-  });
-});
+//   });
+// });
 
 
 
