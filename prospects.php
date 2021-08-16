@@ -116,8 +116,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtnprospect"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													<a class="dropdown-item editbtnprospect"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+													<a class="dropdown-item detailsbtn_prospect"><i class="fa fa-id-card m-r-5"></i> Détails</a>
 												</div>
 											</div>
 										</td>
@@ -276,7 +277,60 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				</div>
 			</div>
 			<!-- /Edit Client Modal -->
-			
+			<div id="view_prospect" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h2 class="modal-title"><?php echo '<input class="view user-name " value="Détails" disabled>'?></h2>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<input type="hidden" name ="id" id="id_pr">
+								<div class="col-md-7">
+									<ul class="personal-info">
+										<li>
+											<div class="title">Raison sociale:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="rs_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Email:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="email_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Adresse:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="adr_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Ville:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="ville_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Pays:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="pays_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Téléphone:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="tel_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Site Web:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="sw_pr" disabled></div>'?>
+										</li>
+										<li>
+											<div class="title">Facebook:</div>
+											<?php echo ' <div class="text"> <input class="view text" id="fb_pr" disabled></div>'?>
+										</li>
+									</ul>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- Delete Client Modal -->
 			<div class="modal custom-modal fade" id="delete_client" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
