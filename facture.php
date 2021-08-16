@@ -14,14 +14,14 @@
 
 <?php 
 	require_once('db_conn.php');
-	$query = "select * from Facture";
+	$query = "select * from facture";
 	$result = mysqli_query($conn,$query);
 ?>
 <?php
-$pageName = "Facture";
+$pageName = "facture";
 session_start();
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 ?>
   <?php require "dashboard.php";?>
@@ -44,183 +44,24 @@ if (isset($_SESSION['id'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_facture"><i class="fa fa-plus"></i>Ajouter un Facture</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
 						</div>
 					</div>
 				</div>
-
 				<!-- /Page Header -->
-					<!--Add Facture -->
-				<div id="add_facture" class="modal custom-modal fade" role="dialog">
-				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Ajouter Facture</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body" >
-							<form action = "ajouter_fact.php" method ="POST">
-								<div class="row">
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Client <span class="text-danger">*</span></label>
-											<input class="form-control" type="number">
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Project <span class="text-danger">*</span></label>
-											<input class="form-control" type="text">
-										</div>
-									</div>
-									
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Email</label>
-											<input class="form-control" type="email">
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>TVA</label>
-											<input class="form-control" type="number" %>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label> Address Client</label>
-											<textarea class="form-control" rows="1"></textarea>
-										</div>
-									</div>
-								
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Date <span class="text-danger">*</span></label>
-											
-												<input class="form-control datetimepicker" type="date">
-											</div>
-										</div>
-									</div>
-									<table class="table table-hover table-white">
-												<thead>
-													<tr>
-														<th style="width: 20px">ID</th>
-														<th class="col-sm-2">Réference</th>
-														<th class="col-md-6">Désignation</th>
-														<th style="width:100px;">Qte</th>
-														<th style="width:80px;">PU HT</th>
-														<th>Montant HT</th>
-														<th> </th>
-													</tr>
-												</thead>
-												<tbody>
-												<tr>
-													<td>1</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" style="width:100px" type="text">
-													</td>
-													<td>
-														<input class="form-control" style="width:80px" type="text">
-													</td>
-													<td>
-														<input class="form-control" style="width:120px" type="text">
-													</td>
-													
-													
-												<tr>
-													<td>2</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" style="width:100px" type="text">
-													</td>
-													<td>
-														<input class="form-control" style="width:80px" type="text">
-													</td>
-													<td>
-														<input class="form-control"  style="width:120px" type="text">
-                           </td> 
-													 <td>
-													
-                          </tr> 
-													
-														
-												</tbody>
-											</table>
-											<table class="table table-hover table-white">
-												<tbody>
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td class="text-right">Total</td>
-														<td style="text-align: right; padding-right: 30px;width: 230px">
-														<input class="form-control text-right" value="0"  type="text">
-													</td>
-													</tr>
-													<tr>
-														<td colspan="5" class="text-right">BASE</td>
-														<td style="text-align: right; padding-right: 30px;width: 230px">
-															<input class="form-control text-right" value="0"  type="text">
-														</td>
-													</tr>
-													<tr>
-														<td colspan="5" class="text-right">
-															TAUX
-														</td>
-														<td style="text-align: right; padding-right: 30px;width: 230px">
-															<input class="form-control text-right" type="text">
-														</td>
-													</tr>
-													<tr>
-														<td colspan="5" style="text-align: right; font-weight: bold">
-														MONTANT
-														</td>
-														<td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
-															DT 0.00
-														</td>
-													</tr>
-												</tbody>
-											</table> 
-										
-									
-								</div>
-								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
-								</div>
-             </form>
-						 </div>
-					</div>
-				</div>
-			</div>
-						 
-			<!-- /Add Facture -->
 				
-			<!-- Search Filter -->
-      <div class="row filter-row">
+				<!-- Search Filter -->
+				<div class="row filter-row">
 					<div class="col-sm-6 col-md-3">  
 						<div class="form-group form-focus">
 							<input type="text" class="form-control floating">
-							<label class="focus-label">Facture ID</label>
+							<label class="focus-label">FActure  ID</label>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">  
 						<div class="form-group form-focus">
 							<input type="text" class="form-control floating">
-							<label class="focus-label" >Facture reference</label>
+							<label class="focus-label">Reference</label>
 						</div>
 					</div>
 						
@@ -230,82 +71,229 @@ if (isset($_SESSION['id'])) {
 				</div>
 				<!-- Search Filter -->
 
-				<div class="content container-fluid">
-				
-					
-				
-								<div class="row">
-									<div class="col-md-12 col-sm-12">
-										<div class="table-responsive">
-											<table class="table table-hover table-white">
-												<thead>
-													<tr>
-														<th style="width: 20px">ID</th>
-														<th class="col-sm-2">Réference</th>
-														<th class="col-md-5">Designation</th>
-														<th style="width:100px;">Date</th>
-														<th style="width:80px;">Qte</th>
-														<th style="width:80px;">PU HT</th>
-														<th style="col-sm-2">Montant HT</th>
-														
-														<th style="col-sm-2">Action</th>
-
-														
-													</tr>
-												</thead>
-												<?php 
-									while($row=mysqli_fetch_assoc($result)) 
-									{
-										$id = $row['id_facture'];
-										
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-striped custom-table datatable">
+								<thead>
+									<tr>
+										<th> ID </th>
+										<th>ID client </th>
+										<th>Référence</th>
+										<th>Désignation</th>
+										<th>Date</th>
+										<th>quantite</th>
+										<th>PU HT</th>
+										<th>Mantont HT</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<?php 
+									while($row=mysqli_fetch_assoc($result)) {
+										$id = $row['id'];
+										$client= $row['id_client'];
 										$reference = $row['reference_facture'];
 										$designation = $row['designation_facture'];
-     									$date = $row['date_email'];
-        								$qte = $row['quantite_facture'];
+     									$date = $row['date_facture'];
+        								$quantite = $row['quantite_facture'];
         								$puht = $row['puht_facture'];
         								$montantht = $row['montantht_facture'];
-								   ?>
-												<tbody>
-												<tr>
+								?>
+									<tr>
 										<td><?php echo $id?></td>
-										
+										<td><?php echo $client?></td>
 										<td><?php echo $reference?></td>
 										<td><?php echo $designation?></td>
 										<td><?php echo $date?></td>
-										<td><?php echo $qte?></td>
+										<td><?php echo $quantite?></td>
 										<td><?php echo $puht?></td>
 										<td><?php echo $montantht?></td>
-
-										<td class="text-right">
-												<div class="dropdown dropdown-action">
-													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="edit-invoice.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="invoice-view.html"><i class="fa fa-eye m-r-5"></i> View</a>
-														<a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o m-r-5"></i> Download</a>
-														<a class="dropdown-item" href="#"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-													</div>
+										<td class=>
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													<a class="dropdown-item imprimerbtn"><i class="fa fa-trash-o m-r-5"></i> Imprimer</a>
 												</div>
-											</td>
-										
-									 <?php 
-									}
+											</div>
+										</td>
+									</tr>
+									<?php }
 									?>
-												</tbody>
-											</table>
-									
+								
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Page Content -->
 		
+			<!-- Add Client Modal -->
+			<div id="add_client" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Ajouter un Facture</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action = "ajouter_fact.php" method ="POST">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">id client <span class="text-danger">*</span></label>
+											<input class="form-control" name ="client" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Reference <span class="text-danger">*</span></label>
+											<input class="form-control" name ="refernece" type="reference">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Designation <span class="text-danger">*</span></label>
+											<input class="form-control" name ="reference" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="date" type="date">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-form-label">Quantite<span class="text-danger">*</span></label>
+											<input class="form-control" name ="quantite" type="number">
+										</div>
+									</div>
+									<div class="col-md-4">  
+										<div class="form-group">
+											<label class="col-form-label">PU HT <span class="text-danger">*</span></label>
+											<input class="form-control floating" name="puht" type="number">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-form-label">Mantant HT <span class="text-danger">*</span> </label>
+											<input class="form-control" name="montantht" type="number">
+										</div>
+									</div>
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Add Client Modal -->
 			
+			<!-- Edit Client Modal -->
+			<div id="edit_facture" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Modifier</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<<form action = "ajouter_fact.php" method ="POST">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">id client <span class="text-danger">*</span></label>
+											<input class="form-control" name ="client" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Reference <span class="text-danger">*</span></label>
+											<input class="form-control" name ="refernece" type="reference">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Designation <span class="text-danger">*</span></label>
+											<input class="form-control" name ="reference" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="date" type="date">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="col-form-label">Quantite<span class="text-danger">*</span></label>
+											<input class="form-control" name ="quantite" type="number">
+										</div>
+									</div>
+									<div class="col-md-3">  
+										<div class="form-group">
+											<label class="col-form-label">PU HT <span class="text-danger">*</span></label>
+											<input class="form-control floating" name="puht" type="number">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="col-form-label">Mantant HT <span class="text-danger">*</span> </label>
+											<input class="form-control" name="montantht" type="number">
+										</div>
+									</div>
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Edit Client Modal -->
 			
-			
-			
+			<!-- Delete Client Modal -->
+			<div class="modal custom-modal fade" id="delete_facture" role="dialog">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form action ="deletecode.php" method="POST">
+						<input type="hidden" name="delete_id" id="delete_id">
+						<div class="modal-body">
+							<div class="form-header">
+								<h3>Delete Facture</h3>
+								<p>Are you sure want to delete?</p>
+							</div>
+							<div class="modal-btn delete-action">
+								
+								<div class="row">
+									<div class="col-6">
+										<button type="submit" name="deletedata" class="btn btn-primary continue-btn">Delete</a>
+									</div>
+									<div class="col-6">
+										<button type="button" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Delete Client Modal -->
 			
 		</div>
 		<!-- /Page Wrapper -->
 		
 	</div>
 	<!-- /Main Wrapper -->
-				
 	
 	<!-- jQuery -->
 	<script src="assets/js/jquery-3.5.1.min.js"></script>
