@@ -151,13 +151,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Reference <span class="text-danger">*</span></label>
-											<input class="form-control" name ="refernece" type="reference">
+											<input class="form-control" name ="reference" type="reference">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Designation <span class="text-danger">*</span></label>
-											<input class="form-control" name ="reference" type="text">
+											<input class="form-control" name ="designation" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
