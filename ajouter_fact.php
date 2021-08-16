@@ -2,12 +2,12 @@
 require_once ("db_conn.php");
 
 if (isset($_POST['submit'])){
-    if (empty($_POST['id_client'])|| empty($_POST['reference'])|| empty($_POST['designation'])|| empty($_POST['date'])|| empty($_POST['quantite'])|| empty($_POST['puht'])|| empty($_POST['montantht']) )
+    if (empty($_POST['client'])|| empty($_POST['reference'])|| empty($_POST['designation'])|| empty($_POST['date'])|| empty($_POST['quantite'])|| empty($_POST['puht'])|| empty($_POST['montantht']) )
     {
         echo "Please fill the blanks";
     }
     else {
-        $client = $_POST['id_client'];
+        $client = $_POST['client'];
         $reference = $_POST['reference'];
         $designation = $_POST['designation'];
         $date = $_POST['date'];
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])){
       
         
 
-        $query = "Insert into facture (id_client,reference_facture,designation_facture,date_facture,quantite_facture,puht_facture,montantht_facture) values ('$client','$reference','$designation','$date','$quantite','$puht','$montantht')";
+        $query = "INSERT INTO facture (id_client,reference_facture,designation_facture,date_facture,quantite_facture,puht_facture,montantht_facture) values ('$client','$reference','$designation','$date','$quantite','$puht','$montantht')";
         $result = mysqli_query($conn,$query);
 
         if($result) {
