@@ -112,6 +112,26 @@ $(document).ready(function(){
 
 
 
+$(document).ready(function(){
+  $('.detailsbtn_prospect').on('click', function(){
+    $('#view_prospect').modal('show');
+    $tr = $(this).closest('tr');
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+    console.log(data);
+    $('.id_pr').val(data[0])
+    $('#rs_pr').val(data[1]);
+    $('#email_pr').val(data[2]);
+    $('#adr_pr').val(data[3]);
+    $('#ville_pr').val(data[4]);
+    $('#pays_pr').val(data[5]);
+    $('#tel_pr').val(data[6]);
+    $('#fb_pr').val(data[7]);
+    $('#sw_pr').val(data[8]);
+  });
+});
+
 
 
 
