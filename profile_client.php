@@ -15,10 +15,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 <?php
-   $sql = "SELECT * FROM clients ";
-   $result = mysqli_query ($conn,$sql);
-   $queryResult = mysqli_num_rows($result);
-   if($queryResult > 0) {
+	$id=$_GET['id'];
+   	$sql = "SELECT * FROM clients where id_client='$id'";
+   	$result = mysqli_query ($conn,$sql);
+  	$queryResult = mysqli_num_rows($result);
+  	if($queryResult > 0) {
        while ($row = mysqli_fetch_assoc($result)) {
 										$id_client = $row['id_client'];
 										$rs_client = $row['rs_client'];
