@@ -26,7 +26,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						<div class="col">
 							<h3 class="page-title">Clients</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
 								<li class="breadcrumb-item active">Clients</li>
 							</ul>
 						</div>
