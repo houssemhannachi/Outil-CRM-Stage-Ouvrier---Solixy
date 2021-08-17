@@ -28,25 +28,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Profit</div>
-            <div class="number">$12,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
+            <div class="box-topic">Devis</div>
+            <div class="number">11</div>
           </div>
           <i class='bx bx-cart cart three' ></i>
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Return</div>
-            <div class="number">11,086</div>
-            <div class="indicator">
-              <i class='bx bx-down-arrow-alt down'></i>
-              <span class="text">Down From Today</span>
-            </div>
+            <div class="box-topic">Paiements</div>
+            <div class="number">0</div>
           </div>
-          <i class='bx bxs-cart-download cart four' ></i>
+          <i class='bx bx-copy-alt cart four' ></i>
         </div>
       </div>
 
