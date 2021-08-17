@@ -80,7 +80,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<table class="table table-striped custom-table mb-0 datatable">
 									<thead>
 										<tr>
-											<th>N° Transaction </th>
+											<th>N° Transaction</th>
 											<th>Date</th>
 											<th>Client</th>
 											<th>Mode de paiement</th>
