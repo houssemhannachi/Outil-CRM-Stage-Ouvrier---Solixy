@@ -245,75 +245,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				</div>
 			</div>
 			<!-- /Add Client Modal -->
-			<div id="view_client" class="modal custom-modal fade" role="dialog">
-				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h2 class="modal-title"><?php echo '<input class="view user-name " id="rs_cl" disabled>'?></h2>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<input type="hidden" name ="id" id="id_cl">
-								<div class="col-md-7">
-									<ul class="personal-info">
-										<li>
-											<div class="title">Référence:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="ref_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Forme juridique:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="fj_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Email:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="email_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Adresse:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="adr_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Ville:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="ville_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Pays:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="pays_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Téléphone:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="tel_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Site Web:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="siteweb_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Matricpule fiscale:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="mf_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">RIB/RIP:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="ribrip_cl" disabled></div>'?>
-										</li>
-										<li>
-											<div class="title">Taux T.V.A:</div>
-											<?php echo ' <div class="text"> <input class="view text" id="tauxtva_cl" disabled></div>'?>
 
-										</li>
-				
-
-													</ul>
-									</div>
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			
 			<!-- Edit Client Modal -->
 			<div id="edit_client" class="modal custom-modal fade" role="dialog">
