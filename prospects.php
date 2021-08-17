@@ -118,7 +118,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 												<div class="dropdown-menu dropdown-menu-right">
 													<a class="dropdown-item editbtnprospect"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
 													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-													<a class="dropdown-item detailsbtn_prospect"><i class="fa fa-id-card m-r-5"></i> Détails</a>
 												</div>
 											</div>
 										</td>
@@ -277,7 +276,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				</div>
 			</div>
 			<!-- /Edit Client Modal -->
-			<div id="view_prospect" class="modal custom-modal fade" role="dialog">
+			<!-- <div id="view_prospect" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -330,7 +329,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- Delete Client Modal -->
 			<div class="modal custom-modal fade" id="delete_client" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
