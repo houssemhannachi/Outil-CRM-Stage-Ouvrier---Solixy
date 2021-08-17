@@ -218,6 +218,7 @@ nav .profile-details i{
   color: #fff;
   font-size: 20px;
   margin-right: 5px;
+  
 }
 .box .indicator i.down{
   background: #e87d88;
@@ -236,6 +237,7 @@ nav .profile-details i{
   color: #66b0ff;
   border-radius: 12px;
   margin: -15px 0 0 6px;
+  margin-left: 10px;
 }
 .home-content .box .cart.two{
    color: #2BD47D;
