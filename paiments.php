@@ -4,6 +4,7 @@
 	$result = mysqli_query($conn,$query);
 
 ?>
+
 <?php
 $pageName = "Paiments";
 session_start();
@@ -93,6 +94,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									while($row=mysqli_fetch_assoc($result)) {
 										$id_paiement = $row['id_paiement'];
 										$rs_client = $row['rs_client'];
+										
 										$id_client  = $row['id_client'];
 										$date_paiement = $row['date_paiement'];
      									$mode_de_paiement = $row['mode_de_paiement'];
@@ -103,7 +105,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									<tr>
 										<td><?php echo $id_paiement?></td>
 										<td><?php echo $date_paiement?></td>
-										<td><?php echo $rs_client?></td>
+										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $rs_client?></a></td>
 										<td class="none"><?php echo  $id_client?></td>
 										<td><?php echo $mode_de_paiement?></td>
 										<td><?php echo '<a >'.$id_facture.'</a>'?></td>
