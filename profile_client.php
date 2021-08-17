@@ -46,8 +46,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 						<div class="col">
 							<h3 class="page-title">Clients</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item">Clients</li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="clients.php">Clients</a></li>
 								<li class="breadcrumb-item active"><?php echo $rs_client ?> </li>
 							</ul>
 						</div>
@@ -100,7 +100,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 													</ul>
 												</div>
 											
-										
+
 									</div>
 								</div>
 							</div>
@@ -115,11 +115,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 <?php
    }
-   else {
-       echo 'NO DATA';
-
-   }
-
 ?>
 
 
