@@ -15,10 +15,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 <?php
-if (isset($_POST['profile'])){
-    $profile_id = $_POST['profile_id'];
-
-   $sql = "SELECT * FROM clients WHERE id_client = '$profile_id'";
+   $sql = "SELECT * FROM clients ";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
@@ -78,11 +75,5 @@ if (isset($_POST['profile'])){
        echo 'NO DATA';
 
    }
-}
-else
-{
-    header ('location:index.php');
-
-}
 
 ?>
