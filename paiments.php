@@ -117,7 +117,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 												<div class="dropdown-menu dropdown-menu-right">
 													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
 													<a class="dropdown-item editbtnpaiement"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+													<a class="dropdown-item deletebtnpaiement"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
@@ -294,10 +294,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Edit Client Modal -->
 			
 			<!-- Delete Client Modal -->
-			<div class="modal custom-modal fade" id="delete_client" role="dialog">
+			<div class="modal custom-modal fade" id="effacer_paiement" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
-						<form action ="effacer_client.php" method="POST">
+						<form action ="effacer_paiement.php" method="POST">
 						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
