@@ -94,8 +94,8 @@ $(document).ready(function(){
     }).get();
     console.log(data);
     $('#id_cl').val(data[0])
-    $('#rs_cl').val(data[1]);
-    $('#ref_cl').val(data[2]);
+    $('#ref_cl').val(data[1]);
+    $('#rs_cl').val(data[2]);
     $('#adr_cl').val(data[3]);
     $('#email_cl').val(data[4]);
     $('#tel_cl').val(data[5]);
@@ -135,7 +135,27 @@ $(document).ready(function(){
 
 
 
+$(document).ready(function(){
+  $('.editbtnpaiement').on('click', function(){
+    $('#edit_paiement').modal('show');
+    $tr = $(this).closest('tr');
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+    console.log(data);
+    $('#id').val(data[0])
+    $('#rs').val(data[1]);
+    $('#email').val(data[2]);
+    $('#adresse').val(data[3]);
+    $('#ville').val(data[4]);
+    $('#pays').val(data[5]);
+    $('#tel').val(data[6]);
+    $('#fb').val(data[7]);
+    $('#sw').val(data[7]);
 
+
+  });
+});
 
 
 
