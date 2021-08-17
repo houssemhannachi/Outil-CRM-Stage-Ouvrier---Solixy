@@ -2709,9 +2709,6 @@ textarea.form-control.is-invalid {
 	opacity: .65
 }
 
-.btn:not(:disabled):not(.disabled) {
-	cursor: pointer
-}
 
 a.btn.disabled,
 fieldset:disabled a.btn {
