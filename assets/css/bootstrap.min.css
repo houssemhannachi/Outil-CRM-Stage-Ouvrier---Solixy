@@ -10683,21 +10683,23 @@ a.text-dark:hover {
 		position: relative;
 		width: 100%;
 		padding-right: 15px;
-		padding-left: 15px;
+		padding-left: 40px;
 	
 	
 
 }
 
 .user-name {
-	font-size: 40px;
+	font-size: 50px;
 	font-weight: 800;
     font-weight: bolder;
-	font-family: 'Raleway',sans-serif;
-	line-height: 1.2;
+	font-family :-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	line-height: 2;
 	color: #f9462e;
-	text-align: center;
+	
+	
 	margin: 0px;
+	margin-bottom: 20px;
 
 
 
@@ -10706,5 +10708,10 @@ a.text-dark:hover {
 .small, small {
     font-size: 80%;
     font-weight: 400;
+}
+
+
+.informations {
+	line-height:1.7;
 }
 /*# sourceMappingURL=bootstrap.min.css.map */
