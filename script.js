@@ -85,29 +85,29 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
-  $('.detailsbtn').on('click', function(){
-    $('#view_client').modal('show');
-    $tr = $(this).closest('tr');
-    var data = $tr.children("td").map(function(){
-      return $(this).text();
-    }).get();
-    console.log(data);
-    $('#id_cl').val(data[0])
-    $('#ref_cl').val(data[1]);
-    $('#rs_cl').val(data[2]);
-    $('#adr_cl').val(data[3]);
-    $('#email_cl').val(data[4]);
-    $('#tel_cl').val(data[5]);
-    $('#pays_cl').val(data[6]);
-    $('#mf_cl').val(data[7]);
-    $('#fj_cl').val(data[8]);
-    $('#ville_cl').val(data[9]);
-    $('#siteweb_cl').val(data[10]);
-    $('#ribrip_cl').val(data[11]);
-    $('#tauxtva_cl').val(data[12]);
-  });
-});
+// $(document).ready(function(){
+//   $('.detailsbtn').on('click', function(){
+//     $('#view_client').modal('show');
+//     $tr = $(this).closest('tr');
+//     var data = $tr.children("td").map(function(){
+//       return $(this).text();
+//     }).get();
+//     console.log(data);
+//     $('#id_cl').val(data[0])
+//     $('#ref_cl').val(data[1]);
+//     $('#rs_cl').val(data[2]);
+//     $('#adr_cl').val(data[3]);
+//     $('#email_cl').val(data[4]);
+//     $('#tel_cl').val(data[5]);
+//     $('#pays_cl').val(data[6]);
+//     $('#mf_cl').val(data[7]);
+//     $('#fj_cl').val(data[8]);
+//     $('#ville_cl').val(data[9]);
+//     $('#siteweb_cl').val(data[10]);
+//     $('#ribrip_cl').val(data[11]);
+//     $('#tauxtva_cl').val(data[12]);
+//   });
+// });
 
 
 
