@@ -144,14 +144,13 @@ $(document).ready(function(){
     }).get();
     console.log(data);
     $('#id').val(data[0])
-    $('#rs').val(data[1]);
-    $('#email').val(data[2]);
-    $('#adresse').val(data[3]);
-    $('#ville').val(data[4]);
-    $('#pays').val(data[5]);
-    $('#tel').val(data[6]);
-    $('#fb').val(data[7]);
-    $('#sw').val(data[7]);
+    $('#date').val(data[1]);
+    $('#rs_client').val(data[2]);
+    $('#id_client').val(data[3]);
+    $('#mode_de_paiement').val(data[4]);
+    $('#num_facture').val(data[5]);
+    $('#prix').val(data[6]);
+    $('#statut').val(data[7]);
 
 
   });
