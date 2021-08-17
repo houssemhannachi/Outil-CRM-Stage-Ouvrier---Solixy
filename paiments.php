@@ -40,16 +40,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<form action = "chercher_client.php" method ="POST" >
+					<form action = "chercher_paiement.php" method ="POST" >
 						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="rsch">
+								<input type="text" class="form-control floating" name="tranch">
 								<label class="focus-label">N° Transaction</label>
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="refch">
+								<input type="text" class="form-control floating" name="factch">
 								<label class="focus-label">N° Facture</label>
 							</div>
 						</div>
@@ -67,7 +67,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 
 						<div class="col-sm-6 col-md-3" style="float:left;">  
-							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un paiement </button>
 						</div>
 					</form>     
 				</div>
@@ -230,32 +230,38 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">ID Client<span class="text-danger">*</span></label>
-											<input class="form-control" name ="id_client" type="text">
+											<input class="form-control" name ="id_client" type="text" id ="id_client">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Raison sociale du client<span class="text-danger">*</span></label>
-											<input class="form-control" name ="rs_client" type="text">
+											<input class="form-control" name ="rs_client"  id ="rs_client" type="text">
 										</div>
 									</div>
 									
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Date <span class="text-danger">*</span></label>
-											<input class="form-control" name ="date" type="date">
+											<input class="form-control" name ="date" id ="date" type="date">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Mode de paiement <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="mode_de_paiement" type="text">
+											<select class="form-control floating" name="mode_de_paiement" id="mode_de_paiement">
+															<option>Moyen de paiement</option>
+															<option value="Virement bancaire">Virement bancaire</option>
+															<option value="Chèque">Chèque</option>
+															<option value="Espèces">Espèces</option>
+															<option value="Versement">Versement</option>
+											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">N° Facture <span class="text-danger">*</span></label>
-											<input class="form-control" name ="num_facture" type="text">
+											<input class="form-control" name ="num_facture" id ="num_facture" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">  
@@ -263,7 +269,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<label class="col-form-label">Prix <span class="text-danger">*</span></label>
 											<div class="input-group">
 													
-													<input type="number" class="form-control floating" name="prix">
+													<input type="number" class="form-control floating" name="prix" id="prix">
 													<div class="input-group-prepend">
 														<span class="input-group-text">DT</span>
 													</div>
@@ -273,12 +279,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									<div class="col-md-6">
 										<div class="form-group">
 											<label class="col-form-label">Status <span class="text-danger">*</span> </label>
-											<input class="form-control" name="status" type="text">
+											<input class="form-control" name="status" type="text" id="statut">
 										</div>
 									</div>
 								</div>
 								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+									<button class="btn btn-primary submit-btn" name ="update">Enregistrer</button>
 								</div>
 							</form>
 						</div>
