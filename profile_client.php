@@ -12,8 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 ?>
 
-
-
+<?php require "dashboard.php";?>
 <?php
 	$id=$_GET['id'];
    	$sql = "SELECT * FROM clients where id_client='$id'";
@@ -35,40 +34,84 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 										$riprib_client = $row['riprib_client'];
 										$tauxtva_client = $row['tauxtva_client'];
        ?>
-       <tr>
-										<td class="none"><?php echo $id_client?></td>
-										<td><?php echo $rs_client?></td>
-										<td><?php echo $ref_client?></td>
-										<td><?php echo $adresse_client?></td>
-										<td><?php echo $email_client?></td>
-										<td><?php echo $tel_client?></td>
-										<td><?php echo $pays_client?></td>
-										<td  class="none"><?php echo$mf_client?></td>
-										<td  class="none"><?php echo$fj_client?></td>
-										<td  class="none"><?php echo$ville_client?></td>
-										<td  class="none"><?php echo$sw_client?></td>
-										<td  class="none"><?php echo$riprib_client?></td>
-										<td  class="none"><?php echo$tauxtva_client?></td>
-										<td class=>
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
-													
-												</div>
-											</div>
-										</td>
-									</tr>
-		<?php }?>
-
-								
-							</table>
+<div class="home-content">
+<div class="page-wrapper">
+			
+				<!-- Page Content -->
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col">
+							<h3 class="page-title">Clients</h3>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item">Clients</li>
+								<li class="breadcrumb-item active"><?php echo $rs_client ?> </li>
+							</ul>
 						</div>
 					</div>
-				</div>
-			</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<div class="card mb-0">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="profile-view">
+										
+											<div class="row">
+												<div class="col-md-5">
+													<div class="profile-info-left">
+														<h3 class="user-name m-t-0"><?php echo $rs_client ?></h3>
+														<h5 class="company-role m-t-0 mb-0">Référence: <?php echo $ref_client ?> </h5>
+														<div class="informations">
+															<small class="text-muted">Forme juridique: <?php echo $fj_client ?></small> </br>
+															<small class="text-muted">Matricpule fiscale: <?php echo$mf_client?></small> </br>
+															<small class="text-muted">RIP/RIB: <?php echo$riprib_client?></small> </br>
+															<small class="text-muted">Taux T.V.A: <?php echo$tauxtva_client?> </small>
+	                                                    </div>
+														<div class="staff-id">ID Client : <?php echo $id_client ?></div>
+													</div>
+												</div>
+												<div class="col-md-7">
+													<ul class="personal-info">
+														<li>
+															<span class="title">Email:</span>
+															<span class="text"><a> <?php echo $email_client ?> </a></span>
+														</li>
+														<li>
+															<span class="title">Téléphone:</span>
+															<span class="text"><?php echo $tel_client?></span>
+														</li>
+														<li>
+															<span class="title">Adresse:</span>
+															<span class="text"><?php echo $adresse_client .' '. $ville_client?></span>
+														</li>
+														<li>
+															<span class="title">Pays:</span>
+															<span class="text"><?php echo $pays_client?></span>
+														</li>
+														<li>
+															<span class="title">Site Web:</span>
+															<span class="text"><a><?php echo$sw_client?></a></span>
+														</li>
+													</ul>
+												</div>
+											
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	   </div>
+
+		<?php }?>
+
+</div>
+
 
 <?php
    }
@@ -78,3 +121,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
    }
 
 ?>
+
+
+<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
+	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
+	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+	<script src="script.js?v=<?php echo time();?>"></script>
