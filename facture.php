@@ -44,7 +44,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un client</a>
+							<a href="ajouter_facture.php"><i class="fa fa-plus"></i>Ajouter une facture</a>
 						</div>
 					</div>
 				</div>
