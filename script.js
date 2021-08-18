@@ -194,3 +194,17 @@ $(document).ready(function(){
 
   });
 });
+
+
+$(document).ready(function(){
+  var i =1;
+  $('#add').click(function(){
+    i++;
+    $('#dynamic_field').append('<tr id="row'+i+'"><td> </td><td><input class="form-control" type="text" style="min-width:150px"></td><td><input class="form-control" type="text" style="min-width:150px"></td><td><input class="form-control" style="width:100px" type="text"></td><td><input class="form-control" style="width:80px" type="text"></td><td><input class="form-control" readonly style="width:120px" type="text"></td><td><button class="text-danger font-18 btn_remove" name="Delete" id="'+i+'"><i class="fa fa-trash-o"></i></button></td></tr>')
+  });
+  $(document).on('click','.btn_remove',function(){
+    var button_id = $(this).attr('id');
+    
+
+  })
+})
