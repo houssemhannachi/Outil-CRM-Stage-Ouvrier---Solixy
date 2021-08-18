@@ -39,8 +39,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						<div class="col">
 							<h3 class="page-title">Facture</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-								<li class="breadcrumb-item active">Facture</li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="facture.php">Facture</a></li>
+                                <li class="breadcrumb-item active">Ajouter une facture</li>
 							</ul>
 						</div>
 					</div>
@@ -70,45 +71,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<input class="form-control" name="matriculefiscale" type="text">
 										</div>
 									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Tax</label>
-											<select class="select">
-												<option>Select Tax</option>
-												<option>VAT</option>
-												<option>GST</option>
-												<option>No Tax</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Client Address</label>
-											<textarea class="form-control" rows="3"></textarea>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Billing Address</label>
-											<textarea class="form-control" rows="3"></textarea>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label>Invoice date <span class="text-danger">*</span></label>
-											<div class="cal-icon">
-												<input class="form-control datetimepicker" type="text">
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
+                                    <div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>Due Date <span class="text-danger">*</span></label>
-											<div class="cal-icon">
-												<input class="form-control datetimepicker" type="text">
-											</div>
+											
+												<input class="form-control" type="date">
+
 										</div>
 									</div>
+									
+
 								</div>
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
