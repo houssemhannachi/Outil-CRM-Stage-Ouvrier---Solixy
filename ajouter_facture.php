@@ -54,13 +54,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<div class="row">
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>Client <span class="text-danger">*</span></label>
+											<label>ID Client <span class="text-danger">*</span></label>
 											<input class="form-control" name ="raisonsociale" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>Adresse client <span class="text-danger">*</span></label>
+											<label>Client <span class="text-danger">*</span></label>
 											<input class="form-control" name ="adresse" type="text">
 										</div>
 									</div>
@@ -85,7 +85,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
 										<div class="table-responsive">
-											<table class="table table-hover table-white">
+											<table class="table table-hover table-white" id="dynamic_field">
 												<thead>
 													<tr>
 														<th style="width: 20px">#</th>
@@ -115,27 +115,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													<td>
 														<input class="form-control" readonly style="width:120px" type="text">
 													</td>
-													<td><a href="javascript:void(0)" class="text-success font-18" title="Add"><i class="fa fa-plus"></i></a></td>
+													<td><a class="text-success font-18" name="Add" id="add"><i class="fa fa-plus"></i></a></td>
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" style="width:100px" type="text">
-													</td>
-													<td>
-														<input class="form-control" style="width:80px" type="text">
-													</td>
-													<td>
-														<input class="form-control" readonly style="width:120px" type="text">
-													</td>
-													<td><a href="javascript:void(0)" class="text-danger font-18" title="Remove"><i class="fa fa-trash-o"></i></a></td>
-												</tr>
+
 												</tbody>
 											</table>
 										</div>
