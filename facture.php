@@ -44,7 +44,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="ajouter_facture.php"><i class="fa fa-plus"></i>Ajouter une facture</a>
+							<a href="ajouter_facture.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter une facture</a>
 						</div>
 					</div>
 				</div>
