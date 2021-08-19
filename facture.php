@@ -14,7 +14,7 @@
 
 <?php 
 	require_once('db_conn.php');
-	$query = "SELECT * from facture ORDER BY id_facture DESC";
+	$query = "SELECT * from facture";
 	$result = mysqli_query($conn,$query);
 ?>
 <?php
@@ -45,7 +45,6 @@ if (isset($_SESSION['id'])) {
 						</div>
 						<div class="col-auto float-right ml-auto">
 
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_facture"><i class="fa fa-plus"></i>Ajouter un facture</a>
 
 							<a href="ajouter_facture.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter une facture</a>
 
@@ -90,10 +89,10 @@ if (isset($_SESSION['id'])) {
 								</thead>
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id_facture = $row['id_facture'];
+										$id_facture = $row['id'];
 										$date_facture= $row['date_facture'];
-										$rs_client = $row['rs_client'];
-										$total_ttc = $row['total_ttc'];
+										$rs_client = $row['adresse_client'];
+										$total_ttc = $row['montanttt_facture'];
      									
 								?>
 									<tr>
