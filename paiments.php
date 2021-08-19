@@ -1,9 +1,10 @@
 <?php 
 	require_once('db_conn.php');
-	$query = "select * from clients";
+	$query = "select * from paiements";
 	$result = mysqli_query($conn,$query);
 
 ?>
+
 <?php
 $pageName = "Paiments";
 session_start();
@@ -31,7 +32,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un paiement</a>
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_paiement"><i class="fa fa-plus"></i>Ajouter un paiement</a>
 						</div>
 					</div>
 				</div>
@@ -39,30 +40,38 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<form action = "chercher_client.php" method ="POST" >
-						<div class=""style="float:left;">  
+					<form action = "chercher_paiement.php" method ="POST" >
+						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
-								<label class="focus-label">Référence</label>
+								<input type="text" class="form-control floating" name="tranch">
+								<label class="focus-label">N° Transaction</label>
 							</div>
 						</div>
-                        <div class=""style="float:left;"> 
+						<div class="col-sm-6 col-md-2"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="factch">
+								<label class="focus-label">N° Facture</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3 "style="float:left;">  
 							<div class="form-group form-focus select-focus">
 								<select class="select floating"> 
-									<option>Select Status</option>
-									<option>Pending</option>
-									<option>Paid</option>
-									<option>Partially Paid</option>
+									<option>Moyen de paiement</option>
+									<option value="Virement bancaire">Virement bancaire</option>
+									<option value="Chèque">Chèque</option>
+									<option value="Espèces">Espèces</option>
+									<option value="Versement">Versement</option>
 								</select>
 								<label class="focus-label">Status</label>
 							</div>
 						</div>
 
-						<div class="" style="float:left;">  
-							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
+						<div class="col-sm-6 col-md-4" style="float:left;">  
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un paiement </button>
 						</div>
 					</form>     
 				</div>
+
 				<!-- Search Filter -->
 
 				<div class="row">
@@ -71,8 +80,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<table class="table table-striped custom-table mb-0 datatable">
 									<thead>
 										<tr>
-											<th>#</th>
-											<th>N° Transaction </th>
+											<th>N° Transaction</th>
 											<th>Date</th>
 											<th>Client</th>
 											<th>Mode de paiement</th>
@@ -81,47 +89,41 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<th>Statuts</th>
                                             <th>Action</th>
 										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td><a href="#">834521</a></td>
-											<td>2nd Dec 2020</td>
-											<td>Dreams</td>
-											<td>Online</td>
-											<td><a href="#">INV0001</a></td>
-											<td>$4,329,970.7</td>
-											<td><span class="badge bg-inverse-info">Sent</span></td>
-                                            <td class=>
+									</thead>									
+								<?php 
+									while($row=mysqli_fetch_assoc($result)) {
+										$id_paiement = $row['id_paiement'];
+										$rs_client = $row['rs_client'];
+										
+										$id_client  = $row['id_client'];
+										$date_paiement = $row['date_paiement'];
+     									$mode_de_paiement = $row['mode_de_paiement'];
+        								$id_facture  = $row['id_facture'];
+        								$prix = $row['prix'];
+        								$status_paiement = $row['status_paiement'];
+								?>
+									<tr>
+										<td><?php echo $id_paiement?></td>
+										<td><?php echo $date_paiement?></td>
+										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $rs_client?></a></td>
+										<td class="none"><?php echo  $id_client?></td>
+										<td><?php echo $mode_de_paiement?></td>
+										<td><?php echo '<a >'.$id_facture.'</a>'?></td>
+										<td><?php echo $prix?></td>
+										<td><?php echo  '<span class="badge bg-inverse-info">'.$status_paiement.'</span>'?></td>
+										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
+													<a class="dropdown-item editbtnpaiement"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+													<a class="dropdown-item deletebtnpaiement"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td><a href="#">834521</a></td>
-											<td>2nd Dec 2020</td>
-											<td>Dreams</td>
-											<td>Online</td>
-											<td><a href="#">INV0001</a></td>
-											<td>$4,329,970.7</td>
-											<td><span class="badge bg-inverse-warning">Partially Paid</span></td>
-                                            <td class=>
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-										</td>
-										</tr>
-									</tbody>
+									</tr>
+									<?php }
+									?>
 								</table>
 							</div>
 						</div>
@@ -130,58 +132,74 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Page Content -->
 		
 			<!-- Add Client Modal -->
-			<div id="add_client" class="modal custom-modal fade" role="dialog">
+			<div id="add_paiement" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Ajouter un Client</h5>
+							<h5 class="modal-title">Ajouter un Paiement</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action = "ajouter_client.php" method ="POST">
+							<form action = "ajouter_paiement.php" method ="POST">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
-											<input class="form-control" name ="nom" type="text">
+											<label class="col-form-label">ID Client<span class="text-danger">*</span></label>
+											<input class="form-control" name ="id_client" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" name ="email" type="email">
+											<label class="col-form-label">Raison sociale du client<span class="text-danger">*</span></label>
+
+											<div class="input-group-prepend">
+														<span class="input-group-text" id="basic-addon1">@</span>
+														<input class="form-control" name ="rs_client" type="text">
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control" name ="date" type="date">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
-											<input class="form-control" name ="reference" type="text">
+											<label class="col-form-label">Moyen de paiement <span class="text-danger">*</span></label>
+											<select class="form-control floating" name="mode_de_paiement">
+															<option>Moyen de paiement</option>
+															<option value="Virement bancaire">Virement bancaire</option>
+															<option value="Chèque">Chèque</option>
+															<option value="Espèces">Espèces</option>
+															<option value="Versement">Versement</option>
+											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="adresse" type="text">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" name ="pays" type="text">
+											<label class="col-form-label">N° Facture <span class="text-danger">*</span></label>
+											<input class="form-control" name ="num_facture" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
-											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" name="tel" type="tel">
+											<label class="col-form-label">Prix <span class="text-danger">*</span></label>
+											<div class="input-group">
+													<input type="number" class="form-control floating" name="prix">
+													<div class="input-group-prepend">
+														<span class="input-group-text">DT</span>
+													</div>
+											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" name="matricule" type="text">
+											<label class="col-form-label">Status <span class="text-danger">*</span> </label>
+											<input class="form-control" name="status" type="text">
 										</div>
 									</div>
 								</div>
@@ -196,7 +214,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Add Client Modal -->
 			
 			<!-- Edit Client Modal -->
-			<div id="edit_client" class="modal custom-modal fade" role="dialog">
+			<div id="edit_paiement" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -206,54 +224,67 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</button>
 						</div>
 						<div class="modal-body">
-							<form action ="modifier_client.php" method ="POST" >
-							<div class="row">
-								<input type="hidden" name ="id" id="id">
+							<form action ="modifier_paiement.php" method ="POST" >
+									<div class="row">
+									<input type="hidden" name ="id" id="id">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Nom <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="nom" id="nom">
+											<label class="col-form-label">ID Client<span class="text-danger">*</span></label>
+											<input class="form-control" name ="id_client" type="text" id ="id_client">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">E-mail <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="email" id="email">
+											<label class="col-form-label">Raison sociale du client<span class="text-danger">*</span></label>
+											<input class="form-control" name ="rs_client"  id ="rs_client" type="text">
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control" name ="date" id ="date" type="date">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Référence <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" name="reference" id="reference">
+											<label class="col-form-label">Mode de paiement <span class="text-danger">*</span></label>
+											<select class="form-control floating" name="mode_de_paiement" id="mode_de_paiement">
+															<option>Moyen de paiement</option>
+															<option value="Virement bancaire">Virement bancaire</option>
+															<option value="Chèque">Chèque</option>
+															<option value="Espèces">Espèces</option>
+															<option value="Versement">Versement</option>
+											</select>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Adresse <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" name="adresse" id="adresse">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Pays <span class="text-danger">*</span></label>
-											<input class="form-control" type="text" id="pays" name="pays">
+											<label class="col-form-label">N° Facture <span class="text-danger">*</span></label>
+											<input class="form-control" name ="num_facture" id ="num_facture" type="text">
 										</div>
 									</div>
 									<div class="col-md-6">  
 										<div class="form-group">
-											<label class="col-form-label">Téléphone <span class="text-danger">*</span></label>
-											<input class="form-control floating" type="text" id="tel" name="tel">
+											<label class="col-form-label">Prix <span class="text-danger">*</span></label>
+											<div class="input-group">
+													
+													<input type="number" class="form-control floating" name="prix" id="prix">
+													<div class="input-group-prepend">
+														<span class="input-group-text">DT</span>
+													</div>
+											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Matricule fiscale <span class="text-danger">*</span> </label>
-											<input class="form-control" type="text" id="matricule" name="matricule">
+											<label class="col-form-label">Status <span class="text-danger">*</span> </label>
+											<input class="form-control" name="status" type="text" id="statut">
 										</div>
 									</div>
 								</div>
 								<div class="submit-section">
-									<button class="btn btn-primary submit-btn " name = "update">Enregistrer</button>
+									<button class="btn btn-primary submit-btn" name ="update">Enregistrer</button>
 								</div>
 							</form>
 						</div>
@@ -263,10 +294,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Edit Client Modal -->
 			
 			<!-- Delete Client Modal -->
-			<div class="modal custom-modal fade" id="delete_client" role="dialog">
+			<div class="modal custom-modal fade" id="effacer_paiement" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
-						<form action ="effacer_client.php" method="POST">
+						<form action ="effacer_paiement.php" method="POST">
 						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">

@@ -19,12 +19,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
                     <div class="col">
 							<h3 class="page-title">Prospects</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
 								<li class="breadcrumb-item active">Prospects</li>
 							</ul>
-						</div>
-						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_client"><i class="fa fa-plus"></i>Ajouter un prospect</a>
 						</div>
 					</div>
 				</div>
@@ -55,11 +52,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-                                        <th>ID</th>
+                                        <th class="none">ID</th>
 										<th>Raison sociale </th>
                                         <th>Email</th>
 										<th>Adresse</th>
-										<th>Ville</th>
+										<th class="none">Ville</th>
 										<th>Pays</th>
 										<th>Téléphone</th>
 										<th>Facebook</th>
@@ -88,11 +85,11 @@ if (isset($_POST['submit-search'])){
             $sw = $row['siteweb_prospect'];
        ?>
        <tr>
-           <td><?php echo $id?></td>
+           	<td class="none"><?php echo $id?></td>
 			<td><?php echo $rs?></td>
 			<td><?php echo $email?></td>
 			<td><?php echo $adresse?></td>
-			<td><?php echo $ville?></td>
+			<td class="none"><?php echo $ville?></td>
 			<td><?php echo $pays?></td>
 			<td><?php echo $tel?></td>
 			<td><?php echo $fb?></td>

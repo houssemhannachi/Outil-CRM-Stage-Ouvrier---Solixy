@@ -14,11 +14,11 @@
 
 <?php 
 	require_once('db_conn.php');
-	$query = "select * from facture";
+	$query = "SELECT * from facture ORDER BY id_facture DESC";
 	$result = mysqli_query($conn,$query);
 ?>
 <?php
-$pageName = "facture";
+$pageName = "Facture";
 session_start();
 
 if (isset($_SESSION['id'])) {
@@ -44,7 +44,11 @@ if (isset($_SESSION['id'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
+
 							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_facture"><i class="fa fa-plus"></i>Ajouter un facture</a>
+
+							<a href="ajouter_facture.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter une facture</a>
+
 						</div>
 					</div>
 				</div>
@@ -74,40 +78,31 @@ if (isset($_SESSION['id'])) {
 				<div class="row">
 					<div class="col-md-12">
 						<div class="table-responsive">
-							<table class="table table-striped custom-table datatable">
+							<table class="table table-striped custom-table datatable" id="data_table">
 								<thead>
 									<tr>
-										<th> ID </th>
-										<th>ID client </th>
-										<th>Référence</th>
-										<th>Désignation</th>
-										<th>Date</th>
-										<th>quantite</th>
-										<th>PU HT</th>
-										<th>Mantont HT</th>
+										<th>N° Facture </th>
+										<th>Date Facture</th>
+										<th>Client</th>
+										<th>Total</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id'];
-										$client= $row['id_client'];
-										$reference = $row['reference_facture'];
-										$designation = $row['designation_facture'];
-     									$date = $row['date_facture'];
-        								$quantite = $row['quantite_facture'];
-        								$puht = $row['puht_facture'];
-        								$montantht = $row['montantht_facture'];
+										$id_facture = $row['id_facture'];
+										$date_facture= $row['date_facture'];
+										$rs_client = $row['rs_client'];
+										$total_ttc = $row['total_ttc'];
+     									
 								?>
 									<tr>
-										<td><?php echo $id?></td>
-										<td><?php echo $client?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $designation?></td>
-										<td><?php echo $date?></td>
-										<td><?php echo $quantite?></td>
-										<td><?php echo $puht?></td>
-										<td><?php echo $montantht?></td>
+										<td><?php echo $id_facture?></td>
+										<td><?php echo $date_facture?></td>
+										<td><?php echo $rs_client?></td>
+
+										<td><?php echo $total_ttc?></td>
+
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -129,6 +124,7 @@ if (isset($_SESSION['id'])) {
 			</div>
 			<!-- /Page Content -->
 		
+
 			<!-- Add Facture Modal -->
 			<div id="add_facture" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -194,6 +190,11 @@ if (isset($_SESSION['id'])) {
 				</div>
 			</div>
 			<!-- /Add Facture Modal -->
+
+			<!-- Add Client Modal -->
+
+			<!-- /Add Client Modal -->
+
 			
 			<!-- Edit Facture Modal -->
 			<div id="edit_facture" class="modal custom-modal fade" role="dialog">

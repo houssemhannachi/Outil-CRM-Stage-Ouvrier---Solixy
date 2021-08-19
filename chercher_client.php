@@ -16,35 +16,44 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 				<!-- Page Header -->
 				<div class="page-header">
 					<div class="row align-items-center">
-                    <div class="col">
+						<div class="col">
 							<h3 class="page-title">Clients</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
 								<li class="breadcrumb-item active">Clients</li>
 							</ul>
 						</div>
+
 					</div>
 				</div>
-                <div class="row filter-row">
-					<form action = "chercher_prospect.php" method ="POST" >
-						<div class=""style="float:left;">  
+				<!-- /Page Header -->
+				
+				<!-- Search Filter -->
+				<div class="row filter-row">
+					<form action = "chercher_client.php" method ="POST" >
+						<div class="col-sm-6 col-md-3"style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="rsch">
 								<label class="focus-label">Raison sociale</label>
 							</div>
 						</div>
-						<div class=""style="float:left;">  
+						<div class="col-sm-6 col-md-3"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="refch">
+								<label class="focus-label">Référence</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3 "style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="telch">
 								<label class="focus-label">Téléphone</label>
 							</div>
 						</div>
 
-						<div class="" style="float:left;">  
-							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un prospect </button>
+						<div class="col-sm-6 col-md-3" style="float:left;">  
+							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un client </button>
 						</div>
 					</form>     
-                </div>   
 				</div>
                 <div class="row">
 					<div class="col-md-12">
@@ -111,10 +120,10 @@ if (isset($_POST['submit-search'])){
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item " href="profile_client.php?id=<?php echo $row['id_client'];?>"><i class="fa fa-id-card m-r-5"></i> Profile</a>
+
 													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
-													
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>	
 												</div>
 											</div>
 										</td>
