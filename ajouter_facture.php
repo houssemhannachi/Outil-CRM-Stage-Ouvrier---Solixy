@@ -51,32 +51,36 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 					<div class="row">
 						<div class="col-sm-12">
+<<<<<<< HEAD
+							<form  action = "ajouter_fact.php" method ="POST">
+=======
 							<form method="POST" id="invoice_form">
+>>>>>>> f5822ce392c117b60bf816b07e83b6a9b6735b02
 								<div class="row">
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>ID Client <span class="text-danger">*</span></label>
-											<input class="form-control" name ="raisonsociale" type="text">
+											<input class="form-control" name ="idclient" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>Client <span class="text-danger">*</span></label>
-											<input class="form-control" name ="adresse" type="text">
+											<input class="form-control" name ="client" type="text">
 										</div>
 									</div>
 									
 									<div class="col-sm-6 col-md-3">
-                                         <div class="form-group">
+                         <div class="form-group">
 											<label>Matricule fiscale <span class="text-danger">*</span> </label>
 											<input class="form-control" name="matriculefiscale" type="text">
 										</div>
 									</div>
                                     <div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>Due Date <span class="text-danger">*</span></label>
+											<label> Date <span class="text-danger">*</span></label>
 											
-												<input class="form-control" type="date">
+												<input class="form-control" type="date" name="date">
 
 										</div>
 									</div>
@@ -89,17 +93,36 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<table class="table table-hover table-white" id="invoice-item-table">
 												<thead>
 													<tr>
-														<th style="width: 20px">#</th>
+														<th style="width: 20px"></th>
 														<th class="col-sm-2">RÉF</th>
 														<th class="col-md-6">DÉSIGNATION</th>
-														<th style="width:100px;">PU HT</th>
-														<th style="width:80px;">QTÉ</th>
+														<th style="width:100px;">QTÉ</th>
+														<th style="width:80px;">PU HT</th>
 														<th>MONTANT HT</th>
 														<th><button type=button class="text-success font-18" name="add_row" id="add_row" style="float:right"><i class="fa fa-plus"></i> </a></th>
 													</tr>
 												</thead>
 												<tbody>
 												<tr>
+<<<<<<< HEAD
+													<td>1</td>
+													<td>
+														<input class="form-control" name ="reference" type="text">
+													</td>
+													<td>
+													<input class="form-control" name ="designation" type="text">
+													</td>
+													<td>
+													<input class="form-control" name ="quantite" type="number">
+													</td>
+													<td>
+													<input class="form-control" name ="puht" type="number">
+													</td>
+													<td>
+													<input class="form-control" name ="montantht" type="number">
+													</td>
+													<td><a class="text-success font-18" name="Add" id="add"><i class="fa fa-plus"></i></a></td>
+=======
 													<td><span id="sr_no">1</span></td>
 													<td><input class="form-control" type="text" style="min-width:150px" name="item_name[]" id="item_name1"></td>
 													<td><input class="form-control item_des" type="text" style="min-width:150px"name="item_des[]" id="item_des1" data-srno="1"></td>
@@ -107,6 +130,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													<td><input class="form-control item_qte" style="width:80px" type="text" name="item_qte[]" id="item_qte1" data-srno="1"></td>
 													<td><input class="form-control item_final" readonly style="width:120px" type="text" name="item_final[]" id="item_final1" data-srno="1"></td>
 													
+>>>>>>> f5822ce392c117b60bf816b07e83b6a9b6735b02
 												</tr>
 
 												</tbody>
@@ -126,15 +150,32 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													<tr>
 														<td colspan="5" class="text-right">Taxe</td>
 														<td style="text-align: right; padding-right: 30px;width: 230px">
-															<input class="form-control text-right" value="0" type="text">
+															<input class="form-control" name ="taxe" type="number">
 														</td>
 													</tr>
 													<tr>
 														<td colspan="5" class="text-right">
-															Discount %
+															TVA %
 														</td>
 														<td style="text-align: right; padding-right: 30px;width: 230px">
-															<input class="form-control text-right" type="text">
+															<input class="form-control text-right" name="tva"type="number">
+														</td>
+
+														<tr>
+														<td colspan="5" class="text-right">
+															Timber fiscale 
+														</td>
+														<td style="text-align: right; padding-right: 30px;width: 230px">
+															<input class="form-control text-right" name="timberfiscale"type="number">
+														</td>
+													</tr>
+													<tr>
+														<td colspan="5" style="text-align: right; font-weight: bold">
+															Total Taxe
+														</td>
+														<td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
+														<input class="form-control text-right" name="totaletaxe"type="number">
+
 														</td>
 													</tr>
 													<tr>
@@ -142,7 +183,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 															Total TTC
 														</td>
 														<td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
+<<<<<<< HEAD
+														<input class="form-control" name ="montanttt" type="number">
+=======
 															<span id="final_total_amt"> </span>
+>>>>>>> f5822ce392c117b60bf816b07e83b6a9b6735b02
 														</td>
 													</tr>
 												</tbody>
@@ -152,9 +197,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									</div>
 								</div>
 								<div class="submit-section">
+<<<<<<< HEAD
+									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+=======
 									<input type="hidden" name="total_item" id="total_item" value="1"/>
 									<input type="submit" name="creer_facture" id="creer_facture" value=Créer class="btn btn-primary submit-btn m-r-10"/>
 									<button class="btn btn-primary submit-btn">Save</button>
+>>>>>>> f5822ce392c117b60bf816b07e83b6a9b6735b02
 								</div>
 							</form>
 						</div>
