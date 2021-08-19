@@ -21,7 +21,7 @@
 $pageName = "Facture";
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['id'])) {
 
 ?>
   <?php require "dashboard.php";?>
@@ -44,7 +44,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
+
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_facture"><i class="fa fa-plus"></i>Ajouter un facture</a>
+
 							<a href="ajouter_facture.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter une facture</a>
+
 						</div>
 					</div>
 				</div>
@@ -120,11 +124,79 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			</div>
 			<!-- /Page Content -->
 		
+
+			<!-- Add Facture Modal -->
+			<div id="add_facture" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Ajouter un Facture</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action = "ajouter_fact.php" method ="POST">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">id client <span class="text-danger">*</span></label>
+											<input class="form-control" name ="client" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Reference <span class="text-danger">*</span></label>
+											<input class="form-control" name ="refernece" type="reference">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Designation <span class="text-danger">*</span></label>
+											<input class="form-control" name ="reference" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="date" type="date">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-form-label">Quantite<span class="text-danger">*</span></label>
+											<input class="form-control" name ="quantite" type="number">
+										</div>
+									</div>
+									<div class="col-md-4">  
+										<div class="form-group">
+											<label class="col-form-label">PU HT <span class="text-danger">*</span></label>
+											<input class="form-control floating" name="puht" type="number">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="col-form-label">Mantant HT <span class="text-danger">*</span> </label>
+											<input class="form-control" name="montantht" type="number">
+										</div>
+									</div>
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Add Facture Modal -->
+
 			<!-- Add Client Modal -->
 
 			<!-- /Add Client Modal -->
+
 			
-			<!-- Edit Client Modal -->
+			<!-- Edit Facture Modal -->
 			<div id="edit_facture" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
@@ -188,9 +260,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					</div>
 				</div>
 			</div>
-			<!-- /Edit Client Modal -->
+			<!-- /Edit Facture Modal -->
 			
-			<!-- Delete Client Modal -->
+			<!-- Delete Facture Modal -->
 			<div class="modal custom-modal fade" id="delete_facture" role="dialog">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
@@ -216,7 +288,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					</div>
 				</div>
 			</div>
-			<!-- /Delete Client Modal -->
+			<!-- /Delete Facture Modal -->
 			
 		</div>
 		<!-- /Page Wrapper -->
