@@ -14,7 +14,7 @@
 
 <?php 
 	require_once('db_conn.php');
-	$query = "select * from facture";
+	$query = "SELECT * from facture ORDER BY id_facture DESC";
 	$result = mysqli_query($conn,$query);
 ?>
 <?php
@@ -74,40 +74,31 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="row">
 					<div class="col-md-12">
 						<div class="table-responsive">
-							<table class="table table-striped custom-table datatable">
+							<table class="table table-striped custom-table datatable" id="data_table">
 								<thead>
 									<tr>
-										<th> ID </th>
-										<th>ID client </th>
-										<th>Référence</th>
-										<th>Désignation</th>
-										<th>Date</th>
-										<th>quantite</th>
-										<th>PU HT</th>
-										<th>Mantont HT</th>
+										<th>N° Facture </th>
+										<th>Date Facture</th>
+										<th>Client</th>
+										<th>Total</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
-										$id = $row['id'];
-										$client= $row['id_client'];
-										$reference = $row['reference_facture'];
-										$designation = $row['designation_facture'];
-     									$date = $row['date_facture'];
-        								$quantite = $row['quantite_facture'];
-        								$puht = $row['puht_facture'];
-        								$montantht = $row['montantht_facture'];
+										$id_facture = $row['id_facture'];
+										$date_facture= $row['date_facture'];
+										$rs_client = $row['rs_client'];
+										$total_ttc = $row['total_ttc'];
+     									
 								?>
 									<tr>
-										<td><?php echo $id?></td>
-										<td><?php echo $client?></td>
-										<td><?php echo $reference?></td>
-										<td><?php echo $designation?></td>
-										<td><?php echo $date?></td>
-										<td><?php echo $quantite?></td>
-										<td><?php echo $puht?></td>
-										<td><?php echo $montantht?></td>
+										<td><?php echo $id_facture?></td>
+										<td><?php echo $date_facture?></td>
+										<td><?php echo $rs_client?></td>
+
+										<td><?php echo $total_ttc?></td>
+
 										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -130,69 +121,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Page Content -->
 		
 			<!-- Add Client Modal -->
-			<div id="add_client" class="modal custom-modal fade" role="dialog">
-				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Ajouter un Facture</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<form action = "ajouter_fact.php" method ="POST">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">id client <span class="text-danger">*</span></label>
-											<input class="form-control" name ="client" type="text">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Reference <span class="text-danger">*</span></label>
-											<input class="form-control" name ="reference" type="reference">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Designation <span class="text-danger">*</span></label>
-											<input class="form-control" name ="designation" type="text">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label class="col-form-label">Date <span class="text-danger">*</span></label>
-											<input class="form-control floating" name ="date" type="date">
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<label class="col-form-label">Quantite<span class="text-danger">*</span></label>
-											<input class="form-control" name ="quantite" type="number">
-										</div>
-									</div>
-									<div class="col-md-4">  
-										<div class="form-group">
-											<label class="col-form-label">PU HT <span class="text-danger">*</span></label>
-											<input class="form-control floating" name="puht" type="number">
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<label class="col-form-label">Mantant HT <span class="text-danger">*</span> </label>
-											<input class="form-control" name="montantht" type="number">
-										</div>
-									</div>
-								</div>
-								<div class="submit-section">
-									<button class="btn btn-primary submit-btn" name ="submit">Enregistrer</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+
 			<!-- /Add Client Modal -->
 			
 			<!-- Edit Client Modal -->
