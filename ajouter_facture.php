@@ -14,7 +14,7 @@
 
 <?php 
 	require_once('db_conn.php');
-	$query = "select * from facture";
+	$query = "select * from produits";
 	$result = mysqli_query($conn,$query);
 ?>
 <?php
@@ -42,10 +42,70 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
 								<li class="breadcrumb-item"><a href="facture.php">Facture</a></li>
                                 <li class="breadcrumb-item active">Ajouter une facture</li>
-							</ul>
+								</ul>
+						</div>
+						<div class="col-auto float-right ml-auto">
+
+
+							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_product"><i class="fa fa-plus"></i>Ajouter un produit</a>
+
 						</div>
 					</div>
+					
                 </div>
+				<div id="add_product" class="modal custom-modal fade" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Ajouter un Produit</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action = "ajouter_produit.php" method ="POST">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Référence<span class="text-danger">*</span></label>
+											<input class="form-control" name ="reference" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Désignation<span class="text-danger">*</span></label>
+											<input class="form-control" name ="designation" type="text">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Quantité <span class="text-danger">*</span></label>
+											<input class="form-control" name ="quantite" type="number">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">PU HT <span class="text-danger">*</span></label>
+											<input class="form-control floating" name ="puht" type="double">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="col-form-label">Montant HT<span class="text-danger">*</span></label>
+											<input class="form-control" name ="montantht" type="double">
+										</div>
+									</div>
+
+									
+								</div>
+								<div class="submit-section">
+									<button class="btn btn-primary submit-btn" name ="submit">Ajouter</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 					<div class="row">
@@ -98,23 +158,37 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 													</tr>
 												</thead>
 												<tbody>
+												<?php 
+									while($row=mysqli_fetch_assoc($result)) {
+										
+										$id_produit = $row['id_produit'];
+										$reference = $row['reference'];
+										$designation = $row['designation'];
+										$quantite = $row['quantite'];
+     									$puht = $row['puht'];
+        								$montantht = $row['montantht'];
+								?>
+									<tr>
+										<td><?php echo $id_produit?></td>
+										
+										<td><?php echo $reference?></td>
+										<td><?php echo $designation?></td>
+										<td><?php echo $quantite?></td>
+										<td><?php echo $puht?></td>
+										<td><?php echo $montantht?></td>
+									</tr>
+									<?php }
+									?>
+
+
+
 												<tr>
-													<td>1</td>
-													<td>
-														<input class="form-control" name ="reference" type="text">
-													</td>
-													<td>
-													<input class="form-control" name ="designation" type="text">
-													</td>
-													<td>
-													<input class="form-control" name ="quantite" type="number">
-													</td>
-													<td>
-													<input class="form-control" name ="puht" type="number">
-													</td>
-													<td>
-													<input class="form-control" name ="montantht" type="number">
-													</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
 													<td><a class="text-success font-18" name="Add" id="add"><i class="fa fa-plus"></i></a></td>
 												</tr>
 
