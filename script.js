@@ -197,14 +197,68 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  var i =1;
-  $('#add').click(function(){
-    i++;
-    $('#dynamic_field').append('<tr id="row'+i+'"><td> </td><td><input class="form-control" type="text" style="min-width:150px"></td><td><input class="form-control" type="text" style="min-width:150px"></td><td><input class="form-control" style="width:100px" type="text"></td><td><input class="form-control" style="width:80px" type="text"></td><td><input class="form-control" readonly style="width:120px" type="text"></td><td><a class="text-danger font-18 btn_remove" name="Delete" id="'+i+'"><i class="fa fa-trash-o"></i></a></td></tr>')
-  });
-  $(document).on('click','.btn_remove',function(){
-    var button_id = $(this).attr('id');
-    $("#row"+button_id+'').remove();
+	var DOMAIN = "http://localhost/inv_project/public_html";
 
-  });
+	addNewRow();
+
+	$("#add").click(function(){
+		addNewRow();
+	})
+
+	function addNewRow(){
+		$.ajax({
+			url : "process.php",
+			method : "POST",
+			data : {getNewOrderItem:1},
+			success : function(data){
+				$("#invoice_item").append(data);
+				var n = 0;
+				$(".number").each(function(){
+					$(this).html(++n);
+				})
+			}
+		})
+	}
+
+	$("#remove").click(function(){
+		$("#invoice_item").children("tr:last").remove();
+		calculate(0,0);
+	})
 })
+
+
+function calculate(dis,paid){
+  var sub_total = 0;
+  var gst = 0;
+  var net_total = 0;
+  var discount = dis;
+  var paid_amt = paid;
+  var due = 0;
+  $(".amt").each(function(){
+    sub_total = sub_total + ($(this).html() * 1);
+  })
+  gst = 0.18 * sub_total;
+  net_total = gst + sub_total;
+  net_total = net_total - discount;
+  due = net_total - paid_amt;
+  $("#gst").val(gst);
+  $("#sub_total").val(sub_total);
+  
+  $("#discount").val(discount);
+  $("#net_total").val(net_total);
+  //$("#paid")
+  $("#due").val(due);
+
+}
+
+$("#discount").keyup(function(){
+  var discount = $(this).val();
+  calculate(discount,0);
+})
+
+$("#paid").keyup(function(){
+  var paid = $(this).val();
+  var discount = $("#discount").val();
+  calculate(discount,paid);
+})
+
