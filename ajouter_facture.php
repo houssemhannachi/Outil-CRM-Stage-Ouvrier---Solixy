@@ -46,11 +46,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 					</div>
                 </div>
+				
 
 
 					<div class="row">
 						<div class="col-sm-12">
-							<form>
+							<form method="POST" id="invoice_form">
 								<div class="row">
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
@@ -85,7 +86,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
 										<div class="table-responsive">
-											<table class="table table-hover table-white" id="dynamic_field">
+											<table class="table table-hover table-white" id="invoice-item-table">
 												<thead>
 													<tr>
 														<th style="width: 20px">#</th>
@@ -94,28 +95,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 														<th style="width:100px;">PU HT</th>
 														<th style="width:80px;">QTÉ</th>
 														<th>MONTANT HT</th>
-														<th> </th>
+														<th><button type=button class="text-success font-18" name="add_row" id="add_row" style="float:right"><i class="fa fa-plus"></i> </a></th>
 													</tr>
 												</thead>
 												<tbody>
 												<tr>
-													<td>1</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" type="text" style="min-width:150px">
-													</td>
-													<td>
-														<input class="form-control" style="width:100px" type="text">
-													</td>
-													<td>
-														<input class="form-control" style="width:80px" type="text">
-													</td>
-													<td>
-														<input class="form-control" readonly style="width:120px" type="text">
-													</td>
-													<td><a class="text-success font-18" name="Add" id="add"><i class="fa fa-plus"></i></a></td>
+													<td><span id="sr_no">1</span></td>
+													<td><input class="form-control" type="text" style="min-width:150px" name="item_name[]" id="item_name1"></td>
+													<td><input class="form-control item_des" type="text" style="min-width:150px"name="item_des[]" id="item_des1" data-srno="1"></td>
+													<td><input class="form-control item_price" style="width:100px" type="text" name="item_price[]" id="item_price1" data-srno="1"></td>
+													<td><input class="form-control item_qte" style="width:80px" type="text" name="item_qte[]" id="item_qte1" data-srno="1"></td>
+													<td><input class="form-control item_final" readonly style="width:120px" type="text" name="item_final[]" id="item_final1" data-srno="1"></td>
+													
 												</tr>
 
 												</tbody>
@@ -151,7 +142,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 															Total TTC
 														</td>
 														<td style="text-align: right; padding-right: 30px; font-weight: bold; font-size: 16px;width: 230px">
-															$ 0.00
+															<span id="final_total_amt"> </span>
 														</td>
 													</tr>
 												</tbody>
@@ -161,7 +152,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									</div>
 								</div>
 								<div class="submit-section">
-									<button class="btn btn-primary submit-btn m-r-10">Save & Send</button>
+									<input type="hidden" name="total_item" id="total_item" value="1"/>
+									<input type="submit" name="creer_facture" id="creer_facture" value=Créer class="btn btn-primary submit-btn m-r-10"/>
 									<button class="btn btn-primary submit-btn">Save</button>
 								</div>
 							</form>
