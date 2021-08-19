@@ -201,3 +201,18 @@ $(document).ready(function(){
 })
 
 
+$(document).ready(function(){
+  $('.deletebtn').on('click', function(){
+    $('#delete_devis').modal('show');
+    $tr = $(this).closest('tr');
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+    console.log(data);
+
+    $('#delete').val(data[1]);
+
+  });
+});
+
+
