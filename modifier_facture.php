@@ -70,7 +70,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
                			<?php echo $_SESSION['mobile']; ?><br>	      						      									
 		      		</div>      		
 		      		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-		      			<h3>To,</h3>
+		      			<h3>À,</h3>
 		      			<div class="form-group">
 							<input value="<?php echo $invoiceValues['order_receiver_name']; ?>" type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
 						</div>
@@ -127,7 +127,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		      	<div class="row">	
 				 	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group mt-3 mb-3">
-								<label>Subtotal: &nbsp;</label>
+								<label>Total HT: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-prepend currency">
 										<span class="input-group-text currency">$</span>
@@ -138,7 +138,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group">
-								<label>Tax Rate: &nbsp;</label>
+								<label>Taux T.V.A: &nbsp;</label>
 								<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text">%</span>
@@ -149,7 +149,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group">
-								<label>Tax Amount: &nbsp;</label>
+								<label>Total T.V.A: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
 									<input value="<?php echo $invoiceValues['order_total_tax']; ?>" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
@@ -158,7 +158,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">						
 							<div class="form-group">
-								<label>Total: &nbsp;</label>
+								<label>Total TTC: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
 									<input value="<?php echo $invoiceValues['order_total_after_tax']; ?>" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
@@ -167,7 +167,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group">
-								<label>Amount Paid: &nbsp;</label>
+								<label>Montant payé: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
 									<input value="<?php echo $invoiceValues['order_amount_paid']; ?>" type="number" class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
@@ -176,14 +176,14 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group">
-								<label>Amount Due: &nbsp;</label>
+								<label>Montant à payer: &nbsp;</label>
 								<div class="input-group">
 									<div class="input-group-append currency"><span class="input-group-text">$</span></div>
 									<input value="<?php echo $invoiceValues['order_total_amount_due']; ?>" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
 								</div>
 							</div>
 							</div>
-		     		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+		     		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 center">
 		      			<h3>Notes: </h3>
 		      			<div class="form-group">
 							<textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"><?php echo $invoiceValues['note']; ?></textarea>
