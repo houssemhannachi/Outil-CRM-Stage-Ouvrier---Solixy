@@ -81,10 +81,10 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>À,</h3>
                <div class="form-group">
-                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" autocomplete="off">
+                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale du client" autocomplete="off">
                </div>
                <div class="form-group">
-                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"></textarea>
+                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse du client"></textarea>
                </div>
             </div>
          </div>
@@ -118,10 +118,10 @@
                </table>
             </div>
          </div>
-         <div class="row">
+         <div class="row" style="display : table; margin : 0 auto;">
             <div class="col-xs-12">
-               <button class="btn btn-danger delete" id="removeRows" type="button">- Delete</button>
-               <button class="btn btn-success" id="addRows" type="button">+ Add More</button>
+               <button class="btn btn-danger delete btn-item" id="removeRows" type="button">-</button>
+               <button class="btn btn-success btn-item" id="addRows" type="button">+</button>
             </div>
          </div>
          <div class="row">
