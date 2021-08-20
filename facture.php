@@ -71,9 +71,8 @@ $invoice->checkLoggedIn();
                                           <th>Client</th>
                                           <th> Date Facture</th>
                                           <th>Total</th>
-                                          <th>Print</th>
-                                          <th>Edit</th>
-                                          <th>Delete</th>
+										  <th>Action</th>
+
                                         </tr>
                                     </thead>
         <?php		
@@ -86,9 +85,18 @@ $invoice->checkLoggedIn();
                 <td>'.$invoiceDetails["order_receiver_name"].'</td>
                 <td>'.$invoiceDate.'</td>
                 <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
-                <td><a href="print_invoice.php?invoice_id='.$invoiceDetails["order_id"].'" title="Print Invoice"><button class="btn btn-primary btn-sm"><i class="fa fa-print"></i></button></a></td>
-                <td><a href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"  title="Edit Invoice"><button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button></a></td>
-                <td><a href="delete-invoice.php?order_id='.$invoiceDetails['order_id'].'" title="Delete Invoice"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a></td>
+				<td class=>
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+
+												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["order_id"].'"><i class="fa fa-print"></i> Imprimer</a>
+												<a class="dropdown-item" href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="delete-invoice.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
+												</div>
+											</div>
+										</td>
+
               </tr>
             ';
         }       
