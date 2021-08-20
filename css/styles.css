@@ -594,3 +594,11 @@ header.masthead {
 #logo {
   width: 70px;
 }
+
+
+.btn-item{
+  height: auto;
+    width: 40px;
+    float: right;
+
+}
