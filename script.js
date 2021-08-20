@@ -197,7 +197,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-	var DOMAIN = "http://localhost/inv_project/public_html";
+	
 
 	addNewRow();
 
@@ -225,40 +225,4 @@ $(document).ready(function(){
 		calculate(0,0);
 	})
 })
-
-
-function calculate(dis,paid){
-  var sub_total = 0;
-  var gst = 0;
-  var net_total = 0;
-  var discount = dis;
-  var paid_amt = paid;
-  var due = 0;
-  $(".amt").each(function(){
-    sub_total = sub_total + ($(this).html() * 1);
-  })
-  gst = 0.18 * sub_total;
-  net_total = gst + sub_total;
-  net_total = net_total - discount;
-  due = net_total - paid_amt;
-  $("#gst").val(gst);
-  $("#sub_total").val(sub_total);
   
-  $("#discount").val(discount);
-  $("#net_total").val(net_total);
-  //$("#paid")
-  $("#due").val(due);
-
-}
-
-$("#discount").keyup(function(){
-  var discount = $(this).val();
-  calculate(discount,0);
-})
-
-$("#paid").keyup(function(){
-  var paid = $(this).val();
-  var discount = $("#discount").val();
-  calculate(discount,paid);
-})
-
