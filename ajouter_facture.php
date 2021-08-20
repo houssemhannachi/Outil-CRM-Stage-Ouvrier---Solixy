@@ -17,6 +17,7 @@
 
 <?php 
    session_start();
+   $_SESSION["user_id"]= 1;
    $_SESSION["name"]= "Solixy";
    $_SESSION["address"]="Avenue de la république </br> Immeuble Al Ahram 4ème étage";
    $_SESSION["ville"] = "Gabes - Tunisie";
@@ -31,7 +32,7 @@
    	
    if(!empty($_POST['companyName']) && $_POST['companyName']) {	
    	$invoice->saveInvoice($_POST);
-   	header("Location:factures.php");
+   	header("Location:facture.php");
       
    }
    ?>
@@ -198,7 +199,7 @@
                </div>
                <br>
                <div class="form-group">
-                  <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="Id">
+                  <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
                   <input data-loading-text="Enregistrer facture ..." type="submit" name="invoice_btn" value="Ajouter facture" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">           
                </div>
             </div>
