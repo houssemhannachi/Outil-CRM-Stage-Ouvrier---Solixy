@@ -1,17 +1,9 @@
 <link rel="stylesheet" href="assets/css/styleinvoice.css?v=<?php echo time();?>">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-			
-			<!-- Fontawesome CSS -->
-			<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-			
-			<!-- Lineawesome CSS -->
-			<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-			
-			<!-- Select2 CSS -->
-			<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-			
-			<!-- Main CSS -->
-			<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
          
 
 
@@ -63,9 +55,9 @@
                      <div class="cards">
                        <div class="card-bodys">
                           <form action="" id="invoice-form" method="post" class="invoice-form" role="form" novalidate="">
-      <div class="load-animate animated fadeInUp">
-         <div class="row">
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <div class="load-animate animated fadeInUp">
+                              <div class="row">
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
               
           
             </div>
