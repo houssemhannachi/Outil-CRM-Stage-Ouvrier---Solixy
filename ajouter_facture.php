@@ -164,7 +164,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Amount Paid: &nbsp;</label>
+              <label>Montant payé: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
@@ -175,7 +175,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Amount Due: &nbsp;</label>
+              <label>Montant à payer: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
