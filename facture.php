@@ -45,7 +45,7 @@ $invoice->checkLoggedIn();
 					<div class="col-sm-6 col-md-3">  
 						<div class="form-group form-focus">
 							<input type="text" class="form-control floating">
-							<label class="focus-label">FActure  ID</label>
+							<label class="focus-label">N° Facture</label>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-3">  
@@ -91,7 +91,7 @@ $invoice->checkLoggedIn();
 												<div class="dropdown-menu dropdown-menu-right">
 												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["order_id"].'"><i class="fa fa-print"></i> Imprimer</a>
 												<a class="dropdown-item" href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
-												<a class="dropdown-item" href="delete-invoice.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
+												<a class="dropdown-item" href="effacer_facture.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
