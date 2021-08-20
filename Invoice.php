@@ -4,7 +4,7 @@ class Invoice{
     private $user  = 'root';
     private $password   = "";
     private $database  = "sol";   
-	private $invoiceUserTable = 'users';	
+	private $invoiceUserTable = 'invoice_user';	
     private $invoiceOrderTable = 'invoice_order';
 	private $invoiceOrderItemTable = 'invoice_order_item';
 	private $dbConnect = false;
@@ -39,13 +39,13 @@ class Invoice{
 	}
 	public function loginUsers($email, $password){
 		$sqlQuery = "
-			SELECT id, email, name, address, mobile 
+			SELECT id, email, first_name, last_name, address, mobile 
 			FROM ".$this->invoiceUserTable." 
 			WHERE email='".$email."' AND password='".$password."'";
         return  $this->getData($sqlQuery);
 	}	
 	public function checkLoggedIn(){
-		if(!$_SESSION['id']) {
+		if(!$_SESSION['userid']) {
 			header("Location:index.php");
 		}
 	}		
