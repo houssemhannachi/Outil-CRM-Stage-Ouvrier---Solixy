@@ -7,9 +7,10 @@
 <link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
 <?php 
 session_start();
+$pageName ="Factures";
 include('dashboard.php');
 include 'Invoice.php';
-$pageName ="Factures";
+
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 ?>
