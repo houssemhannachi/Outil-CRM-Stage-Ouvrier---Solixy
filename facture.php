@@ -90,7 +90,7 @@ $invoice->checkLoggedIn();
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
 												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["order_id"].'"><i class="fa fa-print"></i> Imprimer</a>
-												<a class="dropdown-item" href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="modifier_facture.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
 												<a class="dropdown-item" href="effacer_facture.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
