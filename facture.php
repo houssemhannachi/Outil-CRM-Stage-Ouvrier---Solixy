@@ -51,7 +51,7 @@ $invoice->checkLoggedIn();
 					<div class="col-sm-6 col-md-3">  
 						<div class="form-group form-focus">
 							<input type="text" class="form-control floating">
-							<label class="focus-label">Reference</label>
+							<label class="focus-label">Client</label>
 						</div>
 					</div>
 						
