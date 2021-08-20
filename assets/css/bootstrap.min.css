@@ -2293,7 +2293,8 @@ textarea.form-control {
 }
 
 .form-group {
-	margin-bottom: 1rem
+	margin-bottom: 1rem;
+
 }
 
 .form-text {
@@ -2801,8 +2802,7 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #28a745;
 	border-color: #28a745;
-	height: 50px;
-	width: 100px;	
+
 
 
 
@@ -2929,8 +2929,6 @@ fieldset:disabled a.btn {
 	color: #fff;
 	background-color: #dc3545;
 	border-color: #dc3545;
-	height: 50px;
-	width: 100px;
 
 }
 
@@ -10717,5 +10715,10 @@ a.text-dark:hover {
 
 .informations {
 	line-height:1.7;
+}
+
+.center {
+	display: table;
+    margin: 0 auto;
 }
 /*# sourceMappingURL=bootstrap.min.css.map */
