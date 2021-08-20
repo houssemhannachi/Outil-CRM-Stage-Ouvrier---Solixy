@@ -31,7 +31,7 @@
    	
    if(!empty($_POST['companyName']) && $_POST['companyName']) {	
    	$invoice->saveInvoice($_POST);
-   	header("Location:invoice_list.php");
+   	header("Location:factures.php");
       
    }
    ?>
@@ -127,40 +127,40 @@
          <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Subtotal: &nbsp;</label>
+              <label>Montant HT: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Subtotal">
+            <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Montant HT" >
           </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Tax Rate: &nbsp;</label>
+              <label>Taux T.V.A: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">%</span>
             </div>
-           <input value="" type="number" class="form-control" name="taxRate" id="taxRate" placeholder="Tax Rate">
+           <input value="" type="number" class="form-control" name="taxRate" id="taxRate" placeholder="Taux T.V.A">
           </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Tax Amount: &nbsp;</label>
+              <label>Total T.V.A: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Tax Amount">
+            <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Total T.V.A">
           </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Total: &nbsp;</label>
+              <label>Total TTC: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
@@ -198,8 +198,8 @@
                </div>
                <br>
                <div class="form-group">
-                  <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
-                  <input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">           
+                  <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="Id">
+                  <input data-loading-text="Enregistrer facture ..." type="submit" name="invoice_btn" value="Ajouter facture" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">           
                </div>
             </div>
          </div>
