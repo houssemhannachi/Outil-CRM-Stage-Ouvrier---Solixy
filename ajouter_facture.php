@@ -184,13 +184,13 @@
           </div>
               </div>
           </div>
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 center ">
                <h3>Notes: </h3>
-               <div class="form-group">
+               <div class="form-group ">
                   <textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"></textarea>
                </div>
                <br>
-               <div class="form-group">
+               <div class="form-group ">
                   <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
                   <input data-loading-text="Enregistrer facture ..." type="submit" name="invoice_btn" value="Ajouter facture" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">           
                </div>
