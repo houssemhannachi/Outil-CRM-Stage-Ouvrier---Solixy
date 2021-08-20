@@ -98,11 +98,11 @@
                         <label class="custom-control-label" for="checkAll"></label>
                         </div>
                     </th>
-                     <th width="15%">Item No</th>
-                     <th width="38%">Item Name</th>
-                     <th width="15%">Quantity</th>
-                     <th width="15%">Price</th>
-                     <th width="15%">Total</th>
+                     <th width="15%">N°</th>
+                     <th width="38%">Désignation</th>
+                     <th width="15%">Quantité</th>
+                     <th width="15%">Pu HT</th>
+                     <th width="15%">Montant HT</th>
                   </tr>
                   <tr>
                      <td><div class="custom-control custom-checkbox">
