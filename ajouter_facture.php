@@ -120,12 +120,12 @@
          <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Montant HT: &nbsp;</label>
+              <label>Total HT: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Montant HT" >
+            <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Total HT" >
           </div>
               </div>
           </div>
