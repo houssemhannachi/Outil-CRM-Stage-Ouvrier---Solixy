@@ -20,7 +20,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							<h3 class="page-title">Clients</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
-								<li class="breadcrumb-item active">Clients</li>
+								<li class="breadcrumb-item">Clients</li>
+								<li class="breadcrumb-item active">Chercher Client</li>
 							</ul>
 						</div>
 
@@ -140,7 +141,7 @@ if (isset($_POST['submit-search'])){
 <?php
    }
    else {
-       echo 'NO DATA';
+       echo '<tr style="background-color:initial"> <td >Aucune donnée disponible</td> </tr>';
 
    }
 }
@@ -279,14 +280,7 @@ else
 					</div>
 				</div>
 			</div>
-	<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/popper.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+
 	<script src="script.js?v=<?php echo time();?>"></script>
 
 </body>
