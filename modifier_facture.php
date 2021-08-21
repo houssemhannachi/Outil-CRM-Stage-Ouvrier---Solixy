@@ -190,9 +190,9 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 						</div>
 						<br>
 						<div class="form-group">
-							<input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
+							<input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="userId">
 							<input type="hidden" value="<?php echo $invoiceValues['order_id']; ?>" class="form-control" name="invoiceId" id="invoiceId">
-			      			<input data-loading-text="Updating Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm">
+			      			<input data-loading-text="Mise à jour facture ..." type="submit" name="invoice_btn" value="Modifier" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">
 			      		</div>
 						
 		      		</div>
