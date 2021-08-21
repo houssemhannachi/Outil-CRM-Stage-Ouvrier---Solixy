@@ -1,16 +1,8 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-			
-			<!-- Fontawesome CSS -->
-			<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-			
-			<!-- Lineawesome CSS -->
-			<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-			
-			<!-- Select2 CSS -->
-			<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-			
-			<!-- Main CSS -->
-			<link rel="stylesheet" href="assets/css/style.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
+<link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
 
 <?php 
 	require_once('db_conn.php');
@@ -364,13 +356,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	</div>
 	<!-- /Main Wrapper -->
 	
-	<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
-	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
-	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
+
+
 	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
-	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
+	
 	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
 	<script src="script.js?v=<?php echo time();?>"></script>	
 </section>
