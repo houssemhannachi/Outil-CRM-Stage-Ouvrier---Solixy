@@ -12,7 +12,7 @@ include('dashboard.php');
 include 'Invoice.php';
 
 $invoice = new Invoice();
-$invoice->checkLoggedIn();
+
 ?>
 <title>Invoice System</title>
 <script src="js/invoice.js"></script>
