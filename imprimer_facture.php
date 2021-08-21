@@ -10,7 +10,8 @@ if(!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
 }
 $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['order_date']));
 $output = '';
-$output .= '<table width="100%" border="4" cellpadding="5" cellspacing="0">
+$output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">
+	<table width="100%" border="2" cellpadding="5" cellspacing="0">
 	<tr>
 	<td colspan="2" align="center" style="font-size:20px"><b>Facture</b></td>
 	</tr>
@@ -83,6 +84,18 @@ $output .= '
 	</td>
 	</tr>
 	</table>';
+
+$output .= '
+	<table  style="margin-top:20px; border: 1px solid grey; font-size:13px">
+	<tr><td>Règlement par virement sur le compte bancaire suivant:</td></tr>
+	<tr><td>Banque: Banque Al Baraka Gabés</td></tr>
+	<tr><td>Numéro de compte : 32016788116120143169 </td></tr>
+	<tr><td>Code IBAN: TN59 32016788116120143169 </td></tr>
+	<tr><td>Code BIC/SWIFT: BEITTNTT</td></tr>
+
+	</table>
+';
+
 // create pdf of invoice	
 $invoiceFileName = 'Facture_'.$invoiceValues['order_id'].'.pdf';
 require_once 'dompdf/src/Autoloader.php';
@@ -90,7 +103,7 @@ Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 $dompdf->loadHtml(html_entity_decode($output));
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 $dompdf->stream($invoiceFileName, array("Attachment" => false));
 ?>   
