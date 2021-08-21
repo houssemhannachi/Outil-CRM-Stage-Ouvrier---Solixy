@@ -328,28 +328,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<!-- /Main Wrapper -->
 	
 	<!-- jQuery -->
-	<script src="assets/js/jquery-3.5.1.min.js?v=<?php echo time();?>""></script>
-	
-	<!-- Bootstrap Core JS -->
-	<script src="assets/js/popper.min.js?v=<?php echo time();?>""></script>
-	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Slimscroll JS -->
-	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Datatable JS -->
 	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
+	
+	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+	<script src="script.js?v=<?php echo time();?>"></script>
 	
 	<!-- Select2 JS -->
 	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
 	
 	<!-- Custom JS -->
-	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
+
 </section>
 
 
-<script src="script.js?v=<?php echo time();?>"></script>
 </body>
 </html>
 <?php 
