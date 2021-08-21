@@ -14,8 +14,8 @@ include 'Invoice.php';
 $invoice = new Invoice();
 
 ?>
-<title>Invoice System</title>
-<script src="js/invoice.js"></script>
+
+<script src="js/invoice.js?v=<?php echo time();?>"></script>
 <div class="home-content">
 		<div class="page-wrapper">
 		
@@ -41,24 +41,26 @@ $invoice = new Invoice();
 					</div>
 				</div>
 				<!-- /Page Header -->
-        <div class="row filter-row">
-					<div class="col-sm-6 col-md-3">  
-						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
+        		<!-- <div class="row filter-row">
+					<form action = "chercher_facture.php" method ="POST" >
+					<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class="form-group form-focus" >
+							<input type="text" class="form-control floating" name="numfch">
 							<label class="focus-label">N° Facture</label>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-3">  
+					<div class="col-sm-6 col-md-3" style="float:left;">  
 						<div class="form-group form-focus">
-							<input type="text" class="form-control floating">
+							<input type="text" class="form-control floating" name="clientch">
 							<label class="focus-label">Client</label>
 						</div>
 					</div>
 						
-					<div class="col-sm-6 col-md-3">  
-						<a href="#" class="btn btn-success btn-block"> Search </a>  
-					</div>     
-				</div>
+					<div class="" style="float:left;" >   
+						<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher une facture </button>
+					</div>
+				</form>   
+				</div> -->
         <!-- /Page Header -->
                <div class="row">
 
@@ -75,6 +77,7 @@ $invoice = new Invoice();
 
                                         </tr>
                                     </thead>
+									
         <?php		
 	    	$invoiceList = $invoice->getInvoiceList();
         foreach($invoiceList as $invoiceDetails){
