@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>CRM</title>
+  <title>CRM SOLIXY</title>
 
   <!-- Bootstrap core CSS -->
 
@@ -56,10 +56,10 @@
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
-     	<input type="text" name="uname" placeholder="User Name"><br>
-     	<input type="password" name="password" placeholder="Password"><br>
+     	<input type="text" name="uname" placeholder="Nom d'utilisateur"><br>
+     	<input type="password" name="password" placeholder="Mot de passe"><br>
 
-     	<button type="submit">Login</button>
+     	<button type="submit">Connexion</button>
      </form>
         </div>
       </div>
@@ -80,10 +80,6 @@
     </div>
     <!-- /.container -->
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
