@@ -355,7 +355,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<form action ="effacer_client.php" method="POST">
-						<input type="hidden" name="delete_id" id="delete_id">
+							<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
 								<h3>Supprimer ce client</h3>
@@ -373,6 +373,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								</div>
 							</div>
 						</div>
+									</form>
 					</div>
 				</div>
 			</div>
@@ -393,7 +394,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
 	
 	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
-	<script src="script.js?v=<?php echo time();?>"></script>	
+	<script src="script.js?v=<?php echo time();?>"></script>
 </section>
 
 
