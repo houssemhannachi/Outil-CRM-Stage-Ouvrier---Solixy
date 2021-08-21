@@ -26,7 +26,7 @@ require("header.php")
       </a> 
     </li>
     <li class = "<?php if($pageName == 'Factures') {echo 'act';}?>">
-      <a href="Facture.php">
+      <a href="facture.php">
         <i class='bx bx-dollar' ></i>
         <span class="links_name">Factures</span>
       </a>
