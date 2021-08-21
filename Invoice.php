@@ -45,7 +45,7 @@ class Invoice{
         return  $this->getData($sqlQuery);
 	}	
 	public function checkLoggedIn(){
-		if(!$_SESSION['userid']) {
+		if(!$_SESSION['user_id']) {
 			header("Location:index.php");
 		}
 	}		
@@ -74,12 +74,12 @@ class Invoice{
 	}	
 	public function getInvoiceList(){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
-			WHERE user_id = '".$_SESSION['userid']."'";
+			WHERE user_id = '".$_SESSION['user_id']."'";
 		return  $this->getData($sqlQuery);
 	}	
 	public function getInvoice($invoiceId){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
-			WHERE user_id = '".$_SESSION['userid']."' AND order_id = '$invoiceId'";
+			WHERE user_id = '".$_SESSION['user_id']."' AND order_id = '$invoiceId'";
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
