@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 21 août 2021 à 13:24
+-- Généré le : lun. 23 août 2021 à 10:04
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -48,8 +48,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id_client`, `rs_client`, `ref_client`, `fj_client`, `email_client`, `adresse_client`, `ville_client`, `pays_client`, `tel_client`, `sw_client`, `mf_client`, `riprib_client`, `tauxtva_client`) VALUES
-(2, 'CA1920', 'Houssem', 'SA', 'houssem.hannachi@enis.tn', 'Rue el Afrah', 'Metouia', 'Tunisie', '12344', 'www.houssem.Com', '13267', 12222, 212112),
-(3, 'Maher', 'Clubiste', 'SA', 'maher@gmail.com', 'Rue el Afrah', 'Metouia', 'Tunisie', '1234567', 'aaa', '13267', 0, 22222);
+(2, 'Houssem', 'CA1920', 'SA', 'houssem.hannachi@enis.tn', 'Rue el Afrah', 'Metouia', 'Tunisie', '222222', 'www.houssem.Com', '13267', 12222, 212112);
 
 -- --------------------------------------------------------
 
@@ -97,7 +96,8 @@ INSERT INTO `invoice_order` (`user_id`, `order_id`, `order_receiver_name`, `orde
 (1, 5, 'Assestit Company', '247 Clan Alpine Way', '4116', '288.12', '7', '4404.12', '4404.12', '0', '2021-07-12 00:06:31', 'none at the moment!!'),
 (1, 13, 'HAHHAHAH', 'HAHHAHHAHA', '49377284', '987545.68', '2', '50364829.68', '50364829', '0.6799999997019768', '2021-08-20 15:38:27', ''),
 (1, 14, 'Ghassen', 'Metouia', '2000', '100', '5', '2100', '100', '2000', '2021-08-20 15:48:07', ''),
-(1, 16, 'Badis', 'meya metouia', '2700', '54', '2', '2754', '754', '2000', '2021-08-21 10:43:55', '');
+(1, 16, 'Houssem', 'meya metouia', '2950', '59', '2', '3009', '0', '3009', '2021-08-21 10:43:55', ''),
+(1, 17, 'Houssem', 'Metouia', '25000', '1250', '5', '26250', '250', '26000', '2021-08-21 14:40:44', '');
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,10 @@ INSERT INTO `invoice_order_item` (`order_id`, `item_code`, `item_name`, `order_i
 (15, '2345', 'fghjklm', '10', '4', '40'),
 (15, '', '', '', '', '0'),
 (14, '2', 'SiteWeb', '10', '200', '2000'),
-(16, '1', 'PC Gamer', '1', '2700', '2700');
+(16, '1', 'PC Gamer', '1', '2700', '2700'),
+(16, '3', 'Clavier', '5', '50', '250'),
+(17, '1', 'Ordinateur', '5', '1000', '5000'),
+(17, '2', 'Camera', '1', '20000', '20000');
 
 -- --------------------------------------------------------
 
@@ -176,7 +179,8 @@ CREATE TABLE `paiements` (
 --
 
 INSERT INTO `paiements` (`id_paiement`, `rs_client`, `id_client`, `date_paiement`, `mode_de_paiement`, `id_facture`, `prix`, `status_paiement`) VALUES
-(2, 'Houssem', 2, '2021-08-01', 'Chèque', 4, 6, 'Payé');
+(2, 'Houssem', 2, '2021-08-01', 'Chèque', 4, 6, 'Payé'),
+(3, 'Houssem', 2, '2021-08-15', 'Espèces', 4, 10, 'Sent');
 
 -- --------------------------------------------------------
 
@@ -201,7 +205,8 @@ CREATE TABLE `propects` (
 --
 
 INSERT INTO `propects` (`id_prospect`, `rs_prospect`, `adresse_prospect`, `email_prospect`, `ville_prospect`, `pays_prospect`, `tel_prospect`, `facebook_prospect`, `siteweb_prospect`) VALUES
-(7, 'Houssem', 'Rue el Afrah', 'houssem.hannachi@enis.tn', 'Paris', 'France', 52215947, 'Houssem Hannachi', 'Houssem Hannachiaaaaaaaaa');
+(11, 'aaa', 'aaaa', 'aaaa@gmail.com', 'aaaaaaa', 'aaaaaaa', 0, 'aaaaaa', 'aaaaaaaaaaa'),
+(12, 'Houssem', 'Rue el Afrah', 'houssem.hannachi@enis.tn', 'Metouia', 'Tunisie', 52215947, 'Houssem Hannachi', 'www.houssem.com');
 
 -- --------------------------------------------------------
 
@@ -272,13 +277,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `invoice_order`
 --
 ALTER TABLE `invoice_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `invoice_user`
@@ -290,13 +295,13 @@ ALTER TABLE `invoice_user`
 -- AUTO_INCREMENT pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `propects`
 --
 ALTER TABLE `propects`
-  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `users`
