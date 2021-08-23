@@ -17,6 +17,7 @@
     $pageName="Factures";
 
    include('dashboard.php');
+   require('db_conn.php');
    include 'Invoice.php';
    $pageName ="Ajouter facture";
    $invoice = new Invoice();
@@ -75,12 +76,34 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>À,</h3>
                <div class="form-group">
-                  <input type="number" class="form-control" name="id_client" id="id_client" placeholder="ID client" autocomplete="off">
+                  <select id="id_client" name="id_client" >
+                     <option value="0">ID Client</option>
+                     <?php 
+                        $requete = "SELECT id_client FROM clients ORDER BY id_client;";
+                        $retours = mysqli_query($conn,$requete);
+                        while($retour = mysqli_fetch_array($retours)){
+                           echo "<option value='".$retour["id_client"]."'>".$retour["id_client"]."</option>";
+
+                        }
+                        ?>
+                  </select>
+
+
                </div>
                <div class="form-group">
                   <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">@</span>
-                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale du client" autocomplete="off">
+                  <select id="companyName" name="companyName" >
+                     <option value="0">Choisir un client</option>
+                     <?php 
+                        $requete = "SELECT rs_client FROM clients ORDER BY id_client;";
+                        $retours = mysqli_query($conn,$requete);
+                        while($retour = mysqli_fetch_array($retours)){
+                           echo "<option value='".$retour["rs_client"]."'>".$retour["rs_client"]."</option>";
+
+                        }
+                        ?>
+                  </select>
                   </div>
                </div>
                <div class="form-group">
