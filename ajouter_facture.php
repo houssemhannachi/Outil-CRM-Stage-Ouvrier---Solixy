@@ -75,7 +75,13 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>À,</h3>
                <div class="form-group">
+                  <input type="number" class="form-control" name="id_client" id="id_client" placeholder="ID client" autocomplete="off">
+               </div>
+               <div class="form-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
                   <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale du client" autocomplete="off">
+                  </div>
                </div>
                <div class="form-group">
                   <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse du client"></textarea>
