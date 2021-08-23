@@ -27,7 +27,7 @@ require("header.php")
     </li>
     <li class = "<?php if($pageName == 'Factures') {echo 'act';}?>">
       <a href="facture.php">
-        <i class='bx bx-dollar' ></i>
+        <i class='bx bx-copy-alt' ></i>
         <span class="links_name">Factures</span>
       </a>
     </li>
@@ -39,7 +39,7 @@ require("header.php")
     </li>
     <li class = "<?php if($pageName == 'Paiments') {echo 'act';}?>">
       <a href="paiments.php">
-        <i class='bx bx-copy-alt' ></i>
+        <i class='bx bx-dollar' ></i>
         <span class="links_name">Paiments</span>
       </a>
     </li>
