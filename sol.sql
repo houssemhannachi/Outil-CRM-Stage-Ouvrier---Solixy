@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 23 août 2021 à 10:04
+-- Généré le : lun. 23 août 2021 à 10:49
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -97,7 +97,8 @@ INSERT INTO `invoice_order` (`user_id`, `order_id`, `order_receiver_name`, `orde
 (1, 13, 'HAHHAHAH', 'HAHHAHHAHA', '49377284', '987545.68', '2', '50364829.68', '50364829', '0.6799999997019768', '2021-08-20 15:38:27', ''),
 (1, 14, 'Ghassen', 'Metouia', '2000', '100', '5', '2100', '100', '2000', '2021-08-20 15:48:07', ''),
 (1, 16, 'Houssem', 'meya metouia', '2950', '59', '2', '3009', '0', '3009', '2021-08-21 10:43:55', ''),
-(1, 17, 'Houssem', 'Metouia', '25000', '1250', '5', '26250', '250', '26000', '2021-08-21 14:40:44', '');
+(1, 17, 'Houssem', 'Metouia', '25000', '1250', '5', '26250', '250', '26000', '2021-08-21 14:40:44', ''),
+(1, 18, 'Ahmed', 'Gabès', '550', '104.5', '19', '654.5', '54', '600.5', '2021-08-23 09:11:32', '');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,8 @@ INSERT INTO `invoice_order_item` (`order_id`, `item_code`, `item_name`, `order_i
 (16, '1', 'PC Gamer', '1', '2700', '2700'),
 (16, '3', 'Clavier', '5', '50', '250'),
 (17, '1', 'Ordinateur', '5', '1000', '5000'),
-(17, '2', 'Camera', '1', '20000', '20000');
+(17, '2', 'Camera', '1', '20000', '20000'),
+(18, '1', 'Ordinateur', '55', '10', '550');
 
 -- --------------------------------------------------------
 
@@ -283,7 +285,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT pour la table `invoice_order`
 --
 ALTER TABLE `invoice_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `invoice_user`

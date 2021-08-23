@@ -29,8 +29,13 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 			$row = mysqli_fetch_assoc($result);                                            //Récupère une ligne de résultat sous forme de tableau associatif
             if ($row['user_name'] === $uname && $row['password'] === $pass) {
             	$_SESSION['user_name'] = $row['user_name'];
-            	$_SESSION['name'] = $row['name'];
+            	
             	$_SESSION['id'] = $row['id'];
+				$_SESSION["user_id"]= 1;
+				$_SESSION["name"]= "Solixy";
+				$_SESSION["address"]="Avenue de la république </br> Immeuble Al Ahram 4ème étage";
+				$_SESSION["ville"] = "Gabes - Tunisie";
+				$_SESSION["mobile"]="+216 75 270 938";
             	header("Location: home.php");
 		        exit();
             }else{

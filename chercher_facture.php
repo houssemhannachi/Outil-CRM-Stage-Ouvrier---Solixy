@@ -1,17 +1,15 @@
+<?php
+require_once ("db_conn.php");
+$pageName = "Clients";
 
-<link rel="stylesheet" href="assets/css/styleinvoice.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
+
+?>
+
 <?php 
 session_start();
 $pageName ="Factures";
 include('dashboard.php');
-include 'Invoice.php';
 
-$invoice = new Invoice();
 
 ?>
 
@@ -57,7 +55,7 @@ $invoice = new Invoice();
 					</div>
 
 						
-					<div class="" style="float:left;" >   
+					<div class="col-sm-8 col-md-4" style="float:left;" >   
 						<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher une facture </button>
 					</div>
 				</form>   
@@ -76,34 +74,80 @@ $invoice = new Invoice();
 										<th>Action</th>
 									</tr>
 								</thead>
-									
-		<?php		
-	    	$invoiceList = $invoice->getInvoiceList();
-        foreach($invoiceList as $invoiceDetails){
-			$invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceDetails["order_date"]));
-            echo '
-              <tr>
-                <td>'.$invoiceDetails["order_id"].'</td>
-                <td>'.$invoiceDetails["order_receiver_name"].'</td>
-                <td>'.$invoiceDate.'</td>
-                <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
-				<td class=>
+                                <?php
+if (isset($_POST['submit-search'])){
+    $recherche_numf = $_POST['numfch'];
+    $recherche_client = $_POST['clientch'];
+
+
+   $sql = "SELECT * FROM invoice_order WHERE order_id LIKE '%$recherche_numf%' AND 	order_receiver_name LIKE '%$recherche_client%'  ";
+   $result = mysqli_query ($conn,$sql);
+   $queryResult = mysqli_num_rows($result);
+   if($queryResult > 0) {
+       while ($row = mysqli_fetch_assoc($result)) {
+										$user_id = $row['user_id'];
+										$order_id = $row['order_id'];
+										$order_receiver_name = $row['order_receiver_name'];
+										$order_receiver_address = $row['order_receiver_address'];
+     									$order_total_before_tax = $row['order_total_before_tax'];
+        								$order_total_tax = $row['order_total_tax'];
+        								$order_tax_per = $row['order_tax_per'];
+        								$order_total_after_tax = $row['order_total_after_tax'];
+										$order_amount_paid = $row['order_amount_paid'];
+										$order_total_amount_due = $row['order_total_amount_due'];
+										$order_date = $row['order_date'];
+										$note = $row['note'];
+       ?>
+       <tr>
+										<td class="none"><?php echo $user_id?></td>
+										<td><?php echo $order_id?></td>
+										<td><?php echo $order_receiver_name?></td>
+										<td class="none"><?php echo $order_receiver_address?></td>
+										<td class="none"><?php echo $order_total_before_tax?></td>
+										<td class="none"><?php echo $order_total_tax?></td>
+										<td class="none"><?php echo $order_tax_per?></td>
+                                        <td><?php echo$order_date?></td>
+										<td><?php echo $order_total_after_tax?></td>
+										<td  class="none"><?php echo$order_amount_paid?></td>
+										<td  class="none"><?php echo$order_total_amount_due?></td>
+										<td  class="none"><?php echo$note?></td>
+										<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["order_id"].'"><i class="fa fa-print"></i> Imprimer</a>
-												<a class="dropdown-item" href="modifier_facture.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
-												<a class="dropdown-item" href="effacer_facture.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
+													<a class="dropdown-item " href="profile_client.php?id=<?php echo $row['id_client'];?>"><i class="fa fa-id-card m-r-5"></i> Profile</a>
+
+													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>	
 												</div>
 											</div>
 										</td>
+									</tr>
+		<?php }?>
 
-              </tr>
-            ';
-        }       
-        ?>
-      </table>	
-</div>	
+								
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<?php
+   }
+   else {
+       echo '<tr style="background-color:initial"> <td >Aucune donnée disponible</td> </tr>';
+
+   }
+}
+else
+{
+    header ('location:clients.php');
+
+}
+
+?>
+
+	
 <script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
 <script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
 <script src="assets/js/app.js?v=<?php echo time();?>"></script>	

@@ -67,14 +67,21 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>De,</h3>
                <b><?php echo $_SESSION['name']; ?> </b><br> 
-               <?php echo $_SESSION['address']; ?><br>  <?php echo $_SESSION['ville']; ?><br> 
+               <?php echo $_SESSION['address']; ?><br>  
+               <?php echo $_SESSION['ville']; ?><br> 
                <?php echo $_SESSION['mobile']; ?><br>
 
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>À,</h3>
                <div class="form-group">
+                  <input type="number" class="form-control" name="id_client" id="id_client" placeholder="ID client" autocomplete="off">
+               </div>
+               <div class="form-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
                   <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale du client" autocomplete="off">
+                  </div>
                </div>
                <div class="form-group">
                   <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse du client"></textarea>
@@ -91,7 +98,7 @@
                         <label class="custom-control-label" for="checkAll"></label>
                         </div>
                     </th>
-                     <th width="15%">N°</th>
+                     <th width="15%">Réf</th>
                      <th width="38%">Désignation</th>
                      <th width="15%">Quantité</th>
                      <th width="15%">Pu HT</th>
