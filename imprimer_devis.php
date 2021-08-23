@@ -85,15 +85,30 @@ $output .= '
 	</tr>
 	</table>';
 
-$output .= '
-	<table  style="margin-top:20px; border: 1px solid grey; font-size:13px">
+	$output .= '
+	<div style="display:inline-block;vertical-align:top;">
+	<table  style="margin-top:20px; border: 1px solid grey; font-size:14px">
 	<tr><td>Règlement par virement sur le compte bancaire suivant:</td></tr>
-	<tr><td>Banque: Banque Al Baraka Gabés</td></tr>
-	<tr><td>Numéro de compte : 32016788116120143169 </td></tr>
-	<tr><td>Code IBAN: TN59 32016788116120143169 </td></tr>
-	<tr><td>Code BIC/SWIFT: BEITTNTT</td></tr>
+	<tr><td><b>Banque:</b> Banque Al Baraka Gabés</td></tr>
+	<tr><td><b>Numéro de compte :</b> 32016788116120143169 </td></tr>
+	<tr><td><b>Code IBAN:</b>  TN59 32016788116120143169 </td></tr>
+	<tr><td><b>Code BIC/SWIFT:</b>  BEITTNTT</td></tr>
 
 	</table>
+	</div>';
+	$output .= '<div style="display:inline-block;vertical-align:top; float:right">
+	<table style="margin-top:20px; border: 1px solid grey; width:300px; height:80px">
+	<tr><td style=" font-weight: bold; font-size:15px; text-align:center; margin:0px">Signature<br><br><br></td>
+	</tr>
+
+
+
+	
+	</table>
+	</div>';
+
+$output .= '
+	<img src="images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
 ';
 
 // create pdf of invoice	
