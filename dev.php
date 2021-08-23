@@ -1,12 +1,12 @@
 <?php
-class Invoice{
+class Dev{
 	private $host  = 'localhost';
     private $user  = 'root';
     private $password   = "";
     private $database  = "sol";   
 	private $invoiceUserTable = 'invoice_user';	
-    private $invoiceOrderTable = 'invoice_order';
-	private $invoiceOrderItemTable = 'invoice_order_item';
+    private $invoiceOrderTable = 'devis';
+	private $invoiceOrderItemTable = 'devis_item';
 	private $dbConnect = false;
     public function __construct(){
         if(!$this->dbConnect){ 
@@ -21,7 +21,7 @@ class Invoice{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '.mysqli_error());
+			die('Error in query: '. mysqli_error());
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -49,56 +49,56 @@ class Invoice{
 			header("Location:index.php");
 		}
 	}		
-	public function saveInvoice($POST) {		
-		$sqlInsert = "INSERT INTO ".$this->invoiceOrderTable."(user_id,order_receiver_id, order_receiver_name, order_receiver_address, order_total_before_tax, order_total_tax, order_tax_per, order_total_after_tax, order_amount_paid, order_total_amount_due, note) VALUES ('".$POST['userId']."','".$POST['id_client']."', '".$POST['companyName']."', '".$POST['address']."', '".$POST['subTotal']."', '".$POST['taxAmount']."', '".$POST['taxRate']."', '".$POST['totalAftertax']."', '".$POST['amountPaid']."', '".$POST['amountDue']."', '".$POST['notes']."')";		
+	public function saveDevis($POST) {		
+		$sqlInsert = "INSERT INTO ".$this->invoiceOrderTable."(nom_client, user_id, adresse_client, baseht, remise, totalht, TVArate,TVAamount, totalttc) VALUES ( '".$POST['companyName']."','".$POST['userId']."', '".$POST['address']."', '".$POST['baseht']."', '".$POST['remise']."', '".$POST['subTotal']."', '".$POST['taxRate']."', '".$POST['taxAmount']."', '".$POST['totalAftertax']."')";		
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
 		for ($i = 0; $i < count($POST['productCode']); $i++) {
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(order_id, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);
 		}       	
 	}	
-	public function updateInvoice($POST) {
+	public function updateDevis($POST) {
 		if($POST['invoiceId']) {	
 			$sqlInsert = "UPDATE ".$this->invoiceOrderTable." 
-				SET order_receiver_name = '".$POST['companyName']."', order_receiver_id = '".$POST['id_client']."', order_receiver_address= '".$POST['address']."', order_total_before_tax = '".$POST['subTotal']."', order_total_tax = '".$POST['taxAmount']."', order_tax_per = '".$POST['taxRate']."', order_total_after_tax = '".$POST['totalAftertax']."', order_amount_paid = '".$POST['amountPaid']."', order_total_amount_due = '".$POST['amountDue']."', note = '".$POST['notes']."' 
-				WHERE user_id = '".$POST['userId']."' AND order_id = '".$POST['invoiceId']."'";		
+				SET nom_client = '".$POST['companyName']."', adresse_client= '".$POST['address']."', totalht = '".$POST['subTotal']."', baseht = '".$POST['baseht']."', TVAamount = '".$POST['taxAmount']."', TVArate = '".$POST['taxRate']."', totalttc = '".$POST['totalAftertax']."', remise = '".$POST['remise']."'
+				WHERE user_id = '".$POST['userId']."' AND id_devis = '".$POST['invoiceId']."'";		
 			mysqli_query($this->dbConnect, $sqlInsert);	
 		}		
-		$this->deleteInvoiceItems($POST['invoiceId']);
+		$this->deleteDevisItems($POST['invoiceId']);
 		for ($i = 0; $i < count($POST['productCode']); $i++) {			
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(order_id, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
+			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
 				VALUES ('".$POST['invoiceId']."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);			
 		}       	
 	}	
-	public function getInvoiceList(){
+	public function getDevisList(){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
 			WHERE user_id = '".$_SESSION['user_id']."'";
 		return  $this->getData($sqlQuery);
 	}	
-	public function getInvoice($invoiceId){
+	public function getDevis($invoiceId){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
-			WHERE user_id = '".$_SESSION['user_id']."' AND order_id = '$invoiceId'";
+			WHERE user_id = '".$_SESSION['user_id']."' AND id_devis = '$invoiceId'";
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
 	}	
-	public function getInvoiceItems($invoiceId){
+	public function getDevisItems($invoiceId){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderItemTable." 
-			WHERE order_id = '$invoiceId'";
+			WHERE id_devis = '$invoiceId'";
 		return  $this->getData($sqlQuery);	
 	}
-	public function deleteInvoiceItems($invoiceId){
+	public function deleteDevisItems($invoiceId){
 		$sqlQuery = "DELETE FROM ".$this->invoiceOrderItemTable." 
-			WHERE order_id = '".$invoiceId."'";
+			WHERE id_devis = '".$invoiceId."'";
 		mysqli_query($this->dbConnect, $sqlQuery);				
 	}
-	public function deleteInvoice($invoiceId){
+	public function deleteDevis($invoiceId){
 		$sqlQuery = "DELETE FROM ".$this->invoiceOrderTable." 
-			WHERE order_id = '".$invoiceId."'";
+			WHERE id_devis = '".$invoiceId."'";
 		mysqli_query($this->dbConnect, $sqlQuery);	
-		$this->deleteInvoiceItems($invoiceId);	
+		$this->deleteDevisItems($invoiceId);	
 		return 1;
 	}
 }
