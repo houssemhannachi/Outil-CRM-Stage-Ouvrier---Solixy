@@ -328,16 +328,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<!-- /Main Wrapper -->
 	
 	<!-- jQuery -->
+	<script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/jquery.slimscroll.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
-	
+	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
 	<script src="script.js?v=<?php echo time();?>"></script>
-	
-	<!-- Select2 JS -->
-	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
-	
-	<!-- Custom JS -->
 
 </section>
 
