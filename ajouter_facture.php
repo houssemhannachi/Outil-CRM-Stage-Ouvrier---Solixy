@@ -67,7 +67,8 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>De,</h3>
                <b><?php echo $_SESSION['name']; ?> </b><br> 
-               <?php echo $_SESSION['address']; ?><br>  <?php echo $_SESSION['ville']; ?><br> 
+               <?php echo $_SESSION['address']; ?><br>  
+               <?php echo $_SESSION['ville']; ?><br> 
                <?php echo $_SESSION['mobile']; ?><br>
 
             </div>
@@ -91,7 +92,7 @@
                         <label class="custom-control-label" for="checkAll"></label>
                         </div>
                     </th>
-                     <th width="15%">N°</th>
+                     <th width="15%">Réf</th>
                      <th width="38%">Désignation</th>
                      <th width="15%">Quantité</th>
                      <th width="15%">Pu HT</th>
