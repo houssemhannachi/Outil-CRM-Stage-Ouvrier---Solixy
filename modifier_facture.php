@@ -9,12 +9,10 @@
    $_SESSION["mobile"]="+216 75 270 938";
   $pageName="Factures";
 include('dashboard.php');
-require('db_conn.php');
-
 include 'Invoice.php';
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
-if(!empty($_POST['companyName']) && $_POST['companyName'] && !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
+if( !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
 	$invoice->updateInvoice($_POST);	
 	header("Location:facture.php");	
 }
@@ -68,24 +66,9 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		      		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		      			<h3>À,</h3>
 		      			<div class="form-group">
-                  			<select id="id_client" name="id_client" >
-                     			<option value="0">ID Client</option>
-                     				<?php 
-                        				$requete = "SELECT id_client FROM clients ORDER BY id_client;";
-                        				$retours = mysqli_query($conn,$requete);
-                        				while($retour = mysqli_fetch_array($retours)){
-                           					echo "<option value='".$retour["id_client"]."'>".$retour["id_client"]."</option>";
-
-                        				}
-                        			?>
-                  			</select>
-
-
-               			</div>
-						<div class="form-group">
-							<textarea class="form-control" rows="3" name="address" id="address" placeholder="Your Address"><?php echo
-							 $invoiceValues['adresse_client']; ?></textarea>
+							<input value="<?php echo $invoiceValues['id_client']; ?>" type="text" class="form-control" name="id_client" id="id_client" placeholder="Company Name" autocomplete="off">
 						</div>
+
 						
 		      		</div>
 		      	</div>
@@ -198,7 +181,6 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 						</div>
 						<br>
 						<div class="form-group">
-							<input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="userId">
 							<input type="hidden" value="<?php echo $invoiceValues['id_facture']; ?>" class="form-control" name="invoiceId" id="invoiceId">
 			      			<input data-loading-text="Mise à jour facture ..." type="submit" name="invoice_btn" value="Modifier" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">
 			      		</div>
