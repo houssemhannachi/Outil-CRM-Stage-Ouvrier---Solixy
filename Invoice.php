@@ -79,7 +79,7 @@ class Invoice{
 		return  $this->getData($sqlQuery);
 	}	
 	public function getInvoice($invoiceId){
-		$sqlQuery = "SELECT f.id_facture,f.id_client,f.order_total_before_tax,f.order_total_tax,f.order_tax_per,f.order_total_after_tax,f.order_amount_paid,f.order_total_amount_due,f.order_date,f.note,c.id_client,c.rs_client,c.adresse_client,c.ref_client
+		$sqlQuery = "SELECT f.id_facture,f.id_client,f.order_total_before_tax,f.order_total_tax,f.order_tax_per,f.order_total_after_tax,f.order_amount_paid,f.order_total_amount_due,f.order_date,f.note,c.id_client,c.rs_client,c.adresse_client,c.ref_client,c.mf_client
 			FROM facture f, clients c
 			WHERE f.id_facture = '$invoiceId' AND f.id_client= c.id_client";
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
