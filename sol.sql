@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 23 août 2021 à 15:11
+-- Généré le : mar. 24 août 2021 à 17:49
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `clients` (
   `id_client` int(11) NOT NULL,
   `rs_client` text NOT NULL,
-  `ref_client` text NOT NULL,
+  `ref_client` varchar(255) NOT NULL,
   `fj_client` text NOT NULL,
   `email_client` text NOT NULL,
   `adresse_client` varchar(50) NOT NULL,
@@ -48,7 +48,8 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id_client`, `rs_client`, `ref_client`, `fj_client`, `email_client`, `adresse_client`, `ville_client`, `pays_client`, `tel_client`, `sw_client`, `mf_client`, `riprib_client`, `tauxtva_client`) VALUES
-(8, 'Houssem', 'CA1920', 'SA', 'houssem.hannachi@enis.tn', 'Rue el Afrah', 'Metouia', 'Tunisie', '52215947', 'www.houssem.Com', 'qdsdsq', 12222, 212112);
+(9, 'Maher', 'RS', 'SA', 'houssem.hannachi@enis.tn', 'Rue el Afrah', 'Metouia', 'Tunisie', '52215947', 'www.houssem.Com', '13267', 12222, 212112),
+(10, 'Houssem', 'CA1920', 'SA', 'houssem.hannachi@enis.tn', 'Meya ', 'Metouia', 'Tunisie', '52215947', 'www.houssem.Com', '13267', 12222, 212112);
 
 -- --------------------------------------------------------
 
@@ -108,15 +109,12 @@ INSERT INTO `devis_item` (`id_devis`, `item_code`, `item_name`, `order_item_quan
 -- --------------------------------------------------------
 
 --
--- Structure de la table `invoice_order`
+-- Structure de la table `facture`
 --
 
-CREATE TABLE `invoice_order` (
-  `user_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `order_receiver_id` int(11) NOT NULL,
-  `order_receiver_name` varchar(255) NOT NULL,
-  `order_receiver_address` varchar(255) NOT NULL,
+CREATE TABLE `facture` (
+  `id_facture` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
   `order_total_before_tax` varchar(255) NOT NULL,
   `order_total_tax` varchar(255) NOT NULL,
   `order_tax_per` varchar(255) NOT NULL,
@@ -125,52 +123,22 @@ CREATE TABLE `invoice_order` (
   `order_total_amount_due` varchar(255) NOT NULL,
   `order_date` datetime NOT NULL DEFAULT current_timestamp(),
   `note` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `invoice_order_item`
+-- Structure de la table `facture_item`
 --
 
-CREATE TABLE `invoice_order_item` (
+CREATE TABLE `facture_item` (
   `item_code` varchar(255) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
+  `id_facture` int(11) DEFAULT NULL,
   `item_name` varchar(255) NOT NULL,
   `order_item_quantity` varchar(255) NOT NULL,
   `order_item_price` varchar(255) NOT NULL,
   `order_item_final_amount` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `invoice_order_item`
---
-
-INSERT INTO `invoice_order_item` (`item_code`, `order_id`, `item_name`, `order_item_quantity`, `order_item_price`, `order_item_final_amount`) VALUES
-('1', 21, 'SiteWeb', '1', '10', '10');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `invoice_user`
---
-
-CREATE TABLE `invoice_user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `mobile` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Déchargement des données de la table `invoice_user`
---
-
-INSERT INTO `invoice_user` (`id`, `email`, `password`, `first_name`, `last_name`, `address`, `mobile`) VALUES
-(1, 'contact@solixy.com', 'admin', 'Solixy', 'TEAM 2021', 'Avenue de la république - Immeuble Al Ahram 4ème étage\r\nGabes - Tunisie', '00216 288 299 79');
 
 -- --------------------------------------------------------
 
@@ -207,14 +175,6 @@ CREATE TABLE `propects` (
   `siteweb_prospect` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `propects`
---
-
-INSERT INTO `propects` (`id_prospect`, `rs_prospect`, `adresse_prospect`, `email_prospect`, `ville_prospect`, `pays_prospect`, `tel_prospect`, `facebook_prospect`, `siteweb_prospect`) VALUES
-(11, 'aaa', 'aaaa', 'aaaa@gmail.com', 'aaaaaaa', 'aaaaaaa', 0, 'aaaaaa', 'aaaaaaaaaaa'),
-(12, 'Houssem', 'Rue el Afrah', 'houssem.hannachi@enis.tn', 'Metouia', 'Tunisie', 52215947, 'Houssem Hannachi', 'www.houssem.com');
-
 -- --------------------------------------------------------
 
 --
@@ -243,7 +203,8 @@ INSERT INTO `users` (`id`, `user_name`, `password`, `name`) VALUES
 -- Index pour la table `clients`
 --
 ALTER TABLE `clients`
-  ADD PRIMARY KEY (`id_client`) USING BTREE;
+  ADD PRIMARY KEY (`id_client`) USING BTREE,
+  ADD UNIQUE KEY `ref_client` (`ref_client`);
 
 --
 -- Index pour la table `devis`
@@ -252,25 +213,17 @@ ALTER TABLE `devis`
   ADD PRIMARY KEY (`id_devis`);
 
 --
--- Index pour la table `invoice_order`
+-- Index pour la table `facture`
 --
-ALTER TABLE `invoice_order`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `id_client` (`order_receiver_id`);
-
---
--- Index pour la table `invoice_user`
---
-ALTER TABLE `invoice_user`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `facture`
+  ADD PRIMARY KEY (`id_facture`),
+  ADD KEY `ID_client` (`id_client`);
 
 --
 -- Index pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  ADD PRIMARY KEY (`id_paiement`),
-  ADD KEY `test2` (`id_client`),
-  ADD KEY `test3` (`id_facture`);
+  ADD PRIMARY KEY (`id_paiement`);
 
 --
 -- Index pour la table `propects`
@@ -292,7 +245,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `devis`
@@ -301,28 +254,22 @@ ALTER TABLE `devis`
   MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT pour la table `invoice_order`
+-- AUTO_INCREMENT pour la table `facture`
 --
-ALTER TABLE `invoice_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT pour la table `invoice_user`
---
-ALTER TABLE `invoice_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `facture`
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `propects`
 --
 ALTER TABLE `propects`
-  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -335,17 +282,10 @@ ALTER TABLE `users`
 --
 
 --
--- Contraintes pour la table `invoice_order`
+-- Contraintes pour la table `facture`
 --
-ALTER TABLE `invoice_order`
-  ADD CONSTRAINT `order_receiver_id` FOREIGN KEY (`order_receiver_id`) REFERENCES `clients` (`id_client`);
-
---
--- Contraintes pour la table `paiements`
---
-ALTER TABLE `paiements`
-  ADD CONSTRAINT `test2` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`),
-  ADD CONSTRAINT `test3` FOREIGN KEY (`id_facture`) REFERENCES `invoice_order` (`order_id`);
+ALTER TABLE `facture`
+  ADD CONSTRAINT `ID_client` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
