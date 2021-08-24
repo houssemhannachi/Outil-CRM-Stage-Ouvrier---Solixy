@@ -73,6 +73,7 @@ $invoice = new Invoice();
 										<th>Client</th>
 										<th> Date Facture</th>
                                         <th>Total</th>
+										<th>Tranche à payer</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -87,6 +88,7 @@ $invoice = new Invoice();
                 <td>'.$invoiceDetails["rs_client"].'</td>
                 <td>'.$invoiceDate.'</td>
                 <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
+				<td>$'.$invoiceDetails["order_total_amount_due"].'</td>
 				<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
