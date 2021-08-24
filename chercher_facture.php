@@ -1,6 +1,6 @@
 <?php
 require_once ("db_conn.php");
-$pageName = "Clients";
+$pageName = "Factures";
 
 
 ?>
@@ -71,6 +71,7 @@ include('dashboard.php');
 										<th>Client</th>
 										<th> Date Facture</th>
                                         <th>Total</th>
+										<th>Tranche à payer</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -87,10 +88,10 @@ if (isset($_POST['submit-search'])){
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
        while ($row = mysqli_fetch_assoc($result)) {
-										$id_facture = $row['f.id_facture'];
-										$id_client = $row['f.id_client'];
-										$order_total_before_tax = $row['f.order_total_before_tax'];
-										$order_receiver_address = $row['order_receiver_address'];
+										$id_facture = $row['id_facture'];
+										$id_client = $row['id_client'];
+										$order_total_before_tax = $row['order_total_before_tax'];
+										$order_receiver_address = $row['adresse_client'];
      									$order_total_before_tax = $row['order_total_before_tax'];
         								$order_total_tax = $row['order_total_tax'];
         								$order_tax_per = $row['order_tax_per'];
@@ -99,19 +100,20 @@ if (isset($_POST['submit-search'])){
 										$order_total_amount_due = $row['order_total_amount_due'];
 										$order_date = $row['order_date'];
 										$note = $row['note'];
+										$rs_client = $row['rs_client'];
        ?>
        <tr>
 										<td class="none"><?php echo $user_id?></td>
-										<td><?php echo $order_id?></td>
-										<td><?php echo $order_receiver_name?></td>
-										<td class="none"><?php echo $order_receiver_address?></td>
+										<td><?php echo $id_facture?></td>
+										<td class="none" ><?php echo $id_client?></td>
+										<td><?php echo $rs_client?></td>
 										<td class="none"><?php echo $order_total_before_tax?></td>
 										<td class="none"><?php echo $order_total_tax?></td>
 										<td class="none"><?php echo $order_tax_per?></td>
                                         <td><?php echo$order_date?></td>
 										<td><?php echo $order_total_after_tax?></td>
 										<td  class="none"><?php echo$order_amount_paid?></td>
-										<td  class="none"><?php echo$order_total_amount_due?></td>
+										<td><?php echo$order_total_amount_due?></td>
 										<td  class="none"><?php echo$note?></td>
 										<td class=>
 											<div class="dropdown dropdown-action">
