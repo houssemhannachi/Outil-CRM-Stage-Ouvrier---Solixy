@@ -322,7 +322,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<form action ="effacer_prospect.php" method="POST">
-						<input type="text" name="delete_id" id="delete_id">
+						<input type="hidden" name="delete_id" id="delete_id">
 						<div class="modal-body">
 							<div class="form-header">
 								<h3>Supprimer ce prospect</h3>
