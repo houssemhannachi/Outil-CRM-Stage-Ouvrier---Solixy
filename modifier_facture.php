@@ -66,7 +66,10 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 		      		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					  <h3>À,</h3>
 		      			<div class="form-group">
-							<input value="<?php echo$invoiceValues['id_client']; ?>" type="text" class="form-control" name="id_client" id="id_client" placeholder="Company Name" autocomplete="off">
+							<input value="<?php echo$invoiceValues['id_client']; ?>" type="text" class="form-control" name="id_client" id="id_client" placeholder="ID Client" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<input value="<?php echo$invoiceValues['rs_client']; ?>" type="text" class="form-control" name="rs_client" id="rs_client" placeholder="Raison sociale" autocomplete="off" readonly>
 						</div>
 
 						
