@@ -64,9 +64,9 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
                			<?php echo $_SESSION['mobile']; ?><br>	      						      									
 		      		</div>      		
 		      		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-		      			<h3>À,</h3>
+					  <h3>À,</h3>
 		      			<div class="form-group">
-							<input value="<?php echo $invoiceValues['id_client']; ?>" type="text" class="form-control" name="id_client" id="id_client" placeholder="Company Name" autocomplete="off">
+							<input value="<?php echo$invoiceValues['id_client']; ?>" type="text" class="form-control" name="id_client" id="id_client" placeholder="Company Name" autocomplete="off">
 						</div>
 
 						
