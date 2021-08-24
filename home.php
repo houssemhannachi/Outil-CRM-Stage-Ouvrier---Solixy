@@ -9,9 +9,14 @@ session_start();
     $rowcount_client=mysqli_num_rows($result_client);
    
   }
-  $sql_invoice = "SELECT * FROM invoice_order";
+  $sql_invoice = "SELECT * FROM facture";
   if ($result_invoice=mysqli_query($conn,$sql_invoice)) {
     $rowcount_invoice=mysqli_num_rows($result_invoice);
+   
+  }
+  $sql_devis = "SELECT * FROM devis";
+  if ($result_devis=mysqli_query($conn,$sql_devis)) {
+    $rowcount_devis=mysqli_num_rows($result_devis);
    
   }
   $sql_paiements = "SELECT * FROM paiements";
@@ -53,7 +58,7 @@ session_start();
           <div class="right-side">
             <a href="devis.php">
             <div class="box-topic">Devis</div>
-            <div class="number">11</div>
+            <div class="number"><?php  echo $rowcount_devis?></div>
           </div>
           </a>
           <i class='bx bx-cart cart three' ></i>
