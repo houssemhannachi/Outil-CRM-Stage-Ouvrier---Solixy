@@ -108,7 +108,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $rs_client?></a></td>
 										<td class="none"><?php echo  $id_client?></td>
 										<td><?php echo $mode_de_paiement?></td>
-										<td><?php echo '<a >'.$id_facture.'</a>'?></td>
+										<td><a href="imprimer_facture.php?invoice_id=<?php echo $id_facture;?>"><?php echo $id_facture?></a></td>
 										<td><?php echo $prix?></td>
 										<td><?php echo  '<span class="badge bg-inverse-info">'.$status_paiement.'</span>'?></td>
 										<td class=>
