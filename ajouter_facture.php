@@ -244,7 +244,6 @@ else
                </div>
                <br>
                <div class="form-group ">
-                  <input type="text" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="userId">
                   <input data-loading-text="Enregistrer facture ..." type="submit" name="invoice_btn" value="Ajouter facture" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">           
                </div>
             </div>
