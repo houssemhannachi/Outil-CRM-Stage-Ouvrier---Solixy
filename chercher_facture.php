@@ -80,14 +80,16 @@ if (isset($_POST['submit-search'])){
     $recherche_client = $_POST['clientch'];
 
 
-   $sql = "SELECT * FROM invoice_order WHERE order_id LIKE '%$recherche_numf%' AND 	order_receiver_name LIKE '%$recherche_client%'  ";
+   $sql = "SELECT f.id_facture,f.id_client,f.order_total_before_tax,f.order_total_tax,f.order_tax_per,f.order_total_after_tax,f.order_amount_paid,f.order_total_amount_due,f.order_date,f.note,c.id_client,c.rs_client,c.adresse_client
+   FROM facture f, clients c
+   WHERE f.id_client= c.id_client AND f.id_facture LIKE '%$recherche_numf%' AND c.rs_client LIKE '%$recherche_client%'  ";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
        while ($row = mysqli_fetch_assoc($result)) {
-										$user_id = $row['user_id'];
-										$order_id = $row['order_id'];
-										$order_receiver_name = $row['order_receiver_name'];
+										$id_facture = $row['f.id_facture'];
+										$id_client = $row['f.id_client'];
+										$order_total_before_tax = $row['f.order_total_before_tax'];
 										$order_receiver_address = $row['order_receiver_address'];
      									$order_total_before_tax = $row['order_total_before_tax'];
         								$order_total_tax = $row['order_total_tax'];
