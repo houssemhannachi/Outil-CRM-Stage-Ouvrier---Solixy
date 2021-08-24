@@ -72,7 +72,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th class="none">ID</th>
 										<th>Référence</th>
 										<th>Raison sociale</th>
 										<th>Adresse</th>
@@ -107,7 +107,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 										$tauxtva_client = $row['tauxtva_client'];
 								?>
 									<tr>
-										<td><?php echo $id_client?></td>
+										<td class="none"><?php echo $id_client?></td>
 										
 										<td><?php echo $ref_client?></td>
 										<td><?php echo $rs_client?></td>
