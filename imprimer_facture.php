@@ -2,7 +2,7 @@
 session_start();
 include 'Invoice.php';
 $invoice = new Invoice();
-$invoice->checkLoggedIn();
+
 if(!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
 	echo $_GET['invoice_id'];
 	$invoiceValues = $invoice->getInvoice($_GET['invoice_id']);		
@@ -22,19 +22,19 @@ $output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;p
 	<td width="65%">
 	À,<br />
 
-	Client : <b>'.$invoiceValues['order_receiver_name'].'</b><br /> 
-	Adresse Client : '.$invoiceValues['order_receiver_address'].'<br />
+	Client : <b>'.$invoiceValues['rs_client'].'</b><br /> 
+	Adresse Client : '.$invoiceValues['adresse_client'].'<br />
 	</td>
 	<td width="35%">         
-	FACTURE N° : '.$invoiceValues['order_id'].'<br />
+	FACTURE N° : '.$invoiceValues['id_facture'].'<br />
 	Date Facture : '.$invoiceDate.'<br />
 	</td>
 	</tr>
 	</table>
 	<br />
 	<table width="100%" border="1" cellpadding="5" cellspacing="0">
-	<tr>
-	<th align="left">Sr No.</th>
+	<tr style="color:#165d65; text-transform:uppercase">
+	<th align="left">Num</th>
 	<th align="left">Réf</th>
 	<th align="left">Désignation</th>
 	<th align="left">Quantité</th>
@@ -46,7 +46,7 @@ foreach($invoiceItems as $invoiceItem){
 	$count++;
 	$output .= '
 	<tr>
-	<td align="left">'.$count.'</td>
+	<td align="left" >'.$count.'</td>
 	<td align="left">'.$invoiceItem["item_code"].'</td>
 	<td align="left">'.$invoiceItem["item_name"].'</td>
 	<td align="left">'.$invoiceItem["order_item_quantity"].'</td>
@@ -112,7 +112,7 @@ $output .= '
 ';
 
 // create pdf of invoice	
-$invoiceFileName = 'Facture_'.$invoiceValues['order_id'].'.pdf';
+$invoiceFileName = 'Facture_'.$invoiceValues['id_facture'].'.pdf';
 require_once 'dompdf/src/Autoloader.php';
 Dompdf\Autoloader::register();
 use Dompdf\Dompdf;
