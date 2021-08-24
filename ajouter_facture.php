@@ -23,7 +23,7 @@
    $invoice = new Invoice();
    
    	
-   if(!empty($_POST['companyName']) && $_POST['companyName']) {	
+   if(!empty($_POST['id_client']) && $_POST['id_client']) {	
    	$invoice->saveInvoice($_POST);
    	header("Location:facture.php");
       
@@ -74,41 +74,61 @@
 
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-               <h3>À,</h3>
+               
                <div class="form-group">
-                  <select id="id_client" name="id_client" >
-                     <option value="0">ID Client</option>
-                     <?php 
-                        $requete = "SELECT id_client FROM clients ORDER BY id_client;";
-                        $retours = mysqli_query($conn,$requete);
-                        while($retour = mysqli_fetch_array($retours)){
-                           echo "<option value='".$retour["id_client"]."'>".$retour["id_client"]."</option>";
-
-                        }
-                        ?>
-                  </select>
-
-
+                  <h3>À,</h3>
+                  <form action="" method="POST">
+                     <input type="text" class="recherche_input" name="ref_client" id="ref_client" placeholder="REF client" autocomplete="off">
+                     <button name="search" class="btn btn-success"> Trouver ce client </button>
+                  </form>
                </div>
-               <div class="form-group">
-                  <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                  <select id="companyName" name="companyName" >
-                     <option value="0">Choisir un client</option>
-                     <?php 
-                        $requete = "SELECT rs_client FROM clients ORDER BY id_client;";
-                        $retours = mysqli_query($conn,$requete);
-                        while($retour = mysqli_fetch_array($retours)){
-                           echo "<option value='".$retour["rs_client"]."'>".$retour["rs_client"]."</option>";
 
-                        }
-                        ?>
-                  </select>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse du client"></textarea>
-               </div>
+               <?php if( isset($_POST['search']) AND !empty($_POST) )
+                           {
+                              $recherche_rs = $_POST['ref_client'];
+                              $sql = "SELECT * FROM clients WHERE ref_client LIKE '%$recherche_rs%' ";
+                              $result = mysqli_query ($conn,$sql);
+                              $queryResult = mysqli_num_rows($result);
+                              
+                              if($queryResult > 0) {
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                                        $id_client = $row['id_client'];
+                                                        $rs_client = $row['rs_client'];
+                                                        $ref_client = $row['ref_client'];
+                                                        $fj_client = $row['fj_client'];
+                                                          $email_client = $row['email_client'];
+                                                          $adresse_client = $row['adresse_client'];
+                                                          $ville_client = $row['ville_client'];
+                                                          $pays_client = $row['pays_client'];
+                                                        $tel_client = $row['tel_client'];
+                                                        $sw_client = $row['sw_client'];
+                                                        $mf_client = $row['mf_client'];
+                                                        $riprib_client = $row['riprib_client'];
+                                                        $tauxtva_client = $row['tauxtva_client'];
+                                 ?>
+
+                                 <?php echo '<input type="hidden" id="id_client" name="id_client" value="'.$id_client.'" readonly>' ?>
+                                 <b><?php echo $rs_client?> </b><br> 
+                                 <?php echo $adresse_client?> <br> 
+                                 <?php echo $mf_client?> <br> <br> 
+
+
+<?php }?>
+<?php
+   }
+   else {
+       echo 'Aucun client trouvé';
+
+   }
+}
+else
+{
+    echo '';
+
+}
+
+?>
+
             </div>
          </div>
          <div class="row">
@@ -177,7 +197,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Total T.V.A">
+            <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Total T.V.A" readonly>
           </div>
               </div>
           </div>
@@ -188,7 +208,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-             <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
+             <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total" readonly>
           </div>
               </div>
           </div>
