@@ -29,8 +29,8 @@ $(document).ready(function(){
     }).get();
     console.log(data);
     $('#id').val(data[0])
-    $('#raisonsociale').val(data[1]);
-    $('#reference').val(data[2]);
+    $('#reference').val(data[1]);
+    $('#raisonsociale').val(data[2]);
     $('#adresse').val(data[3]);
     $('#email').val(data[4]);
     $('#telephone').val(data[5]);
