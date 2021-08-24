@@ -73,15 +73,18 @@
                <?php echo $_SESSION['mobile']; ?><br>
 
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="col">
                
                <div class="form-group">
-                  <h3>À,</h3>
-                  <form action="" method="POST">
-                     <input type="text" class="recherche_input" name="ref_client" id="ref_client" placeholder="REF client" autocomplete="off">
-                     <button name="search" class="btn btn-success"> Trouver ce client </button>
-                  </form>
+                  <div class="form-recherche"><h3>À,</h3></div>
+                  <div class="form-recherche">
+                     <form action="" method="POST">
+                        <input type="text" class="recherche_input" name="ref_client" id="ref_client" placeholder="REF client" autocomplete="off">
+                        <button name="search" class="btn btn-success"> Trouver ce client </button>
+                     </form>
+                  </div>
                </div>
+         
 
                <?php if( isset($_POST['search']) AND !empty($_POST) )
                            {
@@ -108,9 +111,9 @@
                                  ?>
 
                                  <?php echo '<input type="hidden" id="id_client" name="id_client" value="'.$id_client.'" readonly>' ?>
-                                 <b><?php echo $rs_client?> </b><br> 
-                                 <?php echo $adresse_client?> <br> 
-                                 <?php echo $mf_client?> <br> <br> 
+                                 <?php echo 'Raison sociale: <b>'.$rs_client.'</b>'?> </b><br> 
+                                 <?php echo 'Adresse: <b>'. $adresse_client.'</b>'?> <br> 
+                                 <?php echo 'Matricule fiscale: <b>'. $mf_client.'</b>'?> <br> <br> 
 
 
 <?php }?>
@@ -129,6 +132,7 @@ else
 
 ?>
 
+</div>
             </div>
          </div>
          <div class="row">
