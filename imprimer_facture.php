@@ -6,14 +6,24 @@ $invoice = new Invoice();
 if(!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
 	echo $_GET['invoice_id'];
 	$invoiceValues = $invoice->getInvoice($_GET['invoice_id']);		
-	$invoiceItems = $invoice->getInvoiceItems($_GET['invoice_id']);		
+	$invoiceItems = $invoice->getInvoiceItems($_GET['invoice_id']);
+	
+
 }
 $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['order_date']));
+$fac = str_pad($invoiceValues['id_facture'],4,"0",STR_PAD_LEFT);
+$date = date('d-m-y');
+$year = date("y");
 $output = '';
-$output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">
-	<table width="100%" border="2" cellpadding="5" cellspacing="0">
+$output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">';
+
+
+$output .= '
+
+
+	<table style="margin-top:10px;" width="100%" border="2" cellpadding="5" cellspacing="0">
 	<tr>
-	<td colspan="2" align="center" style="font-size:20px"><b>Facture</b></td>
+	<td colspan="2" align="center" style="font-size:20px;font-family:  sans-serif;">FACTURE N°FA'.$fac.'-'.$year.' </td>
 	</tr>
 	<tr>
 	<td colspan="2">
@@ -21,13 +31,14 @@ $output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;p
 	<tr>
 	<td width="65%">
 	À,<br />
-
+	
 	Client : <b>'.$invoiceValues['rs_client'].'</b><br /> 
-	Adresse Client : '.$invoiceValues['adresse_client'].'<br />
+	Adresse : '.$invoiceValues['adresse_client'].'<br />
+	Mat. fisc. : '.$invoiceValues['mf_client'].'<br />
 	</td>
 	<td width="35%">         
 	FACTURE N° : '.$invoiceValues['id_facture'].'<br />
-	Date Facture : '.$invoiceDate.'<br />
+	Date Facture : '.$date.'<br />
 	</td>
 	</tr>
 	</table>
