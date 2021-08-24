@@ -83,17 +83,17 @@ $invoice = new Invoice();
 			$invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceDetails["order_date"]));
             echo '
               <tr>
-                <td>'.$invoiceDetails["order_id"].'</td>
-                <td>'.$invoiceDetails["order_receiver_name"].'</td>
+                <td>'.$invoiceDetails["id_facture"].'</td>
+                <td>'.$invoiceDetails["rs_client"].'</td>
                 <td>'.$invoiceDate.'</td>
                 <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
 				<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["order_id"].'"><i class="fa fa-print"></i> Imprimer</a>
-												<a class="dropdown-item" href="modifier_facture.php?update_id='.$invoiceDetails["order_id"].'"><i class="fa fa-edit"></i> Modifier</a>
-												<a class="dropdown-item" href="effacer_facture.php?order_id='.$invoiceDetails['order_id'].'"><i class="fa fa-trash"></i> Supprimer</a>
+												<a class="dropdown-item" href="imprimer_facture.php?invoice_id='.$invoiceDetails["id_facture"].'"><i class="fa fa-print"></i> Imprimer</a>
+												<a class="dropdown-item" href="modifier_facture.php?update_id='.$invoiceDetails["id_facture"].'"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="effacer_facture.php?order_id='.$invoiceDetails['id_facture'].'"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
