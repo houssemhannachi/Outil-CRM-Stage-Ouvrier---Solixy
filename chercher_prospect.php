@@ -116,13 +116,13 @@ if (isset($_POST['submit-search'])){
 <?php
    }
    else {
-       echo 'NO DATA';
+	echo '<tr style="background-color:initial"> <td >Aucune donnée disponible</td> </tr>';
 
    }
 }
 else
 {
-    header ('location:clients.php');
+    header ('location:prospects.php');
 
 }
 
