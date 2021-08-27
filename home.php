@@ -76,36 +76,7 @@ session_start();
 
 
 
-<div class="sales-boxes">
-						<div class="recent-sales box">
-							<div class="card card-table flex-fill">
-								<div class="card-header">
-									<h3 class="card-title mb-0">Clients</h3>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table class="table custom-table mb-0">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Email</th>
-													<th>Status</th>
-													<th class="text-right">Action</th>
-												</tr>
-											</thead>
-											<tbody>
 
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="card-footer">
-									<a href="clients.html">View all clients</a>
-								</div>
-							</div>
-						</div>
-      </div>
-    </div>
 </section>
 </body> 
 <script src="assets/js/bootstrap.min.js?v=<?php echo time();?>"></script>
