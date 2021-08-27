@@ -10,7 +10,7 @@ if(!empty($_GET['id_devis']) && $_GET['id_devis']) {
 }
 $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['date']));
 $output = '';
-$output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">
+$output .= '<img src="assets\images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">
 	<table width="100%" border="2" cellpadding="5" cellspacing="0">
 	<tr>
 	<td colspan="2" align="center" style="font-size:20px"><b>Devis</b></td>
@@ -108,7 +108,7 @@ $output .= '
 	</div>';
 
 $output .= '
-	<img src="images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
+	<img src="assets\images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
 ';
 
 // create pdf of invoice	
