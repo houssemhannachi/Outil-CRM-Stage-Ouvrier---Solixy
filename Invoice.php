@@ -4,7 +4,7 @@ class Invoice{
     private $user  = 'root';
     private $password   = "";
     private $database  = "sol";   
-	
+	private $invoicePaiementTable = 'paiements';
     private $invoiceOrderTable = 'facture';
 	private $invoiceOrderItemTable = 'facture_item';
 	private $dbConnect = false;
@@ -92,5 +92,17 @@ class Invoice{
 		$this->deleteInvoiceItems($invoiceId);	
 		return 1;
 	}
+
+	public function savePaiement($POST) {		
+		$sqlInsert = "INSERT INTO ".$this->invoicePaiementTable."  (id_client, date_paiement, mode_de_paiement, id_facture, prix, status_paiement) VALUES ('".$POST['id_client']."', '".$POST['date_paiement']."', '".$POST['mode_de_paiement']."', '".$POST['id_facture']."', '".$POST['prix']."', '".$POST['status_paiement']."')";		
+		mysqli_query($this->dbConnect, $sqlInsert);
+		       	
+	}
+	public function getPaiementList(){
+		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client
+		FROM paiements p, clients c
+		WHERE p.id_client= c.id_client";
+		return  $this->getData($sqlQuery);
+	}	
 }
 ?>
