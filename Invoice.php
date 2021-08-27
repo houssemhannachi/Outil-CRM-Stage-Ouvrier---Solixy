@@ -111,6 +111,14 @@ class Invoice{
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
-	}	
+	}
+	public function updatepaiement($POST) {
+		if($POST['id_paiement']) {	
+			$sqlInsert = "UPDATE paiements 
+				SET id_client = '".$POST['id_client']."',  date_paiement = '".$POST['date_paiement']."', mode_de_paiement = '".$POST['mode_de_paiement']."', id_facture = '".$POST['id_facture']."', prix = '".$POST['prix']."', status_paiement = '".$POST['status_paiement']."'
+				WHERE id_paiement = '".$POST['id_paiement']."'";		
+			mysqli_query($this->dbConnect, $sqlInsert);	
+		}}		
+
 }
 ?>
