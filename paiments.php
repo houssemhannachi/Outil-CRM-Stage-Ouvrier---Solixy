@@ -102,7 +102,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="modifier_paiement.php?id_paiement='.$paiementDetails["id_paiement"].'"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="modifier_paiement.php?update_id='.$paiementDetails["id_paiement"].'"><i class="fa fa-edit"></i> Modifier</a>
 												<a class="dropdown-item" href="effacer_paiement.php?id_paiement='.$paiementDetails['id_paiement'].'"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
