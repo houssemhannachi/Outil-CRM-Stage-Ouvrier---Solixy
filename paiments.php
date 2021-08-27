@@ -334,7 +334,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 	<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/select2.min.js?v=<?php echo time();?>"></script>
 	<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
-	<script src="script.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/script.js?v=<?php echo time();?>"></script>
 
 </section>
 
