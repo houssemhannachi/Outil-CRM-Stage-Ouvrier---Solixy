@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title> <?php echo $pageName ?> </title>
-    <link rel="stylesheet" href="css/styledash.css?v=<?php echo time();?>" >
+    <link rel="stylesheet" href="assets/css/styledash.css?v=<?php echo time();?>" >
     <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>" >
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
