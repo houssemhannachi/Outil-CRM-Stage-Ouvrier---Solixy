@@ -119,4 +119,4 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 
-	<script src="script.js?v=<?php echo time();?>"></script>
+	<script src="assets/js/script.js?v=<?php echo time();?>"></script>
