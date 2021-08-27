@@ -280,8 +280,4 @@ else
 					</div>
 				</div>
 			</div>
-
-	<script src="assets/js/script.js?v=<?php echo time();?>"></script>
-
-</body>
-</html>
+			<?php include('footer.php')?>
