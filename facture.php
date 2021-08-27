@@ -100,12 +100,4 @@ $invoice = new Invoice();
         ?>
       </table>	
 </div>	
-<script src="assets/js/jquery.dataTables.min.js?v=<?php echo time();?>"></script>
-<script src="assets/js/dataTables.bootstrap4.min.js?v=<?php echo time();?>"></script>
-<script src="assets/js/app.js?v=<?php echo time();?>"></script>	
-<script src="assets/js/script.js?v=<?php echo time();?>"></script>	
-</section>
-
-
-</body>
-</html>
+<?php include('footer.php')?>
