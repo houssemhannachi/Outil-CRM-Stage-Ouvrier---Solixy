@@ -14,7 +14,7 @@
    $invoice = new Invoice();
    
    	
-   if(!empty($_POST['id_client']) && $_POST['id_client']) {	
+   if(!empty($_POST['id_client']) && $_POST['invoice_btn']) {	
    	$invoice->saveInvoice($_POST);
    	header("Location:facture.php");
       
