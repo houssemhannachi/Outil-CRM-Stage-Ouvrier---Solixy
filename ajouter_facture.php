@@ -1,12 +1,3 @@
-<link rel="stylesheet" href="assets/css/styleinvoice.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
-         
-
-
 <?php 
    session_start();
    $_SESSION["user_id"]= 1;
@@ -176,7 +167,7 @@ else
               <label>Total HT: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
+              <span class="input-group-text currency">DT</span>
             </div>
             <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Total HT" >
           </div>
@@ -198,7 +189,7 @@ else
               <label>Total T.V.A: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
+              <span class="input-group-text currency">DT</span>
             </div>
             <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Total T.V.A" readonly>
           </div>
@@ -209,7 +200,7 @@ else
               <label>Total TTC: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
+              <span class="input-group-text currency">DT</span>
             </div>
              <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total" readonly>
           </div>
@@ -220,7 +211,7 @@ else
               <label>Montant payé: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
+              <span class="input-group-text currency">DT</span>
             </div>
             <input value="" type="number" class="form-control" name="amountPaid" id="amountPaid" placeholder="Amount Paid">
           </div>
@@ -231,7 +222,7 @@ else
               <label>Montant à payer: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
+              <span class="input-group-text currency">DT</span>
             </div>
              <input value="" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
           </div>
@@ -240,7 +231,7 @@ else
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 center ">
                <h3>Notes: </h3>
                <div class="form-group ">
-                  <textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"></textarea>
+                  <textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Vos Notes"></textarea>
                </div>
                <br>
                <div class="form-group ">
