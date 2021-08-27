@@ -8,7 +8,8 @@
 <?php
 $pageName = "Paiments";
 session_start();
-
+include 'Invoice.php';
+$paiement = new Invoice();
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 ?>
@@ -32,7 +33,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 							</ul>
 						</div>
 						<div class="col-auto float-right ml-auto">
-							<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_paiement"><i class="fa fa-plus"></i>Ajouter un paiement</a>
+							<a href="ajouter_paiement.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter un paiement</a>
 						</div>
 					</div>
 				</div>
@@ -84,41 +85,34 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                             <th>Action</th>
 										</tr>
 									</thead>									
-								<?php 
-									while($row=mysqli_fetch_assoc($result)) {
-										$id_paiement = $row['id_paiement'];
-										$rs_client = $row['rs_client'];
-										
-										$id_client  = $row['id_client'];
-										$date_paiement = $row['date_paiement'];
-     									$mode_de_paiement = $row['mode_de_paiement'];
-        								$id_facture  = $row['id_facture'];
-        								$prix = $row['prix'];
-        								$status_paiement = $row['status_paiement'];
-								?>
-									<tr>
-										<td><?php echo $id_paiement?></td>
-										<td><?php echo $date_paiement?></td>
-										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $rs_client?></a></td>
-										<td class="none"><?php echo  $id_client?></td>
-										<td><?php echo $mode_de_paiement?></td>
-										<td><a href="imprimer_facture.php?invoice_id=<?php echo $id_facture;?>"><?php echo $id_facture?></a></td>
-										<td><?php echo $prix?></td>
-										<td><?php echo  '<span class="badge bg-inverse-info">'.$status_paiement.'</span>'?></td>
-										<td class=>
+									<?php		
+	    	$paiementList = $paiement->getPaiementList();
+        foreach($paiementList as $paiementDetails){
+
+            echo '
+              <tr>
+                <td>'.$paiementDetails["id_paiement"].'</td>
+                <td>'.$paiementDetails["date_paiement"].'</td>
+                <td>'.$paiementDetails["rs_client"].'</td>
+                <td>'.$paiementDetails["mode_de_paiement"].'</td>
+				<td>'.$paiementDetails["id_facture"].'</td>
+				<td>'.$paiementDetails["prix"].'</td>
+				<td>'.$paiementDetails["status_paiement"].'</td>
+				<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item detailsbtn"><i class="fa fa-id-card m-r-5"></i> Détails</a>
-													<a class="dropdown-item editbtnpaiement"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-													<a class="dropdown-item deletebtnpaiement"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+												<a class="dropdown-item" href="modifier_paiement.php?id_paiement='.$paiementDetails["id_paiement"].'"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="effacer_paiement.php?id_paiement='.$paiementDetails['id_paiement'].'"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
-									</tr>
-									<?php }
-									?>
-								</table>
+
+              </tr>
+            ';
+        }       
+        ?>
+      </table>	
 							</div>
 						</div>
 					</div>
@@ -126,7 +120,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 			<!-- /Page Content -->
 		
 			<!-- Add Client Modal -->
-			<div id="add_paiement" class="modal custom-modal fade" role="dialog">
+			<!-- <div id="add_paiement" class="modal custom-modal fade" role="dialog">
 				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -157,7 +151,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 									
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="col-form-label">Date <span class="text-danger">*</span></label>
+											<label class="col-form-label"><span class="text-danger">*</span></label>
 											<input class="form-control" name ="date" type="date">
 										</div>
 									</div>
@@ -204,7 +198,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- /Add Client Modal -->
 			
 			<!-- Edit Client Modal -->
