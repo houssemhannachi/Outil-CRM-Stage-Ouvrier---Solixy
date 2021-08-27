@@ -58,8 +58,10 @@ require("header.php")
         <span class="dashboard">Dashboard</span>
       </div>
       <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
+        <form>
+          <input type="text" placeholder="Search...">
+          <i class='bx bx-search' ></i>
+        </form>
       </div>
       <div class="profile-details">
         <img src="assets/images/profil.jpg" alt="">
