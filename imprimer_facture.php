@@ -15,7 +15,7 @@ $fac = str_pad($invoiceValues['id_facture'],4,"0",STR_PAD_LEFT);
 $date = date('d-m-y');
 $year = date("y");
 $output = '';
-$output .= '<img src="images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">';
+$output .= '<img src="assets\images\facture.jpg" width="100%" style="padding-top:80px;padding-bottom:30px;">';
 
 
 $output .= '
@@ -119,7 +119,7 @@ $output .= '
 	</div>';
 
 $output .= '
-	<img src="images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
+	<img src="assets\images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
 ';
 
 // create pdf of invoice	
