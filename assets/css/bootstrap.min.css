@@ -10732,7 +10732,13 @@ a.text-dark:hover {
 .form-recherche{
 
 display:inline-block;
+}
 
+a.dropdown-item.editbtn {
+	cursor: pointer;
+}
 
+a.dropdown-item.deletebtn {
+	cursor: pointer;
 }
 /*# sourceMappingURL=bootstrap.min.css.map */
