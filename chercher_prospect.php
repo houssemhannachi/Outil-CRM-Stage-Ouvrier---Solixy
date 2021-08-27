@@ -128,6 +128,6 @@ else
 
 ?>
 
-<script src="script.js?v=<?php echo time();?>"></script>
+<script src="assets/js/script.js?v=<?php echo time();?>"></script>
 </body>
 </html>
