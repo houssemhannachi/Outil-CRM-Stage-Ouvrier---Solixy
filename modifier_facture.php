@@ -11,7 +11,7 @@
 include('dashboard.php');
 include 'Invoice.php';
 $invoice = new Invoice();
-$invoice->checkLoggedIn();
+
 if( !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
 	$invoice->updateInvoice($_POST);	
 	header("Location:facture.php");	
