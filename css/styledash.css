@@ -231,25 +231,25 @@ nav .profile-details i{
   font-size: 32px;
   height: 50px;
   width: 50px;
-  background: #cce5ff;
+  background: #ffc088;
   line-height: 50px;
   text-align: center;
-  color: #66b0ff;
+  color: #f77300;
   border-radius: 12px;
   margin: -15px 0 0 6px;
   margin-left: 10px;
 }
 .home-content .box .cart.two{
-   color: #2BD47D;
-   background: #C0F2D8;
+   color: #79f6ff;
+   background: #25c4cf;
  }
 .home-content .box .cart.three{
-   color: #ffc233;
-   background: #ffe8b3;
+   color: #91ffd1;
+   background: #09cf7d;
  }
 .home-content .box .cart.four{
-   color: #e05260;
-   background: #f7d4d7;
+   color: #9ecaee;
+   background: #008cff;
  }
 .home-content .total-order{
   font-size: 20px;
