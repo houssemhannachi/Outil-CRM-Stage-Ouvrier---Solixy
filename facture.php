@@ -76,11 +76,12 @@ $invoice = new Invoice();
 	    	$invoiceList = $invoice->getInvoiceList();
         foreach($invoiceList as $invoiceDetails){
 			$invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceDetails["order_date"]));
+			$date = date('d-m-y');
             echo '
               <tr>
                 <td>'.$invoiceDetails["id_facture"].'</td>
                 <td>'.$invoiceDetails["rs_client"].'</td>
-                <td>'.$invoiceDate.'</td>
+                <td>'.$date.'</td>
                 <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
 				<td>$'.$invoiceDetails["order_total_amount_due"].'</td>
 				<td class=>
