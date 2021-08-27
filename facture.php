@@ -82,8 +82,8 @@ $invoice = new Invoice();
                 <td>'.$invoiceDetails["id_facture"].'</td>
                 <td>'.$invoiceDetails["rs_client"].'</td>
                 <td>'.$date.'</td>
-                <td>$'.$invoiceDetails["order_total_after_tax"].'</td>
-				<td>$'.$invoiceDetails["order_total_amount_due"].'</td>
+                <td>'.$invoiceDetails["order_total_after_tax"].' DT</td>
+				<td>'.$invoiceDetails["order_total_amount_due"].' DT</td>
 				<td class=>
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
