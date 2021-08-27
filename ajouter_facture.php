@@ -30,7 +30,7 @@
    }
    ?>
 
-<script src="js/invoice.js?v=<?php echo time();?>"></script>
+<script src="assets/js/facture.js?v=<?php echo time();?>"></script>
 <div class="home-content">
 		<div class="page-wrapper">
 		
