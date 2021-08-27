@@ -116,7 +116,4 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 <?php
    }
 ?>
-
-
-
-	<script src="assets/js/script.js?v=<?php echo time();?>"></script>
+<?php include('footer.php')?>
