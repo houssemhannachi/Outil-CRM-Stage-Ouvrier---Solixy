@@ -3,7 +3,7 @@ require("header.php")
 ?>
 <div class="sidebar">
   <div class="logo-details">
-    <img id="logo_name" src="images\logo1.png">
+    <img id="logo_name" src="assets\images\logo1.png">
     <img id="solixy">
   </div>
 <ul class="nav-links">
@@ -62,7 +62,7 @@ require("header.php")
         <i class='bx bx-search' ></i>
       </div>
       <div class="profile-details">
-        <img src="images/profil.jpg" alt="">
+        <img src="assets/images/profil.jpg" alt="">
         <span class="admin_name"><?php echo $_SESSION['name']; ?></span>
         <div class="dropdown">
           <button class="bx bx-chevron-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
