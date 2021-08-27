@@ -80,7 +80,7 @@ if(!empty($_POST['id_client']) ) {
                                                         $tauxtva_client = $row['tauxtva_client'];
 														?>
 
-														<?php echo '<input type="text" id="id_client" name="id_client" value="'.$id_client.'" readonly>' ?>
+														<?php echo '<input type="hidden" id="id_client" name="id_client" value="'.$id_client.'" readonly>' ?>
 														<?php echo '<div class="form-group row">
 											<label class="col-form-label col-md-2">Client</label>
 											<div class="col-md-10">
@@ -136,7 +136,7 @@ if(!empty($_POST['id_client']) ) {
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Statuts</label>
 											<div class="col-md-10">
-												<input type="number" class="form-control" name="status_paiement">
+												<input type="text" class="form-control" name="status_paiement">
 											</div>
 										</div>
 									
