@@ -9,7 +9,7 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
   image.style.display='none';
   logo.style.display="inherit";
-  logo.src ="images/l.png";
+  logo.src ="images/lo.png";
 
 }else {
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
