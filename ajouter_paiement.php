@@ -5,7 +5,7 @@ include 'dashboard.php';
 
 require_once('db_conn.php');
 include 'Invoice.php';
-$pageName ="Ajouter facture";
+
 $paiement = new Invoice();
 
 	
