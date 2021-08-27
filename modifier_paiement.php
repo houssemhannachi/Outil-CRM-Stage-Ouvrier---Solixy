@@ -8,7 +8,7 @@ include('dashboard.php');
 include 'Invoice.php';
 $paiement = new Invoice();
 
-if( !empty($_POST['invoiceId']) && $_POST['invoiceId']) {	
+if( !empty($_POST['id_paiement']) && $_POST['id_paiement']) {	
 	$paiement->updatepaiement($_POST);	
 	header("Location:paiments.php");	
 }
@@ -46,11 +46,12 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 									<h4 class="card-title mb-0">Paiement</h4>
 								</div>
 								<div class="card-body">
-                                        
+                                <form action="" method="post">
+
                                         <div class="form-group row">
-											<label class="col-form-label col-md-2">Date</label>
+											<label class="col-form-label col-md-2">Client</label>
 											<div class="col-md-10">
-												<input tsype="date" class="form-control" name="date_paiement" value="<?php echo $paiementValues['date_paiement']; ?>">
+												<input tsype="date" class="form-control" name="id_client" value="<?php echo $paiementValues['rs_client']; ?> "readonly>
 											</div>
 										</div>
 											
@@ -63,14 +64,15 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">N° Facture </label>
 											<div class="col-md-10">
-												<input type="number" class="form-control"  name="id_facture">
+												<input type="number" class="form-control"  name="id_facture" value="<?php echo $paiementValues['id_facture']; ?>">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Moyen de paiement</label>
 											<div class="col-md-10">
-												<select class="form-control" name="mode_de_paiement">
-															<option>Moyen de paiement</option>
+												<select class="form-control" name="mode_de_paiement" >
+                                                            <option> <?php echo $paiementValues['mode_de_paiement'] ?> </option>
+															
 															<option value="Virement bancaire">Virement bancaire</option>
 															<option value="Chèque">Chèque</option>
 															<option value="Espèces">Espèces</option>
@@ -83,7 +85,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Statuts</label>
 											<div class="col-md-10">
-												<input type="number" class="form-control" name="status_paiement">
+												<input type="text" class="form-control" name="status_paiement" value="<?php echo $paiementValues['status_paiement']; ?>">
 											</div>
 										</div>
 									
@@ -95,54 +97,21 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 													<div class="input-group-prepend">
 														<span class="input-group-text">DT</span>
 													</div>
-													<input class="form-control" type="text" name="prix" value="<?php echo $paiementValues['prix']; ?>">
+													<input class="form-control" type="number" name="prix" value="<?php echo $paiementValues['prix']; ?>">
 													<div class="input-group-append">
-														<button class="btn btn-primary" type="submit" name ="submit">Enregistrer</button>
-													</div>
+                                                        <input type="hidden" value="<?php echo $paiementValues['id_paiement']; ?>" class="form-control" name="id_paiement" id="id_paiement">
+
+                                                        <button data-loading-text="Mise à jour facture ..." type="submit" name="invoice_btn" class="btn btn-primary" >Modifier</button>											</div>
 												</div>
 											</div>
 										</div>
 									</form>
 								</div>
-							</div>
 
-							</div>
-						</div>
-	
-			</div>
+
 			<!-- /Main Wrapper -->
 		
         </div>
 
 		<!-- /Main Wrapper -->
 <?php include 'footer.php' ?>
-							</div>
-							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<div class="form-group">
-								<label>Montant à payer: &nbsp;</label>
-								<div class="input-group">
-									<div class="input-group-append currency"><span class="input-group-text">DT</span></div>
-									<input value="" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
-								</div>
-							</div>
-							</div>
-		     		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 center">
-		      			<h3>Notes: </h3>
-		      			<div class="form-group">
-							<textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Vos Notes"><?php echo $invoiceValues['note']; ?></textarea>
-						</div>
-						<br>
-						<div class="form-group">
-							<input type="hidden" value="<?php echo $invoiceValues['id_paiement']; ?>" class="form-control" name="id_paiement" id="id_paiement">
-			      			<input data-loading-text="Mise à jour facture ..." type="submit" name="invoice_btn" value="Modifier" class="btn btn-primary submit-btn invoice-save-btm" style="display : table; margin : 0 auto;">
-			      		</div>
-						
-		      		</div>
-		      	</div>
-		      	<div class="clearfix"></div>		      	
-	      	</div>
-		</form>	
-    		</div>
-    	</div>		
-    </div>
-</div>	
