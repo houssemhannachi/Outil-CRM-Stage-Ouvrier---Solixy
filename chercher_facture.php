@@ -30,12 +30,7 @@ include('dashboard.php');
 								<li class="breadcrumb-item active">Facture</li>
 							</ul>
 						</div>
-						<div class="col-auto float-right ml-auto">
 
-
-							<a href="ajouter_facture.php" class="btn add-btn"><i class="fa fa-plus"></i>Ajouter une facture</a>
-
-						</div>
 					</div>
 				</div>
 				<!-- /Page Header -->
@@ -119,10 +114,9 @@ if (isset($_POST['submit-search'])){
 											<div class="dropdown dropdown-action">
 												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item " href="profile_client.php?id=<?php echo $row['id_client'];?>"><i class="fa fa-id-card m-r-5"></i> Profile</a>
-
-													<a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-													<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>	
+												<a class="dropdown-item" href="imprimer_facture.php?invoice_id=<?php echo $id_facture?>"><i class="fa fa-print"></i> Imprimer</a>
+												<a class="dropdown-item" href="modifier_facture.php?update_id=<?php echo $id_facture?>"><i class="fa fa-edit"></i> Modifier</a>
+												<a class="dropdown-item" href="effacer_facture.php?order_id=<?php echo $id_facture ?>"><i class="fa fa-trash"></i> Supprimer</a>
 												</div>
 											</div>
 										</td>
