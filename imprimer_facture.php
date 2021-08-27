@@ -117,6 +117,15 @@ $output .= '
 	
 	</table>
 	</div>';
+	$output .= '<div div style="margin-left:403px;"> 
+	<table style="margin-top:120px; border: 1px solid white; width:300px; ">
+	<tr><td style=" font-weight: bold; font-size:15px; text-align:center; margin:0px">'.$invoiceValues['note'].'</td>
+	</tr>
+
+	
+	</table>
+	</div>
+	';
 
 $output .= '
 	<img src="assets\images\facture1.jpg" width="100%" style="position: fixed;top: 95%;">
