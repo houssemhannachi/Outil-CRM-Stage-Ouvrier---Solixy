@@ -43,7 +43,7 @@ session_start();
             <div class="number"><?php  echo $rowcount_client;  ?></div>
           </div>
           </a>
-          <i class='fa fa-user cart'></i>
+          <i class='bx bx-user cart'></i>
         </div>
         <div class="box">
           <div class="right-side">
@@ -52,7 +52,7 @@ session_start();
             <div class="number"><?php  echo $rowcount_invoice;  ?></div>
           </div>
           </a>
-          <i class='fa fa-usd cart two' ></i>
+          <i class='bx bx-copy-alt cart two' ></i>
         </div>
         <div class="box">
           <div class="right-side">
@@ -61,7 +61,7 @@ session_start();
             <div class="number"><?php  echo $rowcount_devis?></div>
           </div>
           </a>
-          <i class='bx bx-cart cart three' ></i>
+          <i class='bx bx-dollar-circle cart three' ></i>
         </div>
         <div class="box">
           <div class="right-side">
@@ -70,7 +70,7 @@ session_start();
             <div class="number"><?php  echo $rowcount_paiements;  ?></div>
           </div>
           </a>
-          <i class='bx bx-copy-alt cart four' ></i>
+          <i class='bx bx-dollar cart four' ></i>
         </div>
       </div>
 
