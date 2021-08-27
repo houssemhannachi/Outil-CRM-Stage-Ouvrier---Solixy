@@ -11,7 +11,7 @@ session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 ?>
-  <?php require "dashboard.php";?>
+  <?php include "dashboard.php";?>
   
 <!-- Main Wrapper -->
 <div class="home-content">
@@ -376,10 +376,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					</div>
 				</div>
 			</div>
-			<!-- /Delete Client Modal -->
-			<!-- ,ref_client,fj_client,email_client,adresse_client,ville_client,pays_client,tel_client,sw_client,mf_client,riprib_client,tauxtva_client -->
-
-			<!-- View Client Details -->
 
 			
 		</div>
@@ -387,8 +383,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 		
 	</div>
 	<!-- /Main Wrapper -->
-	
-	<!-- jQuery -->
+
 <?php include('footer.php')?>
 <?php 
 }else{
