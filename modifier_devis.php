@@ -1,10 +1,3 @@
-<link rel="stylesheet" href="assets/css/styleinvoice.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/line-awesome.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/select2.min.css?v=<?php echo time();?>">
-<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time();?>">
-         
 
 <?php 
    session_start();
