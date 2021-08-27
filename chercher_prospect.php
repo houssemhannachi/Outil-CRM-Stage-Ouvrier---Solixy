@@ -61,7 +61,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 										<th>Téléphone</th>
 										<th>Facebook</th>
                                         <th>Site Web</th>
-										<th>Action</th>
 									</tr>
 								</thead>    
 <?php
@@ -94,15 +93,7 @@ if (isset($_POST['submit-search'])){
 			<td><?php echo $tel?></td>
 			<td><?php echo $fb?></td>
             <td><?php echo $sw?></td>
-            <td class=>
-                <div class="dropdown dropdown-action">
-                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item editbtn"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                        <a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                    </div>
-                </div>
-            </td>
+
         </tr>
 		<?php }?>
 
