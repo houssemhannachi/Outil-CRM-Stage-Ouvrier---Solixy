@@ -53,16 +53,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 								<label class="focus-label">N° Facture</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-3 "style="float:left;">  
-							<div class="form-group form-focus select-focus">
-								<select class="select floating"> 
-									<option>Moyen de paiement</option>
-									<option value="Virement bancaire">Virement bancaire</option>
-									<option value="Chèque">Chèque</option>
-									<option value="Espèces">Espèces</option>
-									<option value="Versement">Versement</option>
-								</select>
-								<label class="focus-label">Status</label>
+						<div class="col-sm-6 col-md-2"style="float:left;">  
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating" name="clientch">
+								<label class="focus-label">Client</label>
 							</div>
 						</div>
 
