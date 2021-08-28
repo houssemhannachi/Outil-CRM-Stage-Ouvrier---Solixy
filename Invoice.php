@@ -4,9 +4,6 @@ class Invoice{
     private $user  = 'root';
     private $password   = "";
     private $database  = "sol";   
-	private $invoicePaiementTable = 'paiements';
-    private $invoiceOrderTable = 'facture';
-	private $invoiceOrderItemTable = 'facture_item';
 	private $dbConnect = false;
     public function __construct(){
         if(!$this->dbConnect){ 
@@ -43,7 +40,7 @@ class Invoice{
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
 		for ($i = 0; $i < count($POST['productCode']); $i++) {
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_facture, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+			$sqlInsertItem = "INSERT INTO facture_item(id_facture, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);
 		}       	
 	}	
@@ -56,7 +53,7 @@ class Invoice{
 		}		
 		$this->deleteInvoiceItems($POST['invoiceId']);
 		for ($i = 0; $i < count($POST['productCode']); $i++) {			
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_facture, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
+			$sqlInsertItem = "INSERT INTO facture_item(id_facture, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
 				VALUES ('".$POST['invoiceId']."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);			
 		}       	
@@ -76,12 +73,12 @@ class Invoice{
 		return $row;
 	}	
 	public function getInvoiceItems($invoiceId){
-		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderItemTable." 
+		$sqlQuery = "SELECT * FROM facture_item
 			WHERE id_facture = '$invoiceId'";
 		return  $this->getData($sqlQuery);	
 	}
 	public function deleteInvoiceItems($invoiceId){
-		$sqlQuery = "DELETE FROM ".$this->invoiceOrderItemTable." 
+		$sqlQuery = "DELETE FROM facture_item
 			WHERE id_facture = '".$invoiceId."'";
 		mysqli_query($this->dbConnect, $sqlQuery);				
 	}
@@ -94,20 +91,20 @@ class Invoice{
 	}
 
 	public function savePaiement($POST) {		
-		$sqlInsert = "INSERT INTO ".$this->invoicePaiementTable."  (id_client, date_paiement, mode_de_paiement, id_facture, prix, status_paiement) VALUES ('".$POST['id_client']."', '".$POST['date_paiement']."', '".$POST['mode_de_paiement']."', '".$POST['id_facture']."', '".$POST['prix']."', '".$POST['status_paiement']."')";		
+		$sqlInsert = "INSERT INTO paiements (id_client, date_paiement, mode_de_paiement, id_facture, prix, status_paiement) VALUES ('".$POST['id_client']."', '".$POST['date_paiement']."', '".$POST['mode_de_paiement']."', '".$POST['id_facture']."', '".$POST['prix']."', '".$POST['status_paiement']."')";		
 		mysqli_query($this->dbConnect, $sqlInsert);
 		       	
 	}
 	public function getPaiementList(){
-		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client
-		FROM paiements p, clients c
-		WHERE p.id_client= c.id_client";
+		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client,f.id_facture,f.order_total_after_tax
+		FROM paiements p, clients c, facture f
+		WHERE p.id_client= c.id_client AND f.id_facture= p.id_facture";
 		return  $this->getData($sqlQuery);
 	}
 	public function getPaiement($invoiceId){
-		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client
-			FROM paiements p, clients c
-			WHERE p.id_paiement = '$invoiceId' AND p.id_client= c.id_client";
+		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client,f.id_facture,f.order_total_after_tax
+			FROM paiements p, clients c, facture f
+			WHERE p.id_paiement = '$invoiceId' AND p.id_client= c.id_client AND f.id_facture= p.id_facture" ;
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
