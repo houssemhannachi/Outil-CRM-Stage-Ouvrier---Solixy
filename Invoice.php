@@ -102,9 +102,9 @@ class Invoice{
 		return  $this->getData($sqlQuery);
 	}
 	public function getPaiement($invoiceId){
-		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client,f.id_facture,f.order_total_after_tax
-			FROM paiements p, clients c, facture f
-			WHERE p.id_paiement = '$invoiceId' AND p.id_client= c.id_client AND f.id_facture= p.id_facture" ;
+		$sqlQuery = "SELECT p.id_paiement ,p.id_client ,p.date_paiement,p.mode_de_paiement,p.id_facture,p.prix,p.status_paiement,c.id_client,c.rs_client
+			FROM paiements p, clients c
+			WHERE p.id_paiement = '$invoiceId' AND p.id_client= c.id_client " ;
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
@@ -112,7 +112,7 @@ class Invoice{
 	public function updatepaiement($POST) {
 		if($POST['id_paiement']) {	
 			$sqlInsert = "UPDATE paiements 
-				SET id_client = '".$POST['id_client']."',  date_paiement = '".$POST['date_paiement']."', mode_de_paiement = '".$POST['mode_de_paiement']."', id_facture = '".$POST['id_facture']."', prix = '".$POST['prix']."', status_paiement = '".$POST['status_paiement']."'
+				SET date_paiement = '".$POST['date_paiement']."', mode_de_paiement = '".$POST['mode_de_paiement']."', prix = '".$POST['prix']."', status_paiement = '".$POST['status_paiement']."'
 				WHERE id_paiement = '".$POST['id_paiement']."'";		
 			mysqli_query($this->dbConnect, $sqlInsert);	
 		}}		
