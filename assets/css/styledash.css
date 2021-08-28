@@ -122,7 +122,7 @@ nav .sidebar-button i{
   margin: 0 20px;
 }
 nav .search-box input{
-  height: 100%;
+  height: 50px;
   width: 100%;
   outline: none;
   background: #F5F6FA;
@@ -135,7 +135,7 @@ nav .search-box .bx-search{
   position: absolute;
   height: 40px;
   width: 40px;
-  background: #2697FF;
+  background: #ff6606;
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
@@ -145,6 +145,7 @@ nav .search-box .bx-search{
   color: #fff;
   font-size: 22px;
   transition: all 0.4 ease;
+  border: #ff6606;
 }
 .home-section nav .profile-details{
   display: flex;
@@ -231,25 +232,25 @@ nav .profile-details i{
   font-size: 32px;
   height: 50px;
   width: 50px;
-  background: #ffc088;
+  background: #cce5ff;
   line-height: 50px;
   text-align: center;
-  color: #f77300;
+  color: #66b0ff;
   border-radius: 12px;
   margin: -15px 0 0 6px;
   margin-left: 10px;
 }
 .home-content .box .cart.two{
-   color: #79f6ff;
-   background: #25c4cf;
+   color: #2BD47D;
+   background: #C0F2D8;
  }
 .home-content .box .cart.three{
-   color: #91ffd1;
-   background: #09cf7d;
+   color: #ffc233;
+   background: #ffe8b3;
  }
 .home-content .box .cart.four{
-   color: #9ecaee;
-   background: #008cff;
+   color: #e05260;
+   background: #f7d4d7;
  }
 .home-content .total-order{
   font-size: 20px;
