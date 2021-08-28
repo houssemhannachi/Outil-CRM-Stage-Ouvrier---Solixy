@@ -46,7 +46,7 @@ require("header.php")
     <li class="log_out">
       <a href="logout.php">
         <i class='bx bx-log-out'></i>
-        <span class="links_name">Log out</span>
+        <span class="links_name">Déconnexion</span>
       </a>
     </li>
   </ul>
@@ -58,20 +58,44 @@ require("header.php")
         <span class="dashboard">Dashboard</span>
       </div>
       <div class="search-box">
-        <form>
-          <input type="text" placeholder="Search...">
-          <i class='bx bx-search' ></i>
+        <form action="" method="POST">
+          <input type="text" placeholder="Recherche..." name="recherche">
+          <button class="bx bx-search" type="submit" name="recherche-button"></button>
         </form>
       </div>
       <div class="profile-details">
-        <img src="assets/images/profil.jpg" alt="">
+        <img src="assets/images/profill.jpg" alt="">
         <span class="admin_name"><?php echo $_SESSION['name']; ?></span>
         <div class="dropdown">
           <button class="bx bx-chevron-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a href="logout.php"><i class='bx bx-log-out'></i><span class="log">Log out</span> </a>
+            <a href="logout.php"><i class='bx bx-log-out'></i><span class="log">Déconnexion</span> </a>
           </div>
         </div>
       </div>
     </nav>
 
+<?php
+
+if (isset($_POST['recherche-button'])){
+  $recherche = mb_strtoupper($_POST['recherche']);
+
+  switch ($recherche) {
+      case "CLIENTS":
+          header ('location:clients.php');
+          break;
+      case "FACTURES":
+          header ('location:facture.php');
+          break;
+      case "PROSPECTS":
+           header ('location:prospects.php');
+          break;
+      case "DEVIS":
+            header ('location:devis.php');
+           break;
+      case "PAIEMENTS":
+            header ('location:paiments.php');
+           break;
+  }}
+
+?>
