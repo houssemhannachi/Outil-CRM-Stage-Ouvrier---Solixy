@@ -52,14 +52,19 @@ if(!empty($_POST['id_client']) ) {
 											<div class="form-recherche col-md-10">
                      							<form action="" method="POST">
                         							<input type="text" class="recherche_input" name="ref_client" id="ref_client" placeholder="REF client" autocomplete="off">
-                        							<button name="search" class="btn btn-success"> Trouver ce client </button>
-                     							</form>
+													<label class="col-form-label col-md-2">&nbsp &nbsp N° Facture</label>
+													<input type="number" class="recherche_input" name="n_facture" id="n_facture" placeholder="Numéro facture" autocomplete="off">
+                        							<button name="search" class="btn btn-success  "> Trouver ce client </button>
+													</form>
                   							</div>
 										</div>
+
+
 										<form action =""method="post">
 										<?php if( isset($_POST['search']) AND !empty($_POST) )
                            					{   $recherche_rs = $_POST['ref_client'];
-												$sql = "SELECT * FROM clients WHERE ref_client LIKE '%$recherche_rs%' ";
+												$recherche_f = $_POST['n_facture'];
+												$sql = "SELECT * FROM clients c, facture f WHERE c.ref_client LIKE '%$recherche_rs%' AND f.id_facture LIKE '%$recherche_f%'";
 												$result = mysqli_query ($conn,$sql);
                               					$queryResult = mysqli_num_rows($result);
                               
@@ -67,58 +72,30 @@ if(!empty($_POST['id_client']) ) {
                                  					while ($row = mysqli_fetch_assoc($result)) {
                                                         $id_client = $row['id_client'];
                                                         $rs_client = $row['rs_client'];
-                                                        $ref_client = $row['ref_client'];
-                                                        $fj_client = $row['fj_client'];
-                                                          $email_client = $row['email_client'];
-                                                          $adresse_client = $row['adresse_client'];
-                                                          $ville_client = $row['ville_client'];
-                                                          $pays_client = $row['pays_client'];
-                                                        $tel_client = $row['tel_client'];
-                                                        $sw_client = $row['sw_client'];
-                                                        $mf_client = $row['mf_client'];
-                                                        $riprib_client = $row['riprib_client'];
-                                                        $tauxtva_client = $row['tauxtva_client'];
+														$id_facture = $row['id_facture'];
+														$p_facture = $row['order_total_after_tax'];
+
 														?>
 
 														<?php echo '<input type="hidden" id="id_client" name="id_client" value="'.$id_client.'" readonly>' ?>
 														<?php echo '<div class="form-group row">
 											<label class="col-form-label col-md-2">Client</label>
 											<div class="col-md-10">
-												<input type="text" class="form-control"  name="raison" value="'.$rs_client.'" >
+												<input type="text" class="form-control"  name="raison" value="'.$rs_client.'" readonly >
 											</div>
 										</div>'?>
-					   
-					   
-					   <?php }?>
-					   <?php
-						  }
-						  else {
-							  echo 'Aucun client trouvé';
-					   
-						  }
-					   }
-					   else
-					   {
-						   echo '';
-					   
-					   }
-					   
-					   ?>
-										
-											
-											
+										<?php echo '<div class="form-group row">
+											<label class="col-form-label col-md-2">N° Facture</label> 
+											<div class="col-md-10">
+											<input type="text" class="form-control" id="id_facture" name="id_facture" value="'.$id_facture.'" readonly> </div>
+											</div>' ?>
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Date</label>
 											<div class="col-md-10">
 												<input type="date" class="form-control" name="date_paiement">
 											</div>
 										</div>
-										<div class="form-group row">
-											<label class="col-form-label col-md-2">N° Facture </label>
-											<div class="col-md-10">
-												<input type="number" class="form-control"  name="id_facture">
-											</div>
-										</div>
+
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">Moyen de paiement</label>
 											<div class="col-md-10">
@@ -148,7 +125,7 @@ if(!empty($_POST['id_client']) ) {
 													<div class="input-group-prepend">
 														<span class="input-group-text">DT</span>
 													</div>
-													<input class="form-control" type="text" name="prix">
+													<?php echo '<input class="form-control" type="text" name="prix" value="'.$p_facture.'" >'?>
 													<div class="input-group-append">
 														<button class="btn btn-primary" type="submit" name ="submit">Enregistrer</button>
 													</div>
@@ -158,6 +135,23 @@ if(!empty($_POST['id_client']) ) {
 									</form>
 								</div>
 							</div>
+					   
+					   
+							<?php }?>
+					   <?php
+						  }
+						  else {
+							  echo 'Aucun client trouvé';
+					   
+						  }
+					   }
+					   else
+					   {
+						   echo '';
+					   
+					   }
+					   
+					   ?>
 
 							</div>
 						</div>
