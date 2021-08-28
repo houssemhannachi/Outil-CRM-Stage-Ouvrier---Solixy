@@ -37,7 +37,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				
 				<!-- Search Filter -->
 				<div class="row filter-row">
-					<form action = "chercher_prospect.php" method ="POST" >
+					<form action = "" method ="POST" >
 						<div class="col-sm-8 col-md-4"style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="rsch">
@@ -76,6 +76,70 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 										<th>Action</th>
 									</tr>
 								</thead>
+								<?php
+if (isset($_POST['submit-search'])){
+    $recherche_rs = $_POST['rsch'];
+    $recherche_tel = $_POST['telch'];
+
+   $sql = "SELECT * FROM propects WHERE rs_prospect LIKE '%$recherche_rs%' AND tel_prospect LIKE '%$recherche_tel%'  ";
+   $result = mysqli_query ($conn,$sql);
+   $queryResult = mysqli_num_rows($result);
+   if($queryResult > 0) {
+       while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row['id_prospect'];
+            $rs = $row['rs_prospect'];
+            $email = $row['email_prospect'];
+            $adresse = $row['adresse_prospect'];
+            $ville = $row['ville_prospect'];
+            $pays = $row['pays_prospect'];
+            $tel = $row['tel_prospect'];
+            $fb = $row['facebook_prospect'];
+            $sw = $row['siteweb_prospect'];
+       ?>
+       <tr>
+           	<td class="none"><?php echo $id?></td>
+			<td><?php echo $rs?></td>
+			<td><?php echo $email?></td>
+			<td><?php echo $adresse?></td>
+			<td class="none"><?php echo $ville?></td>
+			<td><?php echo $pays?></td>
+			<td><?php echo $tel?></td>
+			<td><?php echo $fb?></td>
+            <td><?php echo $sw?></td>
+			<td class=>
+				<div class="dropdown dropdown-action">
+					<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a class="dropdown-item editbtnprospect"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+						<a class="dropdown-item deletebtn"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+					</div>
+				</div>
+			</td>
+
+        </tr>
+		<?php }?>
+
+								
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<?php
+   }
+   else {
+	echo '<tr style="background-color:initial"> <td >Aucune donnée disponible</td> </tr>';
+
+   }
+}
+else
+{
+    echo'';
+
+}
+
+?>
 								<?php 
 									while($row=mysqli_fetch_assoc($result)) {
 										$id = $row['id_prospect'];
