@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$pageName = "Paiments";
+$pageName = "Paiements";
 include 'dashboard.php';
 
 require_once('db_conn.php');
