@@ -64,7 +64,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 										<div class="form-group row">
 											<label class="col-form-label col-md-2">N° Facture </label>
 											<div class="col-md-10">
-												<input type="number" class="form-control"  name="id_facture" value="<?php echo $paiementValues['id_facture']; ?>">
+												<input type="number" class="form-control"  name="id_facture" value="<?php echo $paiementValues['id_facture']; ?>" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
