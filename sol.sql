@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 24 août 2021 à 17:49
+-- Généré le : ven. 27 août 2021 à 20:58
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -48,7 +48,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id_client`, `rs_client`, `ref_client`, `fj_client`, `email_client`, `adresse_client`, `ville_client`, `pays_client`, `tel_client`, `sw_client`, `mf_client`, `riprib_client`, `tauxtva_client`) VALUES
-(9, 'Maher', 'RS', 'SA', 'houssem.hannachi@enis.tn', 'Rue el Afrah', 'Metouia', 'Tunisie', '52215947', 'www.houssem.Com', '13267', 12222, 212112),
+(9, 'Maher', 'MANU', 'SA', 'maher@gmail.com', 'Defense', 'Paris', 'France', '336678290', 'www.sss.Com', '13267', 12222, 212112),
 (10, 'Houssem', 'CA1920', 'SA', 'houssem.hannachi@enis.tn', 'Meya ', 'Metouia', 'Tunisie', '52215947', 'www.houssem.Com', '13267', 12222, 212112);
 
 -- --------------------------------------------------------
@@ -70,13 +70,6 @@ CREATE TABLE `devis` (
   `TVAamount` int(11) NOT NULL,
   `totalttc` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `devis`
---
-
-INSERT INTO `devis` (`nom_client`, `id_devis`, `user_id`, `adresse_client`, `date`, `baseht`, `remise`, `totalht`, `TVArate`, `TVAamount`, `totalttc`) VALUES
-('MAMAAAM', 8, 1, 'MAMMAMMA', '2021-08-23 14:05:16', 1, 1, 50, 2, 1, 51);
 
 -- --------------------------------------------------------
 
@@ -125,6 +118,13 @@ CREATE TABLE `facture` (
   `note` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `facture`
+--
+
+INSERT INTO `facture` (`id_facture`, `id_client`, `order_total_before_tax`, `order_total_tax`, `order_tax_per`, `order_total_after_tax`, `order_amount_paid`, `order_total_amount_due`, `order_date`, `note`) VALUES
+(6, 9, '4000', '120', '3', '4120', '0', '4120', '2021-08-27 18:42:38', '');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +140,19 @@ CREATE TABLE `facture_item` (
   `order_item_final_amount` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `facture_item`
+--
+
+INSERT INTO `facture_item` (`item_code`, `id_facture`, `item_name`, `order_item_quantity`, `order_item_price`, `order_item_final_amount`) VALUES
+('', 1, '', '', '', ''),
+('MM', 3, 'AAA', '3', '10', '30'),
+('dsqs', 3, 'qdsdqs', '66', '555', '36630'),
+('EZZZ', 2, 'CD', '1', '444', '444'),
+('DSD', 4, 'SDD', '10', '222', '2220'),
+('SSS', 5, 'SSS', '10', '10', '100'),
+('SQS', 6, 'PC', '2', '2000', '4000');
+
 -- --------------------------------------------------------
 
 --
@@ -148,13 +161,12 @@ CREATE TABLE `facture_item` (
 
 CREATE TABLE `paiements` (
   `id_paiement` int(11) NOT NULL,
-  `rs_client` text NOT NULL,
   `id_client` int(11) NOT NULL,
   `date_paiement` date NOT NULL,
-  `mode_de_paiement` text NOT NULL,
+  `mode_de_paiement` varchar(255) NOT NULL,
   `id_facture` int(11) NOT NULL,
   `prix` double NOT NULL,
-  `status_paiement` text NOT NULL
+  `status_paiement` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -174,6 +186,13 @@ CREATE TABLE `propects` (
   `facebook_prospect` text NOT NULL,
   `siteweb_prospect` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `propects`
+--
+
+INSERT INTO `propects` (`id_prospect`, `rs_prospect`, `adresse_prospect`, `email_prospect`, `ville_prospect`, `pays_prospect`, `tel_prospect`, `facebook_prospect`, `siteweb_prospect`) VALUES
+(1, 'Houssem', 'Rue el Afrah', 'houssem.hannachi@enis.tn', 'Metouia', 'Tunisie', 52215947, 'Houssem Hannachi', 'www.houssem.com');
 
 -- --------------------------------------------------------
 
@@ -223,7 +242,9 @@ ALTER TABLE `facture`
 -- Index pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  ADD PRIMARY KEY (`id_paiement`);
+  ADD PRIMARY KEY (`id_paiement`),
+  ADD KEY `id_cl` (`id_client`),
+  ADD KEY `id_fa` (`id_facture`);
 
 --
 -- Index pour la table `propects`
@@ -257,19 +278,19 @@ ALTER TABLE `devis`
 -- AUTO_INCREMENT pour la table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `propects`
 --
 ALTER TABLE `propects`
-  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -286,6 +307,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `facture`
   ADD CONSTRAINT `ID_client` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
+
+--
+-- Contraintes pour la table `paiements`
+--
+ALTER TABLE `paiements`
+  ADD CONSTRAINT `id_cl` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`),
+  ADD CONSTRAINT `id_fa` FOREIGN KEY (`id_facture`) REFERENCES `facture` (`id_facture`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
