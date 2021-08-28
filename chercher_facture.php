@@ -1,17 +1,10 @@
 <?php
 require_once ("db_conn.php");
 $pageName = "Factures";
-
-
-?>
-
-<?php 
 session_start();
-$pageName ="Factures";
 include('dashboard.php');
-
-
 ?>
+
 
 <script src="assets/js/facture.js?v=<?php echo time();?>"></script>
 <div class="home-content">
