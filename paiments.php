@@ -6,7 +6,7 @@
 ?>
 
 <?php
-$pageName = "Paiments";
+$pageName = "Paiements";
 session_start();
 include 'Invoice.php';
 $paiement = new Invoice();
