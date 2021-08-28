@@ -96,7 +96,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 <td><a href="profile_client.php?id='.$paiementDetails["id_client"].'">'.$paiementDetails["rs_client"].'</a></td>
                 <td>'.$paiementDetails["mode_de_paiement"].'</td>
 				<td>'.$paiementDetails["id_facture"].'</td>
-				<td>'.$paiementDetails["order_total_after_tax"].'</td>
+				<td>'.$paiementDetails["prix"].'</td>
 				<td>'.$paiementDetails["status_paiement"].'</td>
 				<td class=>
 											<div class="dropdown dropdown-action">
