@@ -37,10 +37,10 @@ require("header.php")
         <span class="links_name">Devis</span>
       </a>
     </li>
-    <li class = "<?php if($pageName == 'Paiments') {echo 'act';}?>">
+    <li class = "<?php if($pageName == 'Paiements') {echo 'act';}?>">
       <a href="paiments.php">
         <i class='bx bx-dollar' ></i>
-        <span class="links_name">Paiments</span>
+        <span class="links_name">Paiements</span>
       </a>
     </li>
     <li class="log_out">
