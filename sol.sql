@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 30 août 2021 à 09:44
+-- Généré le : lun. 30 août 2021 à 11:39
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -59,18 +59,25 @@ INSERT INTO `clients` (`id_client`, `rs_client`, `ref_client`, `fj_client`, `ema
 --
 
 CREATE TABLE `devis` (
-  `nom_client` text NOT NULL,
   `id_devis` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `adresse_client` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `nom_client` varchar(255) NOT NULL,
+  `adresse_client` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `baseht` double NOT NULL,
   `remise` double NOT NULL,
   `totalht` double NOT NULL,
-  `TVArate` int(11) NOT NULL,
-  `TVAamount` int(11) NOT NULL,
+  `tauxtva` double NOT NULL,
+  `totaltva` double NOT NULL,
   `totalttc` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `devis`
+--
+
+INSERT INTO `devis` (`id_devis`, `nom_client`, `adresse_client`, `date`, `baseht`, `remise`, `totalht`, `tauxtva`, `totaltva`, `totalttc`) VALUES
+(2, 'XXXXX', 'XXXXX', '2021-08-30 09:35:52', 75, 5, 70, 10, 7, 77),
+(3, 'Ahmed', 'Gabès', '2021-08-30 09:38:18', 6000, 500, 5500, 10, 550, 6050);
 
 -- --------------------------------------------------------
 
@@ -98,7 +105,12 @@ INSERT INTO `devis_item` (`id_devis`, `item_code`, `item_name`, `order_item_quan
 (7, '322', 'ORdinateur', 2, 9877, 19754),
 (8, '2112', 'MAMAMAMA', 5, 10, 50),
 (9, 'ZZAZ', 'ZAZAZA', 4444, 4, 17776),
-(9, '2212', 'SQSQ', 33, 33, 1089);
+(9, '2212', 'SQSQ', 33, 33, 1089),
+(1, '', 'AAA', 10, 10, 100),
+(2, '', 'DDD', 10, 5, 50),
+(2, '', 'DDDDD', 5, 5, 25),
+(3, '', 'PC', 1, 4000, 4000),
+(3, '', 'Casque', 5, 400, 2000);
 
 -- --------------------------------------------------------
 
@@ -282,7 +294,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT pour la table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
