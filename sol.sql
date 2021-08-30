@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 30 août 2021 à 11:39
+-- Généré le : lun. 30 août 2021 à 12:08
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -77,7 +77,8 @@ CREATE TABLE `devis` (
 
 INSERT INTO `devis` (`id_devis`, `nom_client`, `adresse_client`, `date`, `baseht`, `remise`, `totalht`, `tauxtva`, `totaltva`, `totalttc`) VALUES
 (2, 'XXXXX', 'XXXXX', '2021-08-30 09:35:52', 75, 5, 70, 10, 7, 77),
-(3, 'Ahmed', 'Gabès', '2021-08-30 09:38:18', 6000, 500, 5500, 10, 550, 6050);
+(3, 'Ahmed', 'Gabès', '2021-08-30 09:38:18', 6000, 500, 5500, 10, 550, 6050),
+(4, 'CCC', 'CC', '2021-08-30 09:41:20', 30, 1, 29, 1, 0.29, 29.29);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,8 @@ INSERT INTO `devis_item` (`id_devis`, `item_code`, `item_name`, `order_item_quan
 (2, '', 'DDD', 10, 5, 50),
 (2, '', 'DDDDD', 5, 5, 25),
 (3, '', 'PC', 1, 4000, 4000),
-(3, '', 'Casque', 5, 400, 2000);
+(3, '', 'Casque', 5, 400, 2000),
+(4, '', 'CCCCCC', 6, 5, 30);
 
 -- --------------------------------------------------------
 
@@ -294,7 +296,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT pour la table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
