@@ -42,26 +42,21 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 				<!-- Search Filter -->
 				<div class="row filter-row">
 					<form action = "chercher_paiement.php" method ="POST" >
-						<div class="col-sm-6 col-md-3"style="float:left;">  
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="tranch">
 								<label class="focus-label">N° Transaction</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-2"style="float:left;">  
+						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
 								<input type="text" class="form-control floating" name="factch">
 								<label class="focus-label">N° Facture</label>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-2"style="float:left;">  
-							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="clientch">
-								<label class="focus-label">Client</label>
-							</div>
-						</div>
 
-						<div class="col-sm-6 col-md-4" style="float:left;">  
+
+						<div class="" style="float:left;">  
 							<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un paiement </button>
 						</div>
 					</form>     
@@ -95,7 +90,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 <td>'.$paiementDetails["date_paiement"].'</td>
                 <td><a href="profile_client.php?id='.$paiementDetails["id_client"].'">'.$paiementDetails["rs_client"].'</a></td>
                 <td>'.$paiementDetails["mode_de_paiement"].'</td>
-				<td>'.$paiementDetails["id_facture"].'</td>
+				<td><a href="imprimer_facture.php?invoice_id='.$paiementDetails["id_facture"].'">'.$paiementDetails["id_facture"].'</a></td>
 				<td>'.$paiementDetails["prix"].'</td>
 				<td>'.$paiementDetails["status_paiement"].'</td>
 				<td class=>
@@ -118,7 +113,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 					</div>
                 </div>
 
-			<!-- Delete Client Modal -->			<!-- /Delete Client Modal -->
+
 			
 		</div>
 		<!-- /Page Wrapper -->
