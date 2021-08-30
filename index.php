@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <link href="assets/css/styleindex.css?v=<?php echo time();?>" rel="stylesheet">
+  <link rel = "icon" href = "assets/images/icons.png" type = "image/x-icon">   
 
 </head>
 
@@ -48,13 +49,14 @@
     <div class="login-page">
         <div class="form">
         <form action="login.php" method="post">
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
+     	
      	<input type="text" name="uname" placeholder="Nom d'utilisateur"><br>
      	<input type="password" name="password" placeholder="Mot de passe"><br>
 
      	<button type="submit">Connexion</button>
+       <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
      </form>
         </div>
       </div>
