@@ -46,16 +46,16 @@ class Dev{
 		}       	
 	}	
 	public function updateDevis($POST) {
-		if($POST['invoiceId']) {	
+		if($POST['updateDevis']) {	
 			$sqlInsert = "UPDATE devis
-				SET nom_client = '".$POST['companyName']."', adresse_client= '".$POST['address']."', totalht = '".$POST['subTotal']."', baseht = '".$POST['baseht']."', TVAamount = '".$POST['taxAmount']."', TVArate = '".$POST['taxRate']."', totalttc = '".$POST['totalAftertax']."', remise = '".$POST['remise']."'
-				WHERE user_id = '".$POST['userId']."' AND id_devis = '".$POST['invoiceId']."'";		
+				SET nom_client = '".$POST['companyName']."', adresse_client= '".$POST['address']."', totalht = '".$POST['totalht']."', baseht = '".$POST['baseht']."', totaltva = '".$POST['totaltva']."', tauxtva = '".$POST['tauxtva']."', totalttc = '".$POST['totalttc']."', remise = '".$POST['remise']."'
+				WHERE id_devis = '".$POST['updateDevis']."'";		
 			mysqli_query($this->dbConnect, $sqlInsert);	
 		}		
-		$this->deleteDevisItems($POST['invoiceId']);
+		$this->deleteDevisItems($POST['updateDevis']);
 		for ($i = 0; $i < count($POST['productName']); $i++) {			
 			$sqlInsertItem = "INSERT INTO devis_item (id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
-				VALUES ('".$POST['invoiceId']."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+				VALUES ('".$POST['updateDevis']."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);			
 		}       	
 	}	
