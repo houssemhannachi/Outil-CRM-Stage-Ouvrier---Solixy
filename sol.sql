@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 30 août 2021 à 12:08
+-- Généré le : lun. 30 août 2021 à 13:38
 -- Version du serveur : 10.4.20-MariaDB
 -- Version de PHP : 8.0.8
 
@@ -48,9 +48,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id_client`, `rs_client`, `ref_client`, `fj_client`, `email_client`, `adresse_client`, `ville_client`, `pays_client`, `tel_client`, `sw_client`, `mf_client`, `riprib_client`, `tauxtva_client`) VALUES
-(9, 'Maher', 'MANU', 'SA', 'maher@gmail.com', 'Defense', 'Paris', 'France', '336678290', 'www.sss.Com', '13267', 12222, 212112),
-(10, 'Houssem', 'CA1920', 'SA', 'houssem.hannachi@enis.tn', 'Meya ', 'Metouia', 'Italie', '52215947', 'www.houssem.Com', '13267', 12222, 212112),
-(12, 'Mohamed', 'MT', 'SARL', 'aaa@gmail.com', 'Rue el Afrah', 'Metouia', 'Tunisie', '1234567', 'www.sss.Com', 'aezazeaez', 0, 0);
+(15, 'SOLIXY', 'SOL', 'SA', 'contact@solixy.com', 'Avenue de la république - Immeuble Al Ahram 4ème é', 'Gabes ', 'Tunisie', '00216 288 299 79', 'https://solixy.com/', '13267', 12222, 10);
 
 -- --------------------------------------------------------
 
@@ -76,9 +74,7 @@ CREATE TABLE `devis` (
 --
 
 INSERT INTO `devis` (`id_devis`, `nom_client`, `adresse_client`, `date`, `baseht`, `remise`, `totalht`, `tauxtva`, `totaltva`, `totalttc`) VALUES
-(2, 'XXXXX', 'XXXXX', '2021-08-30 09:35:52', 75, 5, 70, 10, 7, 77),
-(3, 'Ahmed', 'Gabès', '2021-08-30 09:38:18', 6000, 500, 5500, 10, 550, 6050),
-(4, 'CCC', 'CC', '2021-08-30 09:41:20', 30, 1, 29, 1, 0.29, 29.29);
+(5, 'XXXX', 'XXXX', '2021-08-30 11:29:43', 30, 10, 20, 19, 3.8, 23.8);
 
 -- --------------------------------------------------------
 
@@ -112,7 +108,8 @@ INSERT INTO `devis_item` (`id_devis`, `item_code`, `item_name`, `order_item_quan
 (2, '', 'DDDDD', 5, 5, 25),
 (3, '', 'PC', 1, 4000, 4000),
 (3, '', 'Casque', 5, 400, 2000),
-(4, '', 'CCCCCC', 6, 5, 30);
+(4, '', 'CCCCCC', 6, 5, 30),
+(5, '', 'XXXX', 3, 10, 30);
 
 -- --------------------------------------------------------
 
@@ -138,7 +135,7 @@ CREATE TABLE `facture` (
 --
 
 INSERT INTO `facture` (`id_facture`, `id_client`, `order_total_before_tax`, `order_total_tax`, `order_tax_per`, `order_total_after_tax`, `order_amount_paid`, `order_total_amount_due`, `order_date`, `note`) VALUES
-(7, 12, '5500', '1100', '20', '6600', '600', '6000', '2021-08-28 19:29:08', '');
+(10, 15, '100', '10', '10', '110', '10', '100', '2021-08-30 12:32:35', '');
 
 -- --------------------------------------------------------
 
@@ -161,7 +158,12 @@ CREATE TABLE `facture_item` (
 
 INSERT INTO `facture_item` (`item_code`, `id_facture`, `item_name`, `order_item_quantity`, `order_item_price`, `order_item_final_amount`) VALUES
 ('EES-LS', 7, 'PC GAMER', '1', '3000', '3000'),
-('DDS', 7, 'CASQUE', '5', '500', '2500');
+('DDS', 7, 'CASQUE', '5', '500', '2500'),
+('DDD', 8, 'DDDD', '1', '100', '100'),
+('DDD', 8, 'DDD', '5', '7', '35'),
+('SOLX', 9, 'Site WEB', '1', '1000', '1000'),
+('SOLXX', 9, 'PC', '5', '3000', '15000'),
+('SSS', 10, 'SSS', '10', '10', '100');
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,7 @@ CREATE TABLE `paiements` (
 --
 
 INSERT INTO `paiements` (`id_paiement`, `id_client`, `date_paiement`, `mode_de_paiement`, `id_facture`, `prix`, `status_paiement`) VALUES
-(2, 12, '2021-08-31', 'Espèces', 7, 6600, 'Payé');
+(3, 15, '2021-08-20', 'Chèque', 10, 110, 'Payé');
 
 -- --------------------------------------------------------
 
@@ -203,14 +205,6 @@ CREATE TABLE `propects` (
   `facebook_prospect` text NOT NULL,
   `siteweb_prospect` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `propects`
---
-
-INSERT INTO `propects` (`id_prospect`, `rs_prospect`, `adresse_prospect`, `email_prospect`, `ville_prospect`, `pays_prospect`, `tel_prospect`, `facebook_prospect`, `siteweb_prospect`) VALUES
-(1, 'Houssem', 'Rue el Afrah', 'houssem.hannachi@enis.tn', 'Metouia', 'Tunisie', 2222, 'Houssem Hannachi', 'Houssem Hannachi'),
-(2, 'Ahmed', 'SSSS', 'aaa@gmail.com', 'Paris', 'France', 8328320, 'AHMED', 'AHMED');
 
 -- --------------------------------------------------------
 
@@ -290,31 +284,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_devis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `paiements`
 --
 ALTER TABLE `paiements`
-  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `propects`
 --
 ALTER TABLE `propects`
-  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prospect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -331,12 +325,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `facture`
   ADD CONSTRAINT `ID_client` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
-
---
--- Contraintes pour la table `facture_item`
---
-ALTER TABLE `facture_item`
-  ADD CONSTRAINT `id_facture` FOREIGN KEY (`id_facture`) REFERENCES `facture` (`id_facture`);
 
 --
 -- Contraintes pour la table `paiements`
