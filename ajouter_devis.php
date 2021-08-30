@@ -65,10 +65,10 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                <h3>À,</h3>
                <div class="form-group">
-                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale du client" autocomplete="off">
+                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Raison sociale" autocomplete="off">
                </div>
                <div class="form-group">
-                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse du client"></textarea>
+                  <textarea class="form-control" rows="3" name="address" id="address" placeholder="Adresse"></textarea>
                </div>
                
             </div>
@@ -112,34 +112,56 @@
          <div class="row"> 
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
+              <label>Base HT: &nbsp;</label>
+                 <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text currency">$</span>
+            </div>
+            <input value="" type="number" class="form-control" name="baseht" id="baseht" placeholder="Base HT" readonly >
+          </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group mt-3 mb-3 ">
+              <label>Remise &nbsp;</label>
+                 <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text currency">$</span>
+            </div>
+           <input value="" type="number" class="form-control" name="remise" id="remise" placeholder="Remise">
+          </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group mt-3 mb-3 ">
               <label>Total HT: &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="subTotal" id="subTotal" placeholder="Total HT" >
+            <input value="" type="number" class="form-control" name="totalht" id="totalht" placeholder="Total HT">
           </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Taux T.V.A: &nbsp;</label>
+              <label>Taux T.V.A:   &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">%</span>
             </div>
-           <input value="" type="number" class="form-control" name="taxRate" id="taxRate" placeholder="Taux T.V.A">
+             <input value="" type="number" class="form-control" name="tauxtva" id="tauxtva" placeholder="Taux T.V.A: ">
           </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group mt-3 mb-3 ">
-              <label>Total T.V.A: &nbsp;</label>
+              <label>Total T.V.A:  &nbsp;</label>
                  <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="taxAmount" id="taxAmount" placeholder="Total T.V.A">
+            <input value="" type="number" class="form-control" name="totaltva" id="totaltva" placeholder="Total T.V.A:  ">
           </div>
               </div>
           </div>
@@ -150,29 +172,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-             <input value="" type="number" class="form-control" name="totalAftertax" id="totalAftertax" placeholder="Total">
-          </div>
-              </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="form-group mt-3 mb-3 ">
-              <label>Base HT: &nbsp;</label>
-                 <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
-            </div>
-            <input value="" type="number" class="form-control" name="baseht" id="amountPaid" placeholder="Base HT">
-          </div>
-              </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="form-group mt-3 mb-3 ">
-              <label>Remise: &nbsp;</label>
-                 <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text currency">$</span>
-            </div>
-             <input value="" type="number" class="form-control" name="remise" id="remise" placeholder="Remise">
+             <input value="" type="number" class="form-control" name="totalttc" id="totalttc" placeholder="Total TTC">
           </div>
               </div>
           </div>
