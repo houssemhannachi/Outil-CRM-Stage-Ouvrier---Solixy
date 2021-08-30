@@ -22,7 +22,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 }
 ?>
 
-<script src="js/invoice.js?v=<?php echo time();?>"></script>
+<script src="assets/js/facture.js?v=<?php echo time();?>"></script>
 <div class="home-content">
 		<div class="page-wrapper">
 		
@@ -85,7 +85,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
                                     <label class="custom-control-label" for="checkAll"></label>
                                   </div>
                                 </th>
-									<th width="15%">N°</th>
+									<th width="15%">Réf</th>
                      				<th width="38%">Désignation</th>
                      				<th width="15%">Quantité</th>
                      				<th width="15%">Pu HT</th>
@@ -98,8 +98,8 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							?>								
 							<tr>
 								<td><div class="custom-control custom-checkbox">
-		                        <input type="checkbox" class="custom-control-input itemRow" id="itemRow">
-		                        <label class="custom-control-label" for="itemRow"></label>
+		                        <input type="checkbox" class="itemRow custom-control-input" id="itemRow_<?php echo $count; ?>">
+		                        <label class="custom-control-label" for="itemRow_<?php echo $count; ?>"></label>
 		                        </div></td>
 								<td><input type="text" value="<?php echo $invoiceItem["item_code"]; ?>" name="productCode[]" id="productCode_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
 								<td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>" name="productName[]" id="productName_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>			
