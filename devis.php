@@ -22,7 +22,7 @@ $dev = new Dev();
 						<div class="col">
 							<h3 class="page-title">Devis</h3>
 							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
 								<li class="breadcrumb-item active">Devis</li>
 							</ul>
 						</div>
