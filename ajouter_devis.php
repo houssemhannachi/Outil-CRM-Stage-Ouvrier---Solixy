@@ -83,7 +83,7 @@
                         <label class="custom-control-label" for="checkAll"></label>
                         </div>
                     </th>
-                     <th width="15%">N°</th>
+                     
                      <th width="38%">Désignation</th>
                      <th width="15%">Quantité</th>
                      <th width="15%">Pu HT</th>
@@ -94,7 +94,7 @@
                         <input type="checkbox" class="itemRow custom-control-input" id="itemRow_1">
                         <label class="custom-control-label" for="itemRow_1"></label>
                         </div></td>
-                     <td><input type="text" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
+                    
                      <td><input type="text" name="productName[]" id="productName_1" class="form-control" autocomplete="off"></td>
                      <td><input type="number" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off"></td>
                      <td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
