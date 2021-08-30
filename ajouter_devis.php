@@ -20,7 +20,7 @@
    }
    ?>
 
-<script src="js/invoice.js?v=<?php echo time();?>"></script>
+<script src="assets\js\devis.js?v=<?php echo time();?>"></script>
 <div class="home-content">
 		<div class="page-wrapper">
 		
@@ -117,7 +117,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text currency">$</span>
             </div>
-            <input value="" type="number" class="form-control" name="baseht" id="baseht" placeholder="Base HT" readonly >
+            <input value="" type="number" class="form-control" name="baseht" id="baseht" placeholder="Base HT" >
           </div>
               </div>
           </div>
@@ -177,10 +177,7 @@
               </div>
           </div>
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 center ">
-               <h3>Notes: </h3>
-               <div class="form-group ">
-                  <textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"></textarea>
-               </div>
+
                <br>
                <div class="form-group ">
                   <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" class="form-control" name="userId">
