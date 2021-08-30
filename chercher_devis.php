@@ -37,7 +37,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 					<form action = "chercher_devis.php" method ="POST" >
 						<div class=""style="float:left;">  
 							<div class="form-group form-focus">
-								<input type="text" class="form-control floating" name="search">
+								<input type="text" class="form-control floating" name="raison">
 								<label class="focus-label">Raison sociale</label>
 							</div>
 						</div>
@@ -52,14 +52,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 							<table class="table table-striped custom-table datatable">
 								<thead>
 									<tr>
-                                        <th>Nom_client </th>
-										<th>Identifiant </th>
-										<th>Reference</th>
-										<th>Adresse</th>
-										<th>Date</th>
-										<th>Designation</th>
-										<th>Quantite</th>
-										<th>TVA</th>
+									      <th>Réference</th>
+                                          <th>Client</th>
+                                          <th>Date Devis</th>
+                                          <th>Total</th>
+										  <th>Action</th>
 									</tr>
 								</thead>    
 <?php
@@ -67,31 +64,28 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 
 
 if (isset($_POST['submit-search'])){
-    $recherche_rs = $_POST['search'];
+    $recherche_rs = $_POST['raison'];
 
    $sql = "SELECT * FROM devis WHERE nom_client LIKE '%$recherche_rs%'";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
        while ($row = mysqli_fetch_assoc($result)) {
-            $Identifiant = $row['id_client'];
+            
             $Nom_client = $row['nom_client'];
-            $Reference = $row['reference_client'];
-            $Adresse = $row['adresse_client'];
+            $Reference = $row['id_devis'];
             $Date = $row['date'];
-            $Designation = $row['designation'];
-            $Quantite = $row['quantite'];
-            $TVA = $row['TVA'];
+			$Total = $row['totalttc'];
+            
        ?>
        <tr>
+	        <td><?php echo $Reference?></td>
 		    <td><?php echo $Nom_client?></td>
-            <td><?php echo $Identifiant?></td>
-		    <td><?php echo $Reference?></td>
-		    <td><?php echo $Adresse?></td>
-	    	<td><?php echo $Date?></td>
-	    	<td><?php echo $Designation?></td>
-	    	<td><?php echo $Quantite?></td>
-	    	<td><?php echo $TVA?></td>
+            <td><?php echo $Date?></td>
+		    <td><?php echo $Total?></td>
+		    
+	    	
+	    	
             <td class=>
                 <div class="dropdown dropdown-action">
                     <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -114,7 +108,7 @@ if (isset($_POST['submit-search'])){
 <?php
    }
    else {
-       echo 'NO DATA';
+	echo '<tr style="background-color:initial"> <td >Aucune donnée disponible</td> </tr>';
 
    }
 }
