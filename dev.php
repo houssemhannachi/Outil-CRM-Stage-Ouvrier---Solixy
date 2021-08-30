@@ -4,9 +4,7 @@ class Dev{
     private $user  = 'root';
     private $password   = "";
     private $database  = "sol";   
-	private $invoiceUserTable = 'invoice_user';	
-    private $invoiceOrderTable = 'devis';
-	private $invoiceOrderItemTable = 'devis_item';
+
 	private $dbConnect = false;
     public function __construct(){
         if(!$this->dbConnect){ 
@@ -37,24 +35,13 @@ class Dev{
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
 	}
-	public function loginUsers($email, $password){
-		$sqlQuery = "
-			SELECT id, email, first_name, last_name, address, mobile 
-			FROM ".$this->invoiceUserTable." 
-			WHERE email='".$email."' AND password='".$password."'";
-        return  $this->getData($sqlQuery);
-	}	
-	public function checkLoggedIn(){
-		if(!$_SESSION['user_id']) {
-			header("Location:index.php");
-		}
-	}		
+
 	public function saveDevis($POST) {		
 		$sqlInsert = "INSERT INTO devis (nom_client, adresse_client, baseht, remise, totalht, tauxtva,totaltva, totalttc) VALUES ( '".$POST['companyName']."', '".$POST['address']."', '".$POST['baseht']."', '".$POST['remise']."', '".$POST['totalht']."', '".$POST['tauxtva']."', '".$POST['totaltva']."', '".$POST['totalttc']."')";		
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
 		for ($i = 0; $i < count($POST['productName']); $i++) {
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+			$sqlInsertItem = "INSERT INTO devis_item(id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);
 		}       	
 	}	
@@ -67,7 +54,7 @@ class Dev{
 		}		
 		$this->deleteDevisItems($POST['invoiceId']);
 		for ($i = 0; $i < count($POST['productName']); $i++) {			
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
+			$sqlInsertItem = "INSERT INTO devis_item (id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
 				VALUES ('".$POST['invoiceId']."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);			
 		}       	
@@ -77,24 +64,24 @@ class Dev{
 			return  $this->getData($sqlQuery);
 	}	
 	public function getDevis($invoiceId){
-		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
+		$sqlQuery = "SELECT * FROM devis
 			WHERE  id_devis = '$invoiceId'";
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
 	}	
 	public function getDevisItems($invoiceId){
-		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderItemTable." 
+		$sqlQuery = "SELECT * FROM devis_item 
 			WHERE id_devis = '$invoiceId'";
 		return  $this->getData($sqlQuery);	
 	}
 	public function deleteDevisItems($invoiceId){
-		$sqlQuery = "DELETE FROM ".$this->invoiceOrderItemTable." 
+		$sqlQuery = "DELETE FROM devis_item
 			WHERE id_devis = '".$invoiceId."'";
 		mysqli_query($this->dbConnect, $sqlQuery);				
 	}
 	public function deleteDevis($invoiceId){
-		$sqlQuery = "DELETE FROM ".$this->invoiceOrderTable." 
+		$sqlQuery = "DELETE FROM devis
 			WHERE id_devis = '".$invoiceId."'";
 		mysqli_query($this->dbConnect, $sqlQuery);	
 		$this->deleteDevisItems($invoiceId);	
