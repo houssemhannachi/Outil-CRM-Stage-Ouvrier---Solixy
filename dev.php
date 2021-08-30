@@ -21,7 +21,7 @@ class Dev{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->dbConnect));
 		}
 		$data= array();
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -32,7 +32,7 @@ class Dev{
 	private function getNumRows($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error in query: '. mysqli_error());
+			die('Error in query: '. mysqli_error($this->dbConnect));
 		}
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
@@ -53,8 +53,8 @@ class Dev{
 		$sqlInsert = "INSERT INTO ".$this->invoiceOrderTable."(nom_client, user_id, adresse_client, baseht, remise, totalht, TVArate,TVAamount, totalttc) VALUES ( '".$POST['companyName']."','".$POST['userId']."', '".$POST['address']."', '".$POST['baseht']."', '".$POST['remise']."', '".$POST['subTotal']."', '".$POST['taxRate']."', '".$POST['taxAmount']."', '".$POST['totalAftertax']."')";		
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
-		for ($i = 0; $i < count($POST['productCode']); $i++) {
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+		for ($i = 0; $i < count($POST['productName']); $i++) {
+			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) VALUES ('".$lastInsertId."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);
 		}       	
 	}	
@@ -66,20 +66,19 @@ class Dev{
 			mysqli_query($this->dbConnect, $sqlInsert);	
 		}		
 		$this->deleteDevisItems($POST['invoiceId']);
-		for ($i = 0; $i < count($POST['productCode']); $i++) {			
-			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_code, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
-				VALUES ('".$POST['invoiceId']."', '".$POST['productCode'][$i]."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
+		for ($i = 0; $i < count($POST['productName']); $i++) {			
+			$sqlInsertItem = "INSERT INTO ".$this->invoiceOrderItemTable."(id_devis, item_name, order_item_quantity, order_item_price, order_item_final_amount) 
+				VALUES ('".$POST['invoiceId']."', '".$POST['productName'][$i]."', '".$POST['quantity'][$i]."', '".$POST['price'][$i]."', '".$POST['total'][$i]."')";			
 			mysqli_query($this->dbConnect, $sqlInsertItem);			
 		}       	
 	}	
 	public function getDevisList(){
-		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
-			WHERE user_id = '".$_SESSION['user_id']."'";
-		return  $this->getData($sqlQuery);
+		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." ";	
+			return  $this->getData($sqlQuery);
 	}	
 	public function getDevis($invoiceId){
 		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." 
-			WHERE user_id = '".$_SESSION['user_id']."' AND id_devis = '$invoiceId'";
+			WHERE  id_devis = '$invoiceId'";
 		$result = mysqli_query($this->dbConnect, $sqlQuery);	
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return $row;
