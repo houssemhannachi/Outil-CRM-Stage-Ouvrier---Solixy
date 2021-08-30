@@ -31,10 +31,10 @@
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Facture</h3>
+							<h3 class="page-title">Devis</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
-								<li class="breadcrumb-item"><a href="facture.php">Devis</a></li>
+								<li class="breadcrumb-item"><a href="devis.php">Devis</a></li>
                                 <li class="breadcrumb-item active">Ajouter une devis</li>
 							</ul>
 						</div>
