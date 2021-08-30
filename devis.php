@@ -35,26 +35,19 @@ $dev = new Dev();
 					</div>
 				</div>
 				<!-- /Page Header -->
-        		<!-- <div class="row filter-row">
-					<form action = "chercher_facture.php" method ="POST" >
-					<div class="col-sm-6 col-md-3"style="float:left;">  
+        		<div class="row filter-row">
+					<form action = "chercher_devis.php" method ="POST" >
+					<div style="float:left;">  
 						<div class="form-group form-focus" >
-							<input type="text" class="form-control floating" name="numfch">
-							<label class="focus-label">N° Facture</label>
+							<input type="text" class="form-control floating" name="raison">
+							<label class="focus-label">Raison sociale</label>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-3" style="float:left;">  
-						<div class="form-group form-focus">
-							<input type="text" class="form-control floating" name="clientch">
-							<label class="focus-label">Client</label>
-						</div>
-					</div>
-						
 					<div class="" style="float:left;" >   
 						<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher une facture </button>
 					</div>
 				</form>   
-				</div> -->
+				</div>
         <!-- /Page Header -->
                <div class="row">
 
