@@ -585,10 +585,9 @@ header.masthead {
   padding-top: 110px;
 }
 .error{
-  background-color: #f2dede;
-  color:#68c5df ;
-  padding: 10px;
+  color:#e2361f;
 
+  margin-top:20px
 }
 
 #logo {
