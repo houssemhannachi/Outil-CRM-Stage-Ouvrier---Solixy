@@ -17,11 +17,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title">Clients</h3>
+							<h3 class="page-title">Paiements</h3>
 							<ul class="breadcrumb">
 								<li class="breadcrumb-item"><a href="home.php">Dashboard</a></li>
-								<li class="breadcrumb-item">Clients</li>
-								<li class="breadcrumb-item active">Chercher Client</li>
+								<li class="breadcrumb-item">Paiements</li>
+								<li class="breadcrumb-item active">Chercher paiement</li>
 							</ul>
 						</div>
 
@@ -50,17 +50,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {}
 if (isset($_POST['submit-search'])){
     $recherche_tran = $_POST['tranch'];
     $recherche_fact = $_POST['factch'];
-    $clientch = $_POST['clientch'];
 
-   $sql = "SELECT * FROM paiements WHERE 	id_paiement LIKE '%$recherche_tran%' AND id_facture LIKE '%$recherche_fact%'AND rs_client LIKE '%$clientch%'   ";
+
+   $sql = "SELECT * FROM paiements WHERE id_paiement LIKE '%$recherche_tran%' AND id_facture LIKE '%$recherche_fact%' ";
    $result = mysqli_query ($conn,$sql);
    $queryResult = mysqli_num_rows($result);
    if($queryResult > 0) {
        while ($row = mysqli_fetch_assoc($result)) {
         $id_paiement = $row['id_paiement'];
-        $rs_client = $row['rs_client'];
-        
-        $id_client  = $row['id_client'];
+        $id_client = $row['id_client'];
+
         $date_paiement = $row['date_paiement'];
          $mode_de_paiement = $row['mode_de_paiement'];
         $id_facture  = $row['id_facture'];
@@ -70,8 +69,8 @@ if (isset($_POST['submit-search'])){
 									<tr>
 										<td><?php echo $id_paiement?></td>
 										<td><?php echo $date_paiement?></td>
-										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $rs_client?></a></td>
-										<td class="none"><?php echo  $id_client?></td>
+										<td><a href="profile_client.php?id=<?php echo $id_client;?>"><?php echo $id_client?></a></td>
+
 										<td><?php echo $mode_de_paiement?></td>
 										<td><a href="imprimer_facture.php?invoice_id=<?php echo $id_facture;?>"><?php echo $id_facture?></a></td>
 										<td><?php echo $prix?></td>
