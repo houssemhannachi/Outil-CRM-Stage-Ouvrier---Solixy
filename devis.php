@@ -44,7 +44,7 @@ $dev = new Dev();
 						</div>
 					</div>
 					<div class="" style="float:left;" >   
-						<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher une facture </button>
+						<button type="submit" class="btn btn-success btn-block" name="submit-search"> Chercher un devis</button>
 					</div>
 				</form>   
 				</div>
