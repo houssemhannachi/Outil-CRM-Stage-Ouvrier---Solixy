@@ -50,7 +50,7 @@ class Dev{
 		}
 	}		
 	public function saveDevis($POST) {		
-		$sqlInsert = "INSERT INTO ".$this->invoiceOrderTable."(nom_client, user_id, adresse_client, baseht, remise, totalht, TVArate,TVAamount, totalttc) VALUES ( '".$POST['companyName']."','".$POST['userId']."', '".$POST['address']."', '".$POST['baseht']."', '".$POST['remise']."', '".$POST['subTotal']."', '".$POST['taxRate']."', '".$POST['taxAmount']."', '".$POST['totalAftertax']."')";		
+		$sqlInsert = "INSERT INTO devis (nom_client, adresse_client, baseht, remise, totalht, tauxtva,totaltva, totalttc) VALUES ( '".$POST['companyName']."', '".$POST['address']."', '".$POST['baseht']."', '".$POST['remise']."', '".$POST['totalht']."', '".$POST['tauxtva']."', '".$POST['totaltva']."', '".$POST['totalttc']."')";		
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
 		for ($i = 0; $i < count($POST['productName']); $i++) {
@@ -60,7 +60,7 @@ class Dev{
 	}	
 	public function updateDevis($POST) {
 		if($POST['invoiceId']) {	
-			$sqlInsert = "UPDATE ".$this->invoiceOrderTable." 
+			$sqlInsert = "UPDATE devis
 				SET nom_client = '".$POST['companyName']."', adresse_client= '".$POST['address']."', totalht = '".$POST['subTotal']."', baseht = '".$POST['baseht']."', TVAamount = '".$POST['taxAmount']."', TVArate = '".$POST['taxRate']."', totalttc = '".$POST['totalAftertax']."', remise = '".$POST['remise']."'
 				WHERE user_id = '".$POST['userId']."' AND id_devis = '".$POST['invoiceId']."'";		
 			mysqli_query($this->dbConnect, $sqlInsert);	
@@ -73,7 +73,7 @@ class Dev{
 		}       	
 	}	
 	public function getDevisList(){
-		$sqlQuery = "SELECT * FROM ".$this->invoiceOrderTable." ";	
+		$sqlQuery = "SELECT * FROM devis";	
 			return  $this->getData($sqlQuery);
 	}	
 	public function getDevis($invoiceId){
