@@ -126,5 +126,3 @@ $dompdf->loadHtml(html_entity_decode($output));
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 $dompdf->stream($invoiceFileName, array("Attachment" => false));
-?>   
-   
