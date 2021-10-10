@@ -14,6 +14,3 @@ if (isset($_GET['order_id']))
 } else {
     echo "ERR!";
 }
-
-
-?>
