@@ -14,6 +14,3 @@ if (isset($_GET['id_devis']))
 } else {
     echo "ERR!";
 }
-
-
-?>
