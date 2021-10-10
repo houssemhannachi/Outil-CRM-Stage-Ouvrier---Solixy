@@ -88,4 +88,3 @@ class Dev{
 		return 1;
 	}
 }
-?>
