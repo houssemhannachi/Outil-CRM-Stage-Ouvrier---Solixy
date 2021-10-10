@@ -40,7 +40,3 @@
         header ('location:clients.php');
     
     }
-    
-
-
-?>
