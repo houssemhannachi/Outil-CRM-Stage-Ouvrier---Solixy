@@ -19,7 +19,6 @@ if (isset($_POST['submit'])){
         $matriculefiscale = $_POST['matriculefiscale'];
         $ribrip = $_POST['ribrip'];
         $tauxtva = $_POST['tauxtva'];
-        
 
         $query = "INSERT INTO clients (rs_client,ref_client,fj_client,email_client,adresse_client,ville_client,pays_client,tel_client,sw_client,mf_client,riprib_client,tauxtva_client) VALUES ('$raisonsociale','$reference','$formejuridique','$email','$adresse','$ville','$pays','$telephone','$siteweb','$matriculefiscale','$ribrip','$tauxtva' )";
         $result = mysqli_query($conn,$query);
@@ -43,12 +42,3 @@ else
     header ('location:clients.php');
 
 }
-
-
-
-
-
-
-
-
-?>
