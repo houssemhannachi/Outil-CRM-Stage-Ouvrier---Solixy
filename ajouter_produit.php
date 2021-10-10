@@ -12,7 +12,6 @@ if (isset($_POST['submit'])){
         $quantite = $_POST['quantite'];
         $puht = $_POST['puht'];
         $montantht = $_POST['montantht'];
-       
 
         $query = "INSERT INTO produits (reference,designation,quantite,puht,montantht) VALUES ('$reference','$designation','$quantite','$puht','$montantht')";
         $result = mysqli_query($conn,$query);
@@ -36,12 +35,3 @@ else
     header ('location:facture.php');
 
 }
-
-
-
-
-
-
-
-
-?>
