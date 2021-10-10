@@ -37,7 +37,3 @@
         header ('location:prospects.php');
     
     }
-    
-
-
-?>
