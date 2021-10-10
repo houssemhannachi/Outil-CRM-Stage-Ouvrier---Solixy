@@ -14,9 +14,6 @@ if (isset($_POST['submit'])){
         $num_facture = $_POST['id_facture'];
         $prix = $_POST['prix'];
         $status = $_POST['status_paiement'];
-
-        
-
         $query = "INSERT INTO paiements (id_client,date_paiement,mode_de_paiement,id_facture,prix,status_paiement) VALUES ('$id_client','$date','$mode_de_paiement','$num_facture','$prix','$status')";
         $result = mysqli_query($conn,$query);
 
@@ -39,12 +36,3 @@ else
     header ('location:clients.php');
 
 }
-
-
-
-
-
-
-
-
-?>
